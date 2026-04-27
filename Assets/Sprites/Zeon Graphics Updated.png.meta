@@ -1,0 +1,832 @@
+fileFormatVersion: 2
+guid: 484f15106f0db2c42918737c621ddcc1
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6569812920326261931
+    second: Zeon Graphics Updated_0
+  - first:
+      213: 8359725062899093208
+    second: Zeon Graphics Updated_1
+  - first:
+      213: -7584338426701781780
+    second: Zeon Graphics Updated_2
+  - first:
+      213: -3990115924249217302
+    second: Zeon Graphics Updated_3
+  - first:
+      213: 6020737956458514243
+    second: Zeon Graphics Updated_4
+  - first:
+      213: -920705582988822078
+    second: Zeon Graphics Updated_5
+  - first:
+      213: 1262478701784290241
+    second: Zeon Graphics Updated_6
+  - first:
+      213: -4540784204918639616
+    second: Zeon Graphics Updated_7
+  - first:
+      213: 8401907921367083573
+    second: Zeon Graphics Updated_8
+  - first:
+      213: -3530302492283076119
+    second: Zeon Graphics Updated_9
+  - first:
+      213: 8389554433488110995
+    second: Zeon Graphics Updated_10
+  - first:
+      213: -1013102648522585221
+    second: Zeon Graphics Updated_11
+  - first:
+      213: -7751430413889015394
+    second: Zeon Graphics Updated_12
+  - first:
+      213: 1891458029958819381
+    second: Zeon Graphics Updated_13
+  - first:
+      213: 8904082535335435594
+    second: Zeon Graphics Updated_14
+  - first:
+      213: -4909467399223568894
+    second: Zeon Graphics Updated_15
+  - first:
+      213: -2444788034520087688
+    second: Zeon Graphics Updated_16
+  - first:
+      213: 5927668155140805972
+    second: Zeon Graphics Updated_17
+  - first:
+      213: -261630040947545067
+    second: Zeon Graphics Updated_18
+  - first:
+      213: -6567680704861517888
+    second: Zeon Graphics Updated_19
+  - first:
+      213: 4269011686300231606
+    second: Zeon Graphics Updated_20
+  - first:
+      213: -6115383422509251376
+    second: Zeon Graphics Updated_21
+  - first:
+      213: -5181475955605227604
+    second: Zeon Graphics Updated_22
+  - first:
+      213: 6712000054457363456
+    second: Zeon Graphics Updated_23
+  - first:
+      213: 741633839140478699
+    second: Zeon Graphics Updated_24
+  - first:
+      213: -6857808133189900620
+    second: Zeon Graphics Updated_25
+  - first:
+      213: -7913289023538657207
+    second: Zeon Graphics Updated_26
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 30
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Heart_Container
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 225
+        width: 30
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5537e2315f553d4a0800000000000000
+      internalID: -6569812920326261931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Green_Container
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 199
+        width: 30
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8dec70a27a5b30470800000000000000
+      internalID: 8359725062899093208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purple_Crate
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 221
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce4681c62640fb690800000000000000
+      internalID: -7584338426701781780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blue_Crate
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 221
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae6fe7a15b240a8c0800000000000000
+      internalID: -3990115924249217302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Red_Crate
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 221
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 347cb6ca545fd8350800000000000000
+      internalID: 6020737956458514243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rocket_Destroyed
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 189
+        width: 30
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c97b3f762ff833f0800000000000000
+      internalID: -920705582988822078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Red_Crate_Advanced
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 191
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c3595cb0b9358110800000000000000
+      internalID: 1262478701784290241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purple_Crate_Advanced
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 191
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 004be10e2d4ebf0c0800000000000000
+      internalID: -4540784204918639616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blue_Crate_Advanced
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 191
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53a20a04db2999470800000000000000
+      internalID: 8401907921367083573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rocket_Destroyed_3
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 203
+        width: 24
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e18acd6698d10fc0800000000000000
+      internalID: -3530302492283076119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fuel
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 157
+        width: 30
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 395ccd7be4fad6470800000000000000
+      internalID: 8389554433488110995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rocket_Destroyed_2
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 179
+        width: 16
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7bcdc1428cb0f1f0800000000000000
+      internalID: -1013102648522585221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Projectile_1
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 161
+        width: 6
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e917cfe7b136d6490800000000000000
+      internalID: -7751430413889015394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Projectile_2
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 161
+        width: 6
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53e614f8e0fcf3a10800000000000000
+      internalID: 1891458029958819381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Projectile_3
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 161
+        width: 6
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4d9d69d3e7a19b70800000000000000
+      internalID: 8904082535335435594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Projectile_4
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 161
+        width: 6
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2061be079611edbb0800000000000000
+      internalID: -4909467399223568894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Projectile_5
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 161
+        width: 6
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8730e435c3e521ed0800000000000000
+      internalID: -2444788034520087688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Projectile_6
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 161
+        width: 6
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 455109de7ce434250800000000000000
+      internalID: 5927668155140805972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rocket
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 83
+        width: 34
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51c20ca2dd08e5cf0800000000000000
+      internalID: -261630040947545067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rocket_Boosted
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 83
+        width: 34
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c7ca8c2239ead4a0800000000000000
+      internalID: -6567680704861517888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rocket_Damaged_1
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 83
+        width: 34
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b7aaefa2839e3b30800000000000000
+      internalID: 4269011686300231606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rocket_Damaged_2
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 83
+        width: 34
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d4060c8d2bc12ba0800000000000000
+      internalID: -6115383422509251376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rocket_Damage_3
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 83
+        width: 34
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca73ced2213b718b0800000000000000
+      internalID: -5181475955605227604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shield_Blue
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 21
+        width: 42
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00c6552ec70d52d50800000000000000
+      internalID: 6712000054457363456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sheild_Red
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 21
+        width: 42
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bee906f1c00da4a00800000000000000
+      internalID: 741633839140478699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sheild_Green
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 21
+        width: 42
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b66e6b46db24d0a0800000000000000
+      internalID: -6857808133189900620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flame
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 25
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9480bfa3f895e2290800000000000000
+      internalID: -7913289023538657207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 6ac2cbb26cc3a4b40843de6838c302a8
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Blue_Crate: -3990115924249217302
+      Blue_Crate_Advanced: 8401907921367083573
+      Flame: -7913289023538657207
+      Fuel: 8389554433488110995
+      Green_Container: 8359725062899093208
+      Heart_Container: -6569812920326261931
+      Projectile_1: -7751430413889015394
+      Projectile_2: 1891458029958819381
+      Projectile_3: 8904082535335435594
+      Projectile_4: -4909467399223568894
+      Projectile_5: -2444788034520087688
+      Projectile_6: 5927668155140805972
+      Purple_Crate: -7584338426701781780
+      Purple_Crate_Advanced: -4540784204918639616
+      Red_Crate: 6020737956458514243
+      Red_Crate_Advanced: 1262478701784290241
+      Rocket: -261630040947545067
+      Rocket_Boosted: -6567680704861517888
+      Rocket_Damage_3: -5181475955605227604
+      Rocket_Damaged_1: 4269011686300231606
+      Rocket_Damaged_2: -6115383422509251376
+      Rocket_Destroyed: -920705582988822078
+      Rocket_Destroyed_2: -1013102648522585221
+      Rocket_Destroyed_3: -3530302492283076119
+      Sheild_Green: -6857808133189900620
+      Sheild_Red: 741633839140478699
+      Shield_Blue: 6712000054457363456
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

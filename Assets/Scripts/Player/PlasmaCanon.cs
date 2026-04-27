@@ -1,0 +1,59 @@
+using UnityEngine;
+
+public class PlasmaCanon : MonoBehaviour
+{
+    [Header("Projectile Settings")]
+    [SerializeField] private GameObject projectilePrefab;
+
+    [Header("Ammo Settings")]
+    [SerializeField] private int ammo = 200;
+
+    [Header("Fire Rate Settings")]
+    [SerializeField] private float shootingRate = 0.5f;
+
+    private float nextFireTime = 0f;
+
+    public int Ammo => ammo; // Read-only public access if needed by UI
+
+    void Update()
+    {
+        // Use GetButton for automatic fire; swap to GetButtonDown for single-shot
+        if (Input.GetButton("Fire2") && CanFire())
+        {
+            Fire();
+        }
+    }
+
+    private bool CanFire()
+    {
+        return ammo > 0 && Time.time >= nextFireTime;
+    }
+
+    private void Fire()
+    {
+        if (projectilePrefab == null)
+        {
+            Debug.LogWarning("PlasmaCanon: No projectile prefab assigned!");
+            return;
+        }
+
+        ammo--;
+        nextFireTime = Time.time + shootingRate;
+
+        Instantiate(projectilePrefab, transform.position, transform.rotation);
+
+        Debug.Log($"Fired! Ammo remaining: {ammo}");
+
+        if (ammo <= 0)
+        {
+            Debug.Log("Out of ammo!");
+            // OnOutOfAmmo?.Invoke(); // Uncomment if using an event
+        }
+    }
+
+    // Optional: call this to reload
+    public void Reload(int amount)
+    {
+        ammo += amount;
+    }
+}
