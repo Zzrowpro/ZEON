@@ -10,27 +10,29 @@ public class Shield : MonoBehaviour
     public float kB = 1f;
     Health shieldHealth;
     private SpriteRenderer sr;
-    private float timeLeft = 0f;
-    public Color onColor;
-    public Color offColor;
+    public float speed = 0.2f;
+    private Color c;
     
 
     void Awake()
     {
         shieldHealth = gameObject.GetComponent<Health>();
         sr = gameObject.GetComponent<SpriteRenderer>();
+        c = gameObject.GetComponent<SpriteRenderer>().color;
     }
 
     void Update()
     {
-        transform.position = new Vector2(player.position.x, player.position.y);
-        transform.rotation = Quaternion.Euler(0f, 0f, player.eulerAngles.z); 
-
-
-        
-        Color c = Color.Lerp(onColor, sr.color, timeLeft);
-              sr.color = new Color(c.r, c.g, c.b, 3);
-              Debug.Log($"{c.r}, {c.g}, {c.b}");
+        if(gameObject != null)
+        {
+            transform.position = new Vector2(player.position.x, player.position.y);
+            transform.rotation = Quaternion.Euler(0f, 0f, player.eulerAngles.z); 
+        }
+        float hue = Mathf.Repeat(Time.time * speed, 1f);
+        float alpha = Mathf.PingPong(Time.time * speed, 1f);
+        Color c = Color.HSVToRGB(hue, 1f, 1f);
+        c.a = alpha;
+        sr.color = c;
 
     }
 
@@ -43,9 +45,8 @@ public class Shield : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Obstacle"))
         {
-            Health health = collision.gameObject.GetComponent<Health>();
             Rigidbody2D rb = collision.gameObject.GetComponent<Rigidbody2D>();
-            health.hp -= 1;
+            Destroy(collision.gameObject);
 
             
             shieldHealth.hp -= 1;
