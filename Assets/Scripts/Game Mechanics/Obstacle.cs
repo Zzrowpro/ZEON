@@ -9,10 +9,10 @@ public class Obstacle : MonoBehaviour
     public float aimlessStrength = 2f;
     public float directionChangeSpeed = 1f;
     public float maxSpinSpeed = 10f;
-    public float roamRadius = 3f; // How far from spawn it can wander
+    public float roamRadius = 3f;
 
-    private Rigidbody2D rb;
-    private Vector2 currentDirection;
+    protected Rigidbody2D rb;
+    protected Vector2 currentDirection;
     private Vector2 spawnPosition;
 
     void Start()
@@ -27,33 +27,47 @@ public class Obstacle : MonoBehaviour
 
         float randomTorque = Random.Range(-maxSpinSpeed, maxSpinSpeed);
         rb.AddTorque(randomTorque);
+
+        OnStart();
     }
 
     void FixedUpdate()
+    {
+        HandleMovement();
+    }
+
+    protected virtual void OnStart()
+    {
+        
+    }
+
+    protected virtual void HandleMovement()
     {
         Vector2 toSpawn = spawnPosition - (Vector2)transform.position;
         float distanceFromSpawn = toSpawn.magnitude;
 
         Vector2 randomOffset = Random.insideUnitCircle * aimlessStrength;
 
-        // The further it is from spawn, the more it gets pulled back
         float pullStrength = distanceFromSpawn / roamRadius;
         Vector2 targetDirection = Vector2.Lerp(randomOffset, toSpawn.normalized, pullStrength);
 
         currentDirection = Vector2.Lerp(currentDirection, targetDirection, directionChangeSpeed * Time.fixedDeltaTime);
 
-        // Cap velocity instead of endlessly adding force
         rb.linearVelocity = Vector2.ClampMagnitude(rb.linearVelocity, baseSpeed);
         rb.AddForce(currentDirection.normalized * baseSpeed);
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Health health = collision.gameObject.GetComponentInParent<Health>();
         if (collision.gameObject.CompareTag("Player"))
         {
-            health.hp--;
-            gameObject.GetComponent<Health>().hp--;
+            Health playerHealth = collision.gameObject.GetComponentInParent<Health>();
+            if (playerHealth != null)
+                playerHealth.hp--;
+
+            Health selfHealth = GetComponent<Health>();
+            if (selfHealth != null)
+                selfHealth.hp--;
         }
     }
 }

@@ -52,7 +52,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: b5a753f144c7b5546a87027cbc81d6d0, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -75,12 +75,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9e8b208baf646042b04722e881394a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NewMonoBehaviourScript
-  minimum: 1
+  minimum: 1.2
   maximum: 3
   baseSpeed: 1
   aimlessStrength: 0.5
   directionChangeSpeed: 0.5
   maxSpinSpeed: 10
+  roamRadius: 3
 --- !u!212 &6650608213892316451
 SpriteRenderer:
   serializedVersion: 2

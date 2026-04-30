@@ -16,9 +16,9 @@ public class Shield : MonoBehaviour
 
     void Awake()
     {
-        shieldHealth = gameObject.GetComponent<Health>();
-        sr = gameObject.GetComponent<SpriteRenderer>();
-        c = gameObject.GetComponent<SpriteRenderer>().color;
+        shieldHealth = GetComponent<Health>();
+        sr = GetComponent<SpriteRenderer>();
+        c = GetComponent<SpriteRenderer>().color;
     }
 
     void Update()

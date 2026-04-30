@@ -562,6 +562,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BallSpawner
   myObstacles:
+  - {fileID: 2281760701106576878, guid: baf4b80106b1485488d10e0c402382f2, type: 3}
   - {fileID: 2281760701106576878, guid: 5181d1c31f43909438dd595447ab7854, type: 3}
   amount: 12
   inWorld: []
