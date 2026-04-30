@@ -34,9 +34,9 @@ public class Shield : MonoBehaviour
 
     }
 
-    public void OCollisionEnter2D(Collision2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
-         if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             return;
         }
