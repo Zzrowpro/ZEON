@@ -23,11 +23,9 @@ public class Shield : MonoBehaviour
 
     void Update()
     {
-        if(gameObject != null)
-        {
-            transform.position = new Vector2(player.position.x, player.position.y);
-            transform.rotation = Quaternion.Euler(0f, 0f, player.eulerAngles.z); 
-        }
+        
+        transform.position = new Vector2(player.position.x, player.position.y);
+        transform.rotation = Quaternion.Euler(0f, 0f, player.eulerAngles.z);
         float hue = Mathf.Repeat(Time.time * speed, 1f);
         float alpha = Mathf.PingPong(Time.time * speed, 1f);
         Color c = Color.HSVToRGB(hue, 1f, 1f);
@@ -47,8 +45,6 @@ public class Shield : MonoBehaviour
         {
             Rigidbody2D rb = collision.gameObject.GetComponent<Rigidbody2D>();
             Destroy(collision.gameObject);
-
-            
             shieldHealth.hp -= 1;
 
             rb.AddForce(transform.up * kB, ForceMode2D.Impulse);
