@@ -36,12 +36,12 @@ public class Shield : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Projectile"))
         {
             return;
         }
 
-        if (collision.gameObject.CompareTag("Obstacle"))
+        else if (collision.gameObject.CompareTag("Obstacle"))
         {
             Rigidbody2D rb = collision.gameObject.GetComponent<Rigidbody2D>();
             Destroy(collision.gameObject);

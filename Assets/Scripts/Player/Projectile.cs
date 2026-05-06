@@ -1,3 +1,4 @@
+using NUnit.Framework;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
@@ -17,12 +18,16 @@ public class Projectile : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Projectile"))
+        // if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Projectile"))
+        // {
+        //     return;
+        // }
+        if (collision.isTrigger)
         {
             return;
         }
 
-        if (collision.gameObject.CompareTag("Obstacle"))
+        else if (collision.gameObject.CompareTag("Obstacle"))
         {
             Health obstacle = collision.gameObject.GetComponent<Health>();
             if(obstacle != null)
