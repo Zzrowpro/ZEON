@@ -281,7 +281,7 @@ MonoBehaviour:
   directionChangeSpeed: 0.5
   maxSpinSpeed: 10
   roamRadius: 3
-  aggroSpeed: 1
+  aggroSpeed: 2
   target: {fileID: 0}
   inRange: 0
 --- !u!61 &1875506223232458895

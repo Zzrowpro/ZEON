@@ -205,8 +205,8 @@ Transform:
   m_GameObject: {fileID: 1745478}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.667549, y: 2.78332, z: 0}
-  m_LocalScale: {x: 1.8212621, y: 16.240942, z: 1}
+  m_LocalPosition: {x: -8.31, y: 0.8299999, z: 0}
+  m_LocalScale: {x: 1.8212621, y: 33.242107, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2070034470}
@@ -269,6 +269,7 @@ GameObject:
   - component: {fileID: 69569601}
   - component: {fileID: 69569600}
   - component: {fileID: 69569603}
+  - component: {fileID: 69569604}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -394,6 +395,20 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!114 &69569604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69569599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d0900bdca381924985bdf494229faa2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  player: {fileID: 1320771209}
+  smoothing: 5
 --- !u!1 &140337623
 GameObject:
   m_ObjectHideFlags: 0
@@ -564,8 +579,8 @@ Transform:
   m_GameObject: {fileID: 613336090}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.54495, y: -5.14, z: 0}
-  m_LocalScale: {x: 28.122532, y: 1.858827, z: 1}
+  m_LocalPosition: {x: 11.290001, y: -15.05, z: 0}
+  m_LocalScale: {x: 41.123577, y: 1.858827, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2070034470}
@@ -646,10 +661,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BallSpawner
   myObstacles:
-  - {fileID: 2281760701106576878, guid: baf4b80106b1485488d10e0c402382f2, type: 3}
-  - {fileID: 2281760701106576878, guid: 5181d1c31f43909438dd595447ab7854, type: 3}
+  - prefab: {fileID: 2281760701106576878, guid: 5181d1c31f43909438dd595447ab7854, type: 3}
+    weight: 1
+  - prefab: {fileID: 2281760701106576878, guid: baf4b80106b1485488d10e0c402382f2, type: 3}
+    weight: 0.5
   amount: 12
-  inWorld: []
+  player: {fileID: 1320771209}
+  spawnRadius: 10
+  despawnRadius: 20
+  spawnInterval: 1
+  minSpawnDistance: 3
 --- !u!4 &647327993
 Transform:
   m_ObjectHideFlags: 0
@@ -1320,8 +1341,8 @@ Transform:
   m_GameObject: {fileID: 1915107904}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 17.93245, y: 2.91892, z: 0}
-  m_LocalScale: {x: 1.6404108, y: 15.969554, z: 1}
+  m_LocalPosition: {x: 31.11, y: 0.8981991, z: 0}
+  m_LocalScale: {x: 1.9529091, y: 34.010685, z: 1.1905}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2070034470}
@@ -1458,8 +1479,8 @@ Transform:
   m_GameObject: {fileID: 1963153173}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.58485, y: 10.38432, z: 0}
-  m_LocalScale: {x: 28.028397, y: 1.858827, z: 1}
+  m_LocalPosition: {x: 11.360001, y: 17.23, z: 0}
+  m_LocalScale: {x: 41.027966, y: 1.858827, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2070034470}
