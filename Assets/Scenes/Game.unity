@@ -665,12 +665,12 @@ MonoBehaviour:
     weight: 1
   - prefab: {fileID: 2281760701106576878, guid: baf4b80106b1485488d10e0c402382f2, type: 3}
     weight: 0.5
-  amount: 12
+  amount: 20
   player: {fileID: 1320771209}
-  spawnRadius: 10
-  despawnRadius: 20
-  spawnInterval: 1
-  minSpawnDistance: 3
+  spawnRadius: 20
+  despawnRadius: 30
+  spawnInterval: 2
+  minSpawnDistance: 5
 --- !u!4 &647327993
 Transform:
   m_ObjectHideFlags: 0

@@ -1,69 +1,75 @@
+using Unity.Mathematics;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
-
+[RequireComponent(typeof(Collider2D))]
 public class Fuel : MonoBehaviour
 {
-
-    [Header("Pathing")]
-    public float baseSpeed = 5f;
-    public float aimlessStrength = 2f;
-    public float directionChangeSpeed = 1f;
-    public float maxSpinSpeed = 10f;
-    public float roamRadius = 3f;
-
-    [Header("Attributes")]
-    public float fuelAmount;
-
-    protected Vector2 currentDirection;
-    protected Rigidbody2D rb; 
-    private Vector2 spawnPosition;
-
-    
-    
-    private void Awake() 
+    //Properties : 
+    public float fuelAmount = 100f;
+    public float FuelAmount
     {
-        rb = GetComponent<Rigidbody2D>();
+        get{return fuelAmount;}
+        set
+        {
+            fuelAmount = math.clamp(value, 0, 100f);
+        }
     }
+
+    public float fuelRate = 1f;
+    public float fuelSpeed = 1f;
+    
+    private bool inrange;
+    
+    private PlayerController playerController;
 
     void Start()
     {
-        spawnPosition = transform.position;
-        currentDirection = Random.insideUnitCircle.normalized;
-
-        float randomTorque = Random.Range(-maxSpinSpeed, maxSpinSpeed);
-        rb.AddTorque(randomTorque);
+        playerController = GameObject.Find("Player").GetComponent<PlayerController>();
     }
 
     void Update()
     {
-        HandleMovement();
-    }
-
-    private void HandleMovement()
-    {
-        Vector2 toSpawn = spawnPosition - (Vector2)transform.position;
-        float distanceFromSpawn = toSpawn.magnitude;
-
-        Vector2 randomOffset = Random.insideUnitCircle * aimlessStrength;
-
-        float pullStrength = distanceFromSpawn / roamRadius;
-        Vector2 targetDirection = Vector2.Lerp(randomOffset, toSpawn.normalized, pullStrength);
-
-        currentDirection = Vector2.Lerp(currentDirection, targetDirection, directionChangeSpeed * Time.fixedDeltaTime);
-
-        rb.linearVelocity = Vector2.ClampMagnitude(rb.linearVelocity, baseSpeed);
-        rb.AddForce(currentDirection.normalized * baseSpeed);
+        if (inrange)
+        {
+            Fueling();
+        }
+        else
+        {
+            RefillTank();
+        }
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-           PlayerController pr = collision.GetComponent<PlayerController>();
-           pr.fuel += fuelAmount;
-           Destroy(gameObject);
+            inrange = true;
         }
-    } 
+    }
 
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            inrange = false;
+        }
+    }
+
+    private void Fueling()
+    {
+        if(fuelAmount > 0 && playerController.Fuel != 200f)
+        {
+             playerController.Fuel += fuelRate *(fuelSpeed * Time.deltaTime);
+             fuelAmount -= fuelRate * (fuelSpeed * Time.deltaTime);
+        }
+       
+    }
+
+    private void RefillTank()
+    {
+        if(fuelAmount < 100)
+        {
+            fuelAmount += 1 *(1f * Time.deltaTime);
+        }
+    }
 }

@@ -1,3 +1,4 @@
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,7 +11,16 @@ public class PlayerController : MonoBehaviour
     public float rotationSpeed = 10f;
     public float linearDrag = 1f;
     public float sidewaysDamping = 3f;
+
     public float fuel = 200f;
+    public float Fuel
+    {
+        get{return fuel;}
+        set
+        {
+            fuel = math.clamp(value, 0, 200f);
+        }
+    }
 
     [Header("Visuals")]
     public GameObject boosterSprite;    
