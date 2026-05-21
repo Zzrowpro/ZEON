@@ -29,6 +29,8 @@ public class PlayerController : MonoBehaviour
     private Vector2 mouseDirection;
     private bool boosting;
 
+    private bool fuelCheck = false;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -63,9 +65,11 @@ public class PlayerController : MonoBehaviour
             HandleThrust();
             KillSidewaysVelocity();
             ClampSpeed();
+            fuelCheck = false;
         }
-        else if (fuel == 0)
+        else if (fuel == 0 && !fuelCheck)
         {
+            fuelCheck = true;
             Vector2 direction = UnityEngine.Random.insideUnitCircle; 
             rb.AddForce(direction * 5, ForceMode2D.Impulse);    
         }
