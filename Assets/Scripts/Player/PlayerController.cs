@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.value);
         mouseDirection = (mousePos - transform.position).normalized;
 
-        if (boosting)
+        if (boosting && fuel > 0)
         {
             boosterSprite.SetActive(true);
         }
@@ -63,6 +63,11 @@ public class PlayerController : MonoBehaviour
             HandleThrust();
             KillSidewaysVelocity();
             ClampSpeed();
+        }
+        else if (fuel == 0)
+        {
+            Vector2 direction = UnityEngine.Random.insideUnitCircle; 
+            rb.AddForce(direction * 5, ForceMode2D.Impulse);    
         }
     }
 

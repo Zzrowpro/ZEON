@@ -647,7 +647,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &647327992
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -664,12 +664,12 @@ MonoBehaviour:
   - prefab: {fileID: 2281760701106576878, guid: 5181d1c31f43909438dd595447ab7854, type: 3}
     weight: 1
   - prefab: {fileID: 2281760701106576878, guid: baf4b80106b1485488d10e0c402382f2, type: 3}
-    weight: 0.5
+    weight: 0.2
   amount: 20
   player: {fileID: 1320771209}
   spawnRadius: 20
   despawnRadius: 30
-  spawnInterval: 2
+  spawnInterval: 1
   minSpawnDistance: 5
 --- !u!4 &647327993
 Transform:
@@ -1546,7 +1546,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2070034470
 Transform:
   m_ObjectHideFlags: 0
@@ -1598,8 +1598,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Fuel
   fuelAmount: 100
-  fuelRate: 1
-  fuelSpeed: 1
+  fuelRate: 2
+  fuelSpeed: 2
 --- !u!212 &2123940797
 SpriteRenderer:
   serializedVersion: 2
