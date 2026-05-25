@@ -33,6 +33,7 @@ public class Projectile : MonoBehaviour
             if(obstacle != null)
             {
                 obstacle.hp -= dmg;
+                DataManager.instance.points += 1;
                 Destroy(gameObject);
             }
             else

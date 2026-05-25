@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -8874209848803650006}
   - component: {fileID: 6421006700938903673}
   - component: {fileID: 5035173112049923170}
+  - component: {fileID: -7852485915127206644}
   m_Layer: 7
   m_Name: Projectile
   m_TagString: Projectile
@@ -182,3 +183,25 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.14558959, y: 0.34196234}
   m_EdgeRadius: 0
+--- !u!95 &-7852485915127206644
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2826953703126582219}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 68e1227f6135cac48a5de4295c618722, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

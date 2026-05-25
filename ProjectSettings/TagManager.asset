@@ -49,8 +49,14 @@ TagManager:
   - name: Foreground
     uniqueID: 1161062407
     locked: 0
+  - name: Obstacles
+    uniqueID: 1409750591
+    locked: 0
   - name: 'Player  '
     uniqueID: 1565858647
+    locked: 0
+  - name: UI
+    uniqueID: 2276722811
     locked: 0
   m_RenderingLayers:
   - Default

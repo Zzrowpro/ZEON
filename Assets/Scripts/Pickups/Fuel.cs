@@ -5,7 +5,7 @@ using UnityEngine;
 public class Fuel : MonoBehaviour
 {
     //Properties : 
-    public float fuelAmount = 100f;
+    private float fuelAmount = 100f;
     public float FuelAmount
     {
         get{return fuelAmount;}

@@ -12,6 +12,9 @@ public class PlayerController : MonoBehaviour
     public float linearDrag = 1f;
     public float sidewaysDamping = 3f;
 
+    [Header("Movement Abilities")]
+    public float force = 20f;
+
     public float fuel = 200f;
     public float Fuel
     {
@@ -65,14 +68,17 @@ public class PlayerController : MonoBehaviour
             HandleThrust();
             KillSidewaysVelocity();
             ClampSpeed();
+            Burst();
             fuelCheck = false;
         }
         else if (fuel == 0 && !fuelCheck)
         {
             fuelCheck = true;
             Vector2 direction = UnityEngine.Random.insideUnitCircle; 
-            rb.AddForce(direction * 5, ForceMode2D.Impulse);    
+            rb.AddForce(direction * 5, ForceMode2D.Force);    
         }
+
+        
     }
 
     void RotateTowardsMouse()
@@ -106,6 +112,19 @@ public class PlayerController : MonoBehaviour
         if (rb.linearVelocity.magnitude > maxSpeed)
         {
             rb.linearVelocity = rb.linearVelocity.normalized * maxSpeed;
+        }
+    }
+
+    void Burst()
+    {
+        if (Keyboard.current.spaceKey.wasPressedThisFrame)
+        {
+            Debug.Log("Is ts working");
+            rb.AddForce(transform.up * force, ForceMode2D.Impulse);
+        }
+        else
+        {
+            return;
         }
     }
 }
