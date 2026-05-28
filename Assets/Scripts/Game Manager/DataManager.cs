@@ -4,13 +4,13 @@ using UnityEngine;
 [System.Serializable]
 public class GameData
 {
-    public int points;
+    public float points;
 }
 
 public class DataManager : MonoBehaviour
 {
     // The original variables
-    public int points = 0;
+    public float points = 0;
     public static DataManager instance;
 
     // NEW: DEFAULT DATA STORAGE
