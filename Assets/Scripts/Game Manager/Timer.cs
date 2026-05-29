@@ -22,14 +22,14 @@ public class Timer : MonoBehaviour
         get{return pointsPerSecond;}
         set
         {
-           pointsPerSecond = math.clamp(pointsPerSecond, 1, 5);
+           pointsPerSecond = math.clamp(value, 1, 5);
         }
     }
-    float rate = 1f/10f;
+    float rate = 1f/200f;
 
     void Update()
     {
-        pointsPerSecond += rate * Time.deltaTime;
+        PointsPerSecond += rate * Time.deltaTime;
         elapsedtime += Time.deltaTime;
         int minutes = Mathf.FloorToInt(elapsedtime/60);
         int seconds = Mathf.FloorToInt(elapsedtime%60);
@@ -37,7 +37,7 @@ public class Timer : MonoBehaviour
 
         if (scoreText)
         {
-            scoreText.text = $"{(pointsPerSecond)}x : {MathF.Ceiling(DataManager.instance.points)}";   
+            scoreText.text = $"{Mathf.FloorToInt(pointsPerSecond)}x : {MathF.Ceiling(DataManager.instance.points)}";
         }
         changeColorBasedOnPoints();
         scalePoints(); 
@@ -50,11 +50,15 @@ public class Timer : MonoBehaviour
     }
 
     private void changeColorBasedOnPoints()
+{
+    int level = Mathf.FloorToInt(pointsPerSecond);
+    switch (level)
     {
-        if(pointsPerSecond == 1f) scoreText.color = new Color(150,150,150); 
-        else if(pointsPerSecond >= 2f) scoreText.color = new Color(30,100,255);
-        else if(pointsPerSecond >= 3f) scoreText.color = new Color(50,205,50);
-        else if(pointsPerSecond >= 4f) scoreText.color = new Color(255,140,0);
-        else scoreText.color = new Color(255,30,30);
+        case 1:  scoreText.color = new Color(150/255f, 150/255f, 150/255f); break; // grey
+        case 2:  scoreText.color = new Color( 30/255f, 100/255f, 255/255f); break; // blue
+        case 3:  scoreText.color = new Color( 50/255f, 205/255f,  50/255f); break; // green
+        case 4:  scoreText.color = new Color(255/255f, 140/255f,   0/255f); break; // orange
+        default: scoreText.color = new Color(255/255f,  30/255f,  30/255f); break; // red (5+)
     }
+}
 }
