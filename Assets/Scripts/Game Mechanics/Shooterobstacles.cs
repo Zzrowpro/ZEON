@@ -1,10 +1,12 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Collider2D))]
-public class AggroObstacle : Obstacle
+[RequireComponent(typeof(Rigidbody2D))]
+public class Shooterobstacles : Obstacle
 {
-    [Header("Aggro Settings")]
+     [Header("Aggro Settings")]
     public float aggroSpeed = 7f;
+    public float minRange;
+   
 
     public Transform target;
     public bool inRange;
@@ -18,13 +20,16 @@ public class AggroObstacle : Obstacle
             Debug.LogWarning("AggroObstacle: No GameObject with tag 'Player' found!");
     }
 
+
+
     protected override void HandleMovement()
     {
         if (inRange && target != null)
         {
             Vector2 targetPosition = target.position;
             Vector2 currentPosition = transform.position;
-            Vector2 direction = (targetPosition - currentPosition).normalized;
+            Vector2 minRange = new Vector2();
+            Vector2 direction = (targetPosition - currentPosition + minRange).normalized;
             rb.MovePosition(currentPosition + (direction * aggroSpeed * Time.deltaTime));
         }
         else

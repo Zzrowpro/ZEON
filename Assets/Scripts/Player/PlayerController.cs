@@ -68,20 +68,19 @@ public class PlayerController : MonoBehaviour
             HandleThrust();
             KillSidewaysVelocity();
             ClampSpeed();
-            Burst();
+            //Burst();
             fuelCheck = false;
         }
-        else if (fuel == 0 && !fuelCheck)
+        else if (fuel == 0 && !fuelCheck) // Push the players spaceship in a random direction when game ends.
         {
             fuelCheck = true;
             Vector2 direction = UnityEngine.Random.insideUnitCircle; 
             rb.AddForce(direction * 5, ForceMode2D.Force);    
         }
 
-        
     }
 
-    void RotateTowardsMouse()
+    void RotateTowardsMouse() //MouseBased Movement
     {
         float angle = Mathf.Atan2(mouseDirection.y, mouseDirection.x) * Mathf.Rad2Deg - 90f;
         float smoothedAngle = Mathf.LerpAngle(rb.rotation, angle, rotationSpeed * Time.fixedDeltaTime);
@@ -115,16 +114,16 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void Burst()
-    {
-        if (Keyboard.current.spaceKey.wasPressedThisFrame)
-        {
-            Debug.Log("Is ts working");
-            rb.AddForce(transform.up * force, ForceMode2D.Impulse);
-        }
-        else
-        {
-            return;
-        }
-    }
+    // void Burst() // TS DOES NOT WORK BTW
+    // {
+    //     if (Keyboard.current.spaceKey.wasPressedThisFrame)
+    //     {
+    //         Debug.Log("Is ts working");
+    //         rb.AddForce(transform.up * force, ForceMode2D.Impulse);
+    //     }
+    //     else
+    //     {
+    //         return;
+    //     }
+    // }
 }

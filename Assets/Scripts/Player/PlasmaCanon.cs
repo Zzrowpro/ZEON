@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlasmaCanon : MonoBehaviour
 {
@@ -16,12 +17,18 @@ public class PlasmaCanon : MonoBehaviour
     public int Ammo => ammo; // Read-only public access if needed by UI
 
     void Update()
-    {
+    { 
         // Use GetButton for automatic fire; swap to GetButtonDown for single-shot
-        if (Input.GetButton("Fire2") && CanFire())
+        if (Input.GetButton("Fire2") && CanFire()&& SettingsManager.instance.shotType == true)
         {
             Fire();
         }
+        else if(Keyboard.current.spaceKey.wasPressedThisFrame && CanFire() && SettingsManager.instance.shotType == false)
+        {
+            Fire(); 
+        }
+        
+       
     }
 
     private bool CanFire()
