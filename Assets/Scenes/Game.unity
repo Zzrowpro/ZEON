@@ -2500,28 +2500,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &2627618574214605182
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6919961105761465667}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9370279680daba44cb39bd68d54a7051, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  minimum: 1.2
-  maximum: 3
-  baseSpeed: 1
-  aimlessStrength: 0.5
-  directionChangeSpeed: 0.5
-  maxSpinSpeed: 10
-  roamRadius: 3
-  aggroSpeed: 2
-  target: {fileID: 0}
-  inRange: 0
 --- !u!50 &3905197491080288730
 Rigidbody2D:
   serializedVersion: 5
@@ -2562,8 +2540,8 @@ GameObject:
   - component: {fileID: 2587712013787567502}
   - component: {fileID: 287150118329471404}
   - component: {fileID: 8731338660153267417}
-  - component: {fileID: 2627618574214605182}
   - component: {fileID: 7324524577160628258}
+  - component: {fileID: 8731338660153267418}
   m_Layer: 8
   m_Name: Purple_Crate
   m_TagString: Obstacle
@@ -2646,6 +2624,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Health
   hp: 3
   maxhp: 3
+--- !u!114 &8731338660153267418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6919961105761465667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bde5f67d808aba643ba638f8a1f7b7ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Shooterobstacles
+  minimum: 1.2
+  maximum: 3
+  baseSpeed: 1
+  aimlessStrength: 0.5
+  directionChangeSpeed: 0.5
+  maxSpinSpeed: 10
+  roamRadius: 3
+  aggroSpeed: 2
+  minRange: 0.5
+  inRange: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
