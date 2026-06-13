@@ -5,10 +5,10 @@ public class Shooterobstacles : Obstacle
 {
      [Header("Aggro Settings")]
     public float aggroSpeed = 7f;
-    public float minRange;
+    public float minRange = 0.5f;
    
 
-    public Transform target;
+    private Transform target;
     public bool inRange;
 
     void Awake()
@@ -26,10 +26,9 @@ public class Shooterobstacles : Obstacle
     {
         if (inRange && target != null)
         {
-            Vector2 targetPosition = target.position;
+            Vector2 targetPosition = Vector2.Lerp(transform.position, target.position,minRange);
             Vector2 currentPosition = transform.position;
-            Vector2 minRange = new Vector2();
-            Vector2 direction = (targetPosition - currentPosition + minRange).normalized;
+            Vector2 direction = (targetPosition - currentPosition).normalized;
             rb.MovePosition(currentPosition + (direction * aggroSpeed * Time.deltaTime));
         }
         else
