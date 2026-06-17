@@ -9,7 +9,9 @@ public class Shooterobstacles : Obstacle
    
 
     private Transform target;
-    public bool inRange;
+    private bool inRange;
+    public bool tryShoot = true;
+    private bool isHalted = false;
 
     void Awake()
     {
@@ -26,10 +28,15 @@ public class Shooterobstacles : Obstacle
     {
         if (inRange && target != null)
         {
-            Vector2 targetPosition = Vector2.Lerp(transform.position, target.position,minRange);
-            Vector2 currentPosition = transform.position;
-            Vector2 direction = (targetPosition - currentPosition).normalized;
-            rb.MovePosition(currentPosition + (direction * aggroSpeed * Time.deltaTime));
+                Vector2 currentPosition = transform.position;
+                Vector2 toTarget = (Vector2)target.position - currentPosition;
+                float distance = toTarget.magnitude;
+                if (distance > minRange)
+                {
+                    Vector2 direction = toTarget.normalized;
+                    rb.MovePosition(currentPosition + (direction * aggroSpeed * Time.deltaTime));
+                    Halt(true);
+                }
         }
         else
         {
@@ -49,5 +56,27 @@ public class Shooterobstacles : Obstacle
     {
         if (collision.gameObject.CompareTag("Player"))
             inRange = false;
+            tryShoot = true;
+            Halt(false);
+    }
+
+    private void ShootingStance()
+    {
+        Halt(true);
+
+    }
+
+    void Halt(bool halt)
+    {
+    isHalted = halt;
+    if (halt)
+    {
+        rb.linearVelocity = Vector2.zero;
+        rb.bodyType = RigidbodyType2D.Kinematic; // prevents physics from moving it
+    }
+    else
+    {
+        rb.bodyType = RigidbodyType2D.Dynamic;
+    }
     }
 }
