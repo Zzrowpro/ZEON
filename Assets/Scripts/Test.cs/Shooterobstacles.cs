@@ -13,7 +13,15 @@ public class Shooterobstacles : Obstacle
     public bool tryShoot = true;
     private bool isHalted = false;
 
-    void Awake()
+    [Header("Shooter Settings")]
+    [SerializeField]private GameObject projectilePrefab;
+    [SerializeField]private int ammo;
+    [SerializeField]private float nextFireTime;
+    [SerializeField]private float shootingRate;
+
+    public 
+
+    void Awake() 
     {
         GameObject player = GameObject.FindWithTag("Player");
         if (player != null)
@@ -63,7 +71,7 @@ public class Shooterobstacles : Obstacle
     private void ShootingStance()
     {
         Halt(true);
-
+        
     }
 
     void Halt(bool halt)
@@ -79,4 +87,32 @@ public class Shooterobstacles : Obstacle
         rb.bodyType = RigidbodyType2D.Dynamic;
     }
     }
+
+     private bool CanFire()
+    {
+        return ammo > 0 && Time.time >= nextFireTime;
+    }
+
+    private void Fire()
+    {
+        if (projectilePrefab == null)
+        {
+            Debug.LogWarning("PlasmaCanon: No projectile prefab assigned!");
+            return;
+        }
+
+        ammo--;
+        nextFireTime = Time.time + shootingRate;
+
+        Instantiate(projectilePrefab, transform.position, transform.rotation);
+
+        Debug.Log($"Fired! Ammo remaining: {ammo}");
+
+        if (ammo <= 0)
+        {
+            Debug.Log("Out of ammo!");
+            // OnOutOfAmmo?.Invoke(); // Uncomment if using an event
+        }
+    }
+
 }
