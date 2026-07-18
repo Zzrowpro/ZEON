@@ -1,26 +1,26 @@
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class Shooterobstacles : Obstacle
+public class Shooterobstacles : Obstacle, IMimicable
 {
      [Header("Aggro Settings")]
     public float aggroSpeed = 7f;
     public float minRange = 0.5f;
+    public float buffer = 0.5f; //This is a buffer helps when fluctuating between 2 values
    
 
-    private Transform target;
+    public Transform target;
+    private PlayerController playerController;
     private bool inRange;
     public bool tryShoot = true;
     private bool isHalted = false;
 
     [Header("Shooter Settings")]
     [SerializeField]private GameObject projectilePrefab;
-    [SerializeField]private int ammo;
-    [SerializeField]private float nextFireTime;
+    private float nextFireTime;
     [SerializeField]private float shootingRate;
-
-    public 
-
+ 
     void Awake() 
     {
         GameObject player = GameObject.FindWithTag("Player");
@@ -28,6 +28,8 @@ public class Shooterobstacles : Obstacle
             target = player.GetComponentInParent<Transform>();
         else
             Debug.LogWarning("AggroObstacle: No GameObject with tag 'Player' found!");
+
+            playerController = player.GetComponent<PlayerController>();
     }
 
 
@@ -36,15 +38,23 @@ public class Shooterobstacles : Obstacle
     {
         if (inRange && target != null)
         {
-                Vector2 currentPosition = transform.position;
-                Vector2 toTarget = (Vector2)target.position - currentPosition;
-                float distance = toTarget.magnitude;
-                if (distance > minRange)
-                {
-                    Vector2 direction = toTarget.normalized;
-                    rb.MovePosition(currentPosition + (direction * aggroSpeed * Time.deltaTime));
-                    Halt(true);
-                }
+            Vector2 currentPosition = transform.position;
+            Vector2 toTarget = (Vector2)target.position - currentPosition;
+            float distance = toTarget.magnitude;
+            if (distance > minRange + buffer)
+            {
+                Vector2 direction = toTarget.normalized;
+                rb.MovePosition(currentPosition + (direction * aggroSpeed * Time.deltaTime));
+                ShootingStance();
+            }
+            else if( distance < minRange - buffer && distance > 0 )
+            {
+                Vector2 direction = ((Vector2)transform.position - (Vector2)target.position).normalized;
+                ///transform.position += (Vector3)(direction * aggroSpeed * Time.deltaTime);
+                rb.MovePosition(currentPosition + (direction * aggroSpeed * Time.deltaTime)); 
+                ShootingStance();
+            }
+              
         }
         else
         {
@@ -63,14 +73,22 @@ public class Shooterobstacles : Obstacle
     void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
+        {
             inRange = false;
             tryShoot = true;
-            Halt(false);
+        }
     }
+            
 
     private void ShootingStance()
     {
         Halt(true);
+        if (CanFire())
+        {
+            Fire();
+        }
+        
+        Debug.Log("DID TS WORK");
         
     }
 
@@ -88,9 +106,14 @@ public class Shooterobstacles : Obstacle
     }
     }
 
-     private bool CanFire()
+    public void CopyStateFrom(IMimicable other)
     {
-        return ammo > 0 && Time.time >= nextFireTime;
+        
+    }
+
+    private bool CanFire()
+    {
+        return Time.time >= nextFireTime;
     }
 
     private void Fire()
@@ -100,19 +123,11 @@ public class Shooterobstacles : Obstacle
             Debug.LogWarning("PlasmaCanon: No projectile prefab assigned!");
             return;
         }
-
-        ammo--;
         nextFireTime = Time.time + shootingRate;
+        GameObject ghost =  Instantiate(projectilePrefab, transform.position, transform.rotation); //A way to copy the state of one gameobject to another uupon instantiationb
+        IMimicable bMimic =  ghost.GetComponent<IMimicable>();
+        bMimic.CopyStateFrom(this);
 
-        Instantiate(projectilePrefab, transform.position, transform.rotation);
-
-        Debug.Log($"Fired! Ammo remaining: {ammo}");
-
-        if (ammo <= 0)
-        {
-            Debug.Log("Out of ammo!");
-            // OnOutOfAmmo?.Invoke(); // Uncomment if using an event
-        }
     }
 
 }
