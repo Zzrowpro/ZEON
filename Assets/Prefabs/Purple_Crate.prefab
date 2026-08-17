@@ -227,7 +227,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 4.866667, y: 4.866667}
+  m_Size: {x: 8.037121, y: 6.866667}
   m_EdgeRadius: 0
 --- !u!114 &4613566094078236511
 MonoBehaviour:
@@ -249,8 +249,9 @@ MonoBehaviour:
   maxSpinSpeed: 10
   roamRadius: 3
   aggroSpeed: 2
-  minRange: 5
+  minRange: 7
+  buffer: 0.5
+  target: {fileID: 0}
   tryShoot: 1
-  projectilePrefab: {fileID: 2826953703126582219, guid: 8ea3378308b3cb547afe198026b92eaa, type: 3}
-  nextFireTime: 1
-  shootingRate: 1
+  projectilePrefab: {fileID: 3375335551913379943, guid: f8212921d3b59e74c85f36f915808da1, type: 3}
+  shootingRate: 1.2

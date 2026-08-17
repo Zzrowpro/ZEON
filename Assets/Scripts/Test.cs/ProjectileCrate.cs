@@ -29,4 +29,15 @@ public class ProjectileCrate : MonoBehaviour, IMimicable
         rb.AddForce(direction * bulletSpeed, ForceMode2D.Impulse);
         Destroy(gameObject, lifetime);
     }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Health health = collision.gameObject.GetComponentInParent<Health>();
+            health.TakeDamage(dmg);
+            Destroy(gameObject);
+        }
+    }
+
 }

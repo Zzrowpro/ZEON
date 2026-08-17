@@ -1,0 +1,1005 @@
+fileFormatVersion: 2
+guid: af95cda4b338d3149ac1ffcc1060f271
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8829953910286403249
+    second: Flameo_Hotman_All_0
+  - first:
+      213: -2992560653322506639
+    second: Flameo_Hotman_All_1
+  - first:
+      213: 4391365884393381415
+    second: Flameo_Hotman_All_2
+  - first:
+      213: 7874124663879645234
+    second: Flameo_Hotman_All_3
+  - first:
+      213: -6628857705845671887
+    second: Flameo_Hotman_All_4
+  - first:
+      213: 1553187714215121396
+    second: Flameo_Hotman_All_5
+  - first:
+      213: 1845823222083419944
+    second: Flameo_Hotman_All_6
+  - first:
+      213: -2156288249154756700
+    second: Flameo_Hotman_All_7
+  - first:
+      213: 7069106343385881422
+    second: Flameo_Hotman_All_8
+  - first:
+      213: 4372346479142670170
+    second: Flameo_Hotman_All_9
+  - first:
+      213: 1618104006599770794
+    second: Flameo_Hotman_All_10
+  - first:
+      213: -7179536153505848693
+    second: Flameo_Hotman_All_11
+  - first:
+      213: -3687419071749140988
+    second: Flameo_Hotman_All_12
+  - first:
+      213: 1197535454713414454
+    second: Flameo_Hotman_All_13
+  - first:
+      213: 1086664811182299902
+    second: Flameo_Hotman_All_14
+  - first:
+      213: 7077562241300876504
+    second: Flameo_Hotman_All_15
+  - first:
+      213: 7799096111424498613
+    second: Flameo_Hotman_All_16
+  - first:
+      213: -1731320803564143766
+    second: Flameo_Hotman_All_17
+  - first:
+      213: -4838935230482436056
+    second: Flameo_Hotman_All_18
+  - first:
+      213: -2802359921827764830
+    second: Flameo_Hotman_All_19
+  - first:
+      213: 4178084010572733463
+    second: Flameo_Hotman_All_20
+  - first:
+      213: 7367573321297935500
+    second: Flameo_Hotman_All_21
+  - first:
+      213: -6629649508471633597
+    second: Flameo_Hotman_All_22
+  - first:
+      213: -7446778825299841203
+    second: Flameo_Hotman_All_23
+  - first:
+      213: 5882071482163505596
+    second: Flameo_Hotman_All_24
+  - first:
+      213: -5776667476768999468
+    second: Flameo_Hotman_All_25
+  - first:
+      213: 8236125941850264016
+    second: Flameo_Hotman_All_26
+  - first:
+      213: -451835859044867029
+    second: Flameo_Hotman_All_27
+  - first:
+      213: -6393719371900527476
+    second: Flameo_Hotman_All_28
+  - first:
+      213: -4550050090217584233
+    second: Flameo_Hotman_All_29
+  - first:
+      213: 2737584488274454692
+    second: Flameo_Hotman_All_30
+  - first:
+      213: 166089798925845969
+    second: Flameo_Hotman_All_31
+  - first:
+      213: -2938805234578047582
+    second: Flameo_Hotman_All_32
+  - first:
+      213: 7340087465835427043
+    second: Flameo_Hotman_All_33
+  - first:
+      213: -5041197679956091454
+    second: Flameo_Hotman_All_34
+  - first:
+      213: -8715708121007533656
+    second: Flameo_Hotman_All_35
+  - first:
+      213: -1817995101561646234
+    second: Flameo_Hotman_All_36
+  - first:
+      213: -8639306215750977588
+    second: Flameo_Hotman_All_37
+  - first:
+      213: -2075118855988707803
+    second: Flameo_Hotman_All_38
+  - first:
+      213: -8004792860468591910
+    second: Flameo_Hotman_All_39
+  - first:
+      213: -3564835608485709127
+    second: Flameo_Hotman_All_40
+  - first:
+      213: -6808520312804218466
+    second: Flameo_Hotman_All_41
+  - first:
+      213: 6080813340065653670
+    second: Flameo_Hotman_All_42
+  - first:
+      213: 5424756130091465018
+    second: Flameo_Hotman_All_43
+  - first:
+      213: 7718794278214607679
+    second: Flameo_Hotman_All_44
+  - first:
+      213: 8062356988405968638
+    second: Flameo_Hotman_All_45
+  - first:
+      213: -3998636197776826243
+    second: Flameo_Hotman_All_46
+  - first:
+      213: -1362441974410423917
+    second: Flameo_Hotman_All_47
+  - first:
+      213: -5556514887589075841
+    second: Flameo_Hotman_All_48
+  - first:
+      213: 3525489710413088291
+    second: Flameo_Hotman_All_49
+  - first:
+      213: -4832464607803724240
+    second: Flameo_Hotman_All_50
+  - first:
+      213: 4383032922467473859
+    second: Flameo_Hotman_All_51
+  - first:
+      213: 4262435543613740720
+    second: Flameo_Hotman_All_52
+  - first:
+      213: -8463537358469723934
+    second: Flameo_Hotman_All_53
+  - first:
+      213: 975932552344350292
+    second: Flameo_Hotman_All_54
+  - first:
+      213: -6819860995201173555
+    second: Flameo_Hotman_All_55
+  - first:
+      213: 8215134098753122564
+    second: Flameo_Hotman_All_56
+  - first:
+      213: 4291266579401986568
+    second: Flameo_Hotman_All_57
+  - first:
+      213: -8083582331144092918
+    second: Flameo_Hotman_All_58
+  - first:
+      213: -139745045237524557
+    second: Flameo_Hotman_All_59
+  - first:
+      213: 6291008157247323288
+    second: Flameo_Hotman_All_60
+  - first:
+      213: -4445812757477075745
+    second: Flameo_Hotman_All_61
+  - first:
+      213: -9203916901410044969
+    second: Flameo_Hotman_All_62
+  - first:
+      213: 761053202669357641
+    second: Flameo_Hotman_All_63
+  - first:
+      213: 7850653135425765079
+    second: Flameo_Hotman_All_64
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 10
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Pyro_Idle
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b641bd5c4c4a8a70800000000000000
+      internalID: 8829953910286403249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pyro_Idle_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17ea6e9e0f94876d0800000000000000
+      internalID: -2992560653322506639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pyro_Idle_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72e5902610441fc30800000000000000
+      internalID: 4391365884393381415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pyro_Idle_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23830b3b9a2864d60800000000000000
+      internalID: 7874124663879645234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pyro_Idle_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1383578a9019104a0800000000000000
+      internalID: -6628857705845671887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pyro_Idle_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f11b473ff70e8510800000000000000
+      internalID: 1553187714215121396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pyro_Backwards
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82ff27ed07ead9910800000000000000
+      internalID: 1845823222083419944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pyro_Backwards_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4af18cb03435312e0800000000000000
+      internalID: -2156288249154756700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pyro_Backwards_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4bd9fcf3c28a1260800000000000000
+      internalID: 7069106343385881422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pyro_Backwards_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5f8a3405f1bdac30800000000000000
+      internalID: 4372346479142670170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pyro_Backwards_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa2040b5509a47610800000000000000
+      internalID: 1618104006599770794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pyro_Backwards_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b82a53e38e92d5c90800000000000000
+      internalID: -7179536153505848693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pyro_Forwards
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40e446a14e7a3dcc0800000000000000
+      internalID: -3687419071749140988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pyro_Forwards_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6330128b6208e9010800000000000000
+      internalID: 1197535454713414454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pyro_Forwards_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efa107c63eb941f00800000000000000
+      internalID: 1086664811182299902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pyro_Forwards_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8dcc4742c5d883260800000000000000
+      internalID: 7077562241300876504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pyro_Forwards_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5bb669a8794fb3c60800000000000000
+      internalID: 7799096111424498613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pyro_Forwards_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6bb05fe6ec19f7e0800000000000000
+      internalID: -1731320803564143766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pyro_Upwards
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 820b8ffab06a8dcb0800000000000000
+      internalID: -4838935230482436056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pyro_Upwards_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a52aa6af740c19d0800000000000000
+      internalID: -2802359921827764830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pyro_Upwards_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71c5deb65498bf930800000000000000
+      internalID: 4178084010572733463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pyro_Upwards_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8cbb9096e0ee3660800000000000000
+      internalID: 7367573321297935500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pyro_Upwards_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 349843eb5e0cef3a0800000000000000
+      internalID: -6629649508471633597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pyro_Upwards_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4f2a15fc1ab7a890800000000000000
+      internalID: -7446778825299841203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pyro_Downwards
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb9afc539d051a150800000000000000
+      internalID: 5882071482163505596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pyro_Downwards_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d7b1a5398725dfa0800000000000000
+      internalID: -5776667476768999468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pyro_Downwards_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d15d5148e89c4270800000000000000
+      internalID: 8236125941850264016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pyro_Downwards_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b24e8dc1ea1cab9f0800000000000000
+      internalID: -451835859044867029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pyro_Downwards_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8cd55c4b12f447a0800000000000000
+      internalID: -6393719371900527476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pyro_Downwards_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 799c856dc89fad0c0800000000000000
+      internalID: -4550050090217584233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 754ba135b9800ac4fb61fcb133d845c6
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Pyro_Backwards: 1845823222083419944
+      Pyro_Backwards_1: -2156288249154756700
+      Pyro_Backwards_2: 7069106343385881422
+      Pyro_Backwards_3: 4372346479142670170
+      Pyro_Backwards_4: 1618104006599770794
+      Pyro_Backwards_5: -7179536153505848693
+      Pyro_Downwards: 5882071482163505596
+      Pyro_Downwards_1: -5776667476768999468
+      Pyro_Downwards_2: 8236125941850264016
+      Pyro_Downwards_3: -451835859044867029
+      Pyro_Downwards_4: -6393719371900527476
+      Pyro_Downwards_5: -4550050090217584233
+      Pyro_Forwards: -3687419071749140988
+      Pyro_Forwards_1: 1197535454713414454
+      Pyro_Forwards_2: 1086664811182299902
+      Pyro_Forwards_3: 7077562241300876504
+      Pyro_Forwards_4: 7799096111424498613
+      Pyro_Forwards_5: -1731320803564143766
+      Pyro_Idle: 8829953910286403249
+      Pyro_Idle_1: -2992560653322506639
+      Pyro_Idle_2: 4391365884393381415
+      Pyro_Idle_3: 7874124663879645234
+      Pyro_Idle_4: -6628857705845671887
+      Pyro_Idle_5: 1553187714215121396
+      Pyro_Upwards: -4838935230482436056
+      Pyro_Upwards_1: -2802359921827764830
+      Pyro_Upwards_2: 4178084010572733463
+      Pyro_Upwards_3: 7367573321297935500
+      Pyro_Upwards_4: -6629649508471633597
+      Pyro_Upwards_5: -7446778825299841203
+      w: -4838935230482436056
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

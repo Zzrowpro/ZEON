@@ -32,7 +32,7 @@ public class Projectile : MonoBehaviour
             Health obstacle = collision.gameObject.GetComponent<Health>();
             if(obstacle != null)
             {
-                obstacle.hp -= dmg;
+                obstacle.TakeDamage(dmg);
                 DataManager.instance.points += 1;
                 Destroy(gameObject);
             }

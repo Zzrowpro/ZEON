@@ -11,8 +11,11 @@ public class PlasmaCanon : MonoBehaviour
 
     [Header("Fire Rate Settings")]
     [SerializeField] private float shootingRate = 0.5f;
-
     private float nextFireTime = 0f;
+
+    [Header("Instantiation Points")]
+    [SerializeField]private Transform firePoint1;
+    [SerializeField]private Transform firePoint2;
 
     public int Ammo => ammo; // Read-only public access if needed by UI
 
@@ -47,7 +50,9 @@ public class PlasmaCanon : MonoBehaviour
         ammo--;
         nextFireTime = Time.time + shootingRate;
 
-        Instantiate(projectilePrefab, transform.position, transform.rotation);
+        //Instantiation
+        Instantiate(projectilePrefab,firePoint1.position, firePoint1.rotation);
+        Instantiate(projectilePrefab,firePoint2.position,firePoint2.rotation);
 
         Debug.Log($"Fired! Ammo remaining: {ammo}");
 

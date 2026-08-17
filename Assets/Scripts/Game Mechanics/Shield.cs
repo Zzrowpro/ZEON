@@ -45,7 +45,7 @@ public class Shield : MonoBehaviour
         {
             Rigidbody2D rb = collision.gameObject.GetComponent<Rigidbody2D>();
             Destroy(collision.gameObject);
-            shieldHealth.hp -= 1;
+            shieldHealth.TakeDamage(1);
 
             rb.AddForce(transform.up * kB, ForceMode2D.Impulse);
         }

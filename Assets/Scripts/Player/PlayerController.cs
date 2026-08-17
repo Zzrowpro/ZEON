@@ -1,28 +1,31 @@
-using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(Rigidbody2D))]
+
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField]private Animator animator;
+    [SerializeField]private FuelBar fuelBar;
+    [SerializeField]private FuelBar nitroBar;
+    [SerializeField]private GameObject nb;
 
     [Header("Movement")]
-    public float acceleration = 15f;
-    public float maxSpeed = 8f;
-    public float rotationSpeed = 10f;
-    public float linearDrag = 1f;
-    public float sidewaysDamping = 3f;
+    [SerializeField]private float acceleration = 15f;
+    [SerializeField]private float maxSpeed = 8f;
+    [SerializeField]private float rotationSpeed = 10f;
+    [SerializeField]private float linearDrag = 1f;
+    [SerializeField]private float sidewaysDamping = 3f;
 
     [Header("Movement Abilities")]
-    public float force = 20f;
-
-    public float fuel = 200f;
+    [SerializeField]private float maxFuel = 200f;
+    [SerializeField]private float fuel;
     public float Fuel
     {
-        get{return fuel;}
-        set
-        {
-            fuel = math.clamp(value, 0, 200f);
-        }
+        get => fuel;
+        
+        set => fuel = Mathf.Clamp(value, 0f, maxFuel);
+        
     }
 
     [Header("Visuals")]
@@ -34,6 +37,33 @@ public class PlayerController : MonoBehaviour
 
     private bool fuelCheck = false;
 
+    [Header("Nitro")] // Stuff for the nitro ability
+    [SerializeField] private float maxNitroFuel = 20f;
+    [SerializeField] private float nitroFuel;
+    public float NitroFuel
+    {
+        get => nitroFuel;
+        set => nitroFuel = Mathf.Clamp(value, 0, maxNitroFuel);
+    }
+
+    [SerializeField] private float nitroMulti = 2f;
+    [SerializeField] private float nitroLossRate = 1f;
+    [SerializeField] private float nitroRefreshRate = 1f;
+    [SerializeField] private float nitroCooldownDuration = 10f;  
+    private bool nitroOnCooldown = false;
+    private bool canBoost = true;
+    private bool isBoosting = false;
+    private float nitroCooldownTimer = 0f;
+
+
+    void Awake()
+    {
+        fuel = maxFuel;
+        nitroFuel = maxNitroFuel;
+        fuelBar.setMaxFuel(maxFuel);
+        nitroBar.setMaxFuel(maxNitroFuel);
+    }
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -44,6 +74,10 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        //Bar Displays
+        fuelBar.setFuel(fuel);
+        nitroBar.setFuel(NitroFuel);
+        
         boosting = Mouse.current.leftButton.isPressed;
 
         // Mouse direction
@@ -58,6 +92,33 @@ public class PlayerController : MonoBehaviour
         {
             boosterSprite.SetActive(false);
         }
+
+        //Nitro Mechanics
+        isBoosting = Input.GetButton("Boost") && nitroFuel > 0 && !nitroOnCooldown;
+        animator.SetBool("isBoosting",isBoosting);
+        
+        if (isBoosting)
+        {
+            NitroFuel -= nitroLossRate * Time.deltaTime;
+            
+            if (nitroFuel <= 0)
+                nitroOnCooldown = true;
+        }
+        else
+        {
+            NitroFuel += nitroRefreshRate * Time.deltaTime;
+        }
+
+        if (nitroOnCooldown)
+        {
+            nitroCooldownTimer += Time.deltaTime;
+            if (nitroCooldownTimer >= nitroCooldownDuration)
+            {
+                nitroOnCooldown = false;
+                nitroCooldownTimer = 0f;
+            }
+        }
+
     }
 
     void FixedUpdate()
@@ -87,12 +148,13 @@ public class PlayerController : MonoBehaviour
         rb.MoveRotation(smoothedAngle);
     }
 
-    void HandleThrust()
+    void HandleThrust() //Also handles nitro switching
     {
         if (!boosting) return;
 
-        rb.AddForce(transform.up * acceleration);
+        rb.AddForce(transform.up * (isBoosting ? acceleration * nitroMulti : acceleration));
         fuel -= 0.1f;
+        
     }
 
     void KillSidewaysVelocity()

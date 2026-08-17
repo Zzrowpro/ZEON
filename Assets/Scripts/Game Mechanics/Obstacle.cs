@@ -1,5 +1,7 @@
 using UnityEngine;
-
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(PolygonCollider2D))]
+    
 public class Obstacle : MonoBehaviour
 {
     public float minimum = 0.5f;
@@ -15,9 +17,26 @@ public class Obstacle : MonoBehaviour
     protected Vector2 currentDirection;
     private Vector2 spawnPosition;
 
+    private SpriteRenderer sr;
+    private PolygonCollider2D pc2D;
+    [SerializeField ]private Sprite [] sprites;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        sr = GetComponent<SpriteRenderer>();
+        pc2D = GetComponent<PolygonCollider2D>();
+
+        if(sprites.Length != 0) // Randomising what sprite shows up for the asteroid upon spawn
+        {
+            int ranNum = Random.Range(0, sprites.Length);
+            int num = ranNum;
+            sr.sprite = sprites[num];
+            pc2D.CreateFromSprite(sprites[num]);
+            
+        }
+
+        
 
         float ranScale = Random.Range(minimum, maximum);
         transform.localScale = new Vector3(ranScale, ranScale, 1);
@@ -53,8 +72,8 @@ public class Obstacle : MonoBehaviour
 
         currentDirection = Vector2.Lerp(currentDirection, targetDirection, directionChangeSpeed * Time.fixedDeltaTime);
 
-        rb.linearVelocity = Vector2.ClampMagnitude(rb.linearVelocity, baseSpeed);
         rb.AddForce(currentDirection.normalized * baseSpeed);
+        rb.linearVelocity = Vector2.ClampMagnitude(rb.linearVelocity, baseSpeed);
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -63,11 +82,11 @@ public class Obstacle : MonoBehaviour
         {
             Health playerHealth = collision.gameObject.GetComponentInParent<Health>();
             if (playerHealth != null)
-                playerHealth.hp--;
+                playerHealth.TakeDamage(1);
 
             Health selfHealth = GetComponent<Health>();
             if (selfHealth != null)
-                selfHealth.hp--;
+                selfHealth.TakeDamage(1);
         }
     }
 }
