@@ -80,7 +80,7 @@ public class Obstacle : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Health playerHealth = collision.gameObject.GetComponentInParent<Health>();
+            PlayerHealth playerHealth = collision.gameObject.GetComponentInParent<PlayerHealth>();
             if (playerHealth != null)
                 playerHealth.TakeDamage(1);
 

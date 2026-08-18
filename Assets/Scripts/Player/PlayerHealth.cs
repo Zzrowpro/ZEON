@@ -1,3 +1,4 @@
+using Cinemachine;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -10,11 +11,13 @@ public class PlayerHealth : MonoBehaviour
 
     private SpriteRenderer sr;
     private PlayerController pc;
+    private CinemachineImpulseSource impulseSource;
 
     void Awake()
     {
         sr = gameObject.GetComponent<SpriteRenderer>();
         pc = gameObject.GetComponent<PlayerController>();
+        impulseSource = gameObject.GetComponent<CinemachineImpulseSource>();
     }
     void Update()
     {
@@ -32,6 +35,8 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        //Screenshake
+        CameraShakeManager.instance.CameraShake(impulseSource);
         if (!isDead)
         {
             hp = math.clamp(hp - damage, 0, maxhp);
