@@ -67,5 +67,6 @@
         "*.sln": "*.csproj",
         "*.slnx": "*.csproj"
     },
-    "dotnet.defaultSolution": "ZEON.slnx"
+    "dotnet.defaultSolution": "ZEON.slnx",
+    "chat.disableAIFeatures": false
 }

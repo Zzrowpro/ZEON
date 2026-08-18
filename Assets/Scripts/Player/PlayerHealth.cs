@@ -1,5 +1,6 @@
 using Cinemachine;
 using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -11,6 +12,7 @@ public class PlayerHealth : MonoBehaviour
 
     private SpriteRenderer sr;
     private PlayerController pc;
+    [SerializeField] private GameObject flames;
     private CinemachineImpulseSource impulseSource;
 
     void Awake()
@@ -45,6 +47,7 @@ public class PlayerHealth : MonoBehaviour
             {
                 sr.enabled = false;
                 pc.enabled = false;
+                flames.SetActive(false);
                 isDead = true;
             }
         }
