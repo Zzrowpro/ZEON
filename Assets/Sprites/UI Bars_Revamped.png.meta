@@ -121,10 +121,10 @@ TextureImporter:
       name: UI Bars_Revamped_0
       rect:
         serializedVersion: 2
-        x: 272
-        y: 94
-        width: 31
-        height: 18
+        x: 148
+        y: 67
+        width: 23
+        height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -143,10 +143,10 @@ TextureImporter:
       name: UI Bars_Revamped_1
       rect:
         serializedVersion: 2
-        x: 27
-        y: 5
-        width: 8
-        height: 46
+        x: 272
+        y: 94
+        width: 31
+        height: 18
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -165,10 +165,10 @@ TextureImporter:
       name: UI Bars_Revamped_2
       rect:
         serializedVersion: 2
-        x: 73
-        y: 24
-        width: 46
-        height: 8
+        x: 27
+        y: 5
+        width: 8
+        height: 46
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,10 +187,10 @@ TextureImporter:
       name: UI Bars_Revamped_3
       rect:
         serializedVersion: 2
-        x: 153
-        y: 12
-        width: 8
-        height: 46
+        x: 73
+        y: 24
+        width: 46
+        height: 8
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -209,10 +209,10 @@ TextureImporter:
       name: UI Bars_Revamped_4
       rect:
         serializedVersion: 2
-        x: 201
-        y: 24
-        width: 46
-        height: 8
+        x: 153
+        y: 12
+        width: 8
+        height: 46
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -231,10 +231,10 @@ TextureImporter:
       name: UI Bars_Revamped_5
       rect:
         serializedVersion: 2
-        x: 269
-        y: 14
-        width: 37
-        height: 37
+        x: 201
+        y: 24
+        width: 46
+        height: 8
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -253,10 +253,10 @@ TextureImporter:
       name: UI Bars_Revamped_6
       rect:
         serializedVersion: 2
-        x: 321
-        y: 20
-        width: 60
-        height: 23
+        x: 269
+        y: 14
+        width: 37
+        height: 37
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -267,6 +267,28 @@ TextureImporter:
       bones: []
       spriteID: c69a55eb4b1655b90800000000000000
       internalID: -7253784195895023252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Bars_Revamped_7
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 20
+        width: 60
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f094e0b76e7ffc468413b158049416d
+      internalID: -1177669375
       vertices: []
       indices: 
       edges: []
@@ -294,6 +316,7 @@ TextureImporter:
       UI Bars_Revamped_4: 6329097906864059071
       UI Bars_Revamped_5: 4191022352295386938
       UI Bars_Revamped_6: -7253784195895023252
+      UI Bars_Revamped_7: -1177669375
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

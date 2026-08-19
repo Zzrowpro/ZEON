@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Pyro : MonoBehaviour
@@ -50,5 +51,10 @@ public class Pyro : MonoBehaviour
         rb.AddForce(currentDirection.normalized * baseSpeed);
         rb.linearVelocity = Vector2.ClampMagnitude(rb.linearVelocity, baseSpeed);
     }
+
+    //private IEnumerator HandleMovementNew()
+    //{
+        
+    //}
 
 }
