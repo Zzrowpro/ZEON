@@ -100,6 +100,7 @@ public class PlayerController : MonoBehaviour
         if (isBoosting)
         {
             NitroFuel -= nitroLossRate * Time.deltaTime;
+            nb.SetActive(true);
             
             if (nitroFuel <= 0)
                 nitroOnCooldown = true;
@@ -107,6 +108,11 @@ public class PlayerController : MonoBehaviour
         else
         {
             NitroFuel += nitroRefreshRate * Time.deltaTime;
+            nb.SetActive(true);
+            if(nitroFuel == maxNitroFuel)
+            {
+                nb.SetActive(false);
+            }
         }
 
         if (nitroOnCooldown)
