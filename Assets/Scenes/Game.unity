@@ -2799,7 +2799,7 @@ MonoBehaviour:
   hp: 3
   maxhp: 3
   isDead: 0
-  flames: {fileID: 0}
+  flames: {fileID: 2085556282}
 --- !u!114 &1228039053
 MonoBehaviour:
   m_ObjectHideFlags: 0
