@@ -2785,7 +2785,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   scarabPrefab: {fileID: 2146199506591097511, guid: c0fb36291cb59a24bafe51ff30594014, type: 3}
-  scarabCount: 1
+  scarabCount: 2
   scarabCooldown: 5
   scarabSpawnSpeed: 1
   scarabSpawnPoint: {fileID: 1228039045}
