@@ -19,7 +19,7 @@ public class Obstacle : MonoBehaviour
 
     private SpriteRenderer sr;
     private PolygonCollider2D pc2D;
-    [SerializeField ]private Sprite [] sprites;
+    [SerializeField]private Sprite [] sprites;
 
     void Start()
     {
@@ -31,8 +31,15 @@ public class Obstacle : MonoBehaviour
         {
             int ranNum = Random.Range(0, sprites.Length);
             int num = ranNum;
-            sr.sprite = sprites[num];
-            pc2D.CreateFromSprite(sprites[num]);
+            if(sr.sprite == null)
+            {
+                sr.sprite = sprites[num];
+                pc2D.CreateFromSprite(sprites[num]);
+            }
+            else
+            {
+                pc2D.CreateFromSprite(sr.sprite);
+            }
             
         }
 
