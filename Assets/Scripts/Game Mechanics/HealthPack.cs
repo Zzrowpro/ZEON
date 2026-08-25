@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class HealthPack : MonoBehaviour
 {
-    public int hpInc;
+    [SerializeField]private int hpInc;
+    [SerializeField]private float acceleration = 2f;
+    [SerializeField]private float maxSpeed = 5f;
+
+
+    private float lifespan = 5f;
+
 
     void OnTriggerEnter2D(Collider2D collision)
     {

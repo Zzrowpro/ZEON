@@ -7,7 +7,7 @@ public class ProjectileCrate : MonoBehaviour, IMimicable
     public int dmg;
 
     private Transform target;
-    private Rigidbody2D rb;
+    private Rigidbody2D rb; 
 
     public void CopyStateFrom(IMimicable other)
     {

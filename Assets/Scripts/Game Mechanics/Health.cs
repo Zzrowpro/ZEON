@@ -5,14 +5,14 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     [SerializeField]public int hp;
-    [SerializeField]public int maxhp;
+    [SerializeField]public int maxHp;
     public bool isDead = false;
 
     void Update()
     {
-        if(hp > maxhp)
+        if(hp > maxHp)
         {
-            hp = maxhp;
+            hp = maxHp;
         }
 
     }
@@ -26,7 +26,7 @@ public class Health : MonoBehaviour
     {
         if (!isDead)
         {
-            hp = math.clamp(hp - damage, 0, maxhp);
+            hp = math.clamp(hp - damage, 0, maxHp);
 
             if(hp <= 0)
             {

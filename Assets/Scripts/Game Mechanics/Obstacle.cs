@@ -70,7 +70,7 @@ public class Obstacle : MonoBehaviour
         float pullStrength = distanceFromSpawn / roamRadius;
         Vector2 targetDirection = Vector2.Lerp(randomOffset, toSpawn.normalized, pullStrength);
 
-        currentDirection = Vector2.Lerp(currentDirection, targetDirection, directionChangeSpeed * Time.fixedDeltaTime);
+        currentDirection = Vector2.Lerp(currentDirection, targetDirection, directionChangeSpeed * Time.fixedDeltaTime); //smoothing out the pull in target direction
 
         rb.AddForce(currentDirection.normalized * baseSpeed);
         rb.linearVelocity = Vector2.ClampMagnitude(rb.linearVelocity, baseSpeed);
