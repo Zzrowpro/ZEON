@@ -1,5 +1,6 @@
-using System;
 using Unity.Mathematics;
+using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 [RequireComponent(typeof(CircleCollider2D))]
@@ -93,22 +94,31 @@ public class Scarab : MonoBehaviour
         {
             return; // Exit the method if the target is null to avoid errors.
         }
-        if(isPatrolling == true)
+        
+            // Debug.Log("Patrolling");
+            // ranNum = UnityEngine.Random.Range(0, patrolPoints.Length);
+            // Transform randomPatrolPoint = patrolPoints[ranNum];
+            // float angle = Mathf.Atan2(randomPatrolPoint.position.y - transform.position.y, randomPatrolPoint.position.x - transform.position.x) * Mathf.Rad2Deg - 90f;
+            // float smoothedAngle = Mathf.LerpAngle(rb.rotation, angle, rotationSpeed * Time.fixedDeltaTime);
+            // rb.MoveRotation(smoothedAngle);
+            // isPatrolling = false;
+
+        if(patrolPoints != null)
         {
-            Debug.Log("Patrolling");
-            ranNum = UnityEngine.Random.Range(0, patrolPoints.Length);
-            Transform randomPatrolPoint = patrolPoints[ranNum];
-            float angle = Mathf.Atan2(randomPatrolPoint.position.y - transform.position.y, randomPatrolPoint.position.x - transform.position.x) * Mathf.Rad2Deg - 90f;
-            float smoothedAngle = Mathf.LerpAngle(rb.rotation, angle, rotationSpeed * Time.fixedDeltaTime);
-            rb.MoveRotation(smoothedAngle);
-            isPatrolling = false;
-        }
-        if(Vector2.Distance(transform.position, patrolPoints[ranNum].position) <= detectionRadius)
-        {
-            isPatrolling = true;
+           foreach (Transform patrolPoint in patrolPoints)
+            {
+                if(Vector2.Distance(transform.position, patrolPoint.position) >= detectionRadius)
+                {
+                    float angle = Mathf.Atan2(patrolPoint.position.y - transform.position.y, patrolPoint.position.x - transform.position.x) * Mathf.Rad2Deg - 90f;
+                    float smoothedAngle = Mathf.LerpAngle(rb.rotation, angle, rotationSpeed * Time.fixedDeltaTime);
+                    rb.MoveRotation(smoothedAngle); 
+                }
+                
+            } 
         }
         
     }
+
 
     private void  KillSidewaysVelocity()
     {
