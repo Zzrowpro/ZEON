@@ -90,34 +90,29 @@ public class Scarab : MonoBehaviour
 
     private void HandleRotationPlayer()
     {
-        if(patrolPoints == null)
-        {
-            return; // Exit the method if the target is null to avoid errors.
-        }
-        
-            // Debug.Log("Patrolling");
-            // ranNum = UnityEngine.Random.Range(0, patrolPoints.Length);
-            // Transform randomPatrolPoint = patrolPoints[ranNum];
-            // float angle = Mathf.Atan2(randomPatrolPoint.position.y - transform.position.y, randomPatrolPoint.position.x - transform.position.x) * Mathf.Rad2Deg - 90f;
-            // float smoothedAngle = Mathf.LerpAngle(rb.rotation, angle, rotationSpeed * Time.fixedDeltaTime);
-            // rb.MoveRotation(smoothedAngle);
-            // isPatrolling = false;
+  if (patrolPoints == null || patrolPoints.Length == 0)
+        return;
 
-        if(patrolPoints != null)
+    Transform closestPoint = null;
+    float closestDist = float.MaxValue;
+
+    foreach (Transform patrolPoint in patrolPoints)
+    {
+        float dist = Vector2.Distance(transform.position, patrolPoint.position);
+        if (dist >= detectionRadius && dist < closestDist)
         {
-           foreach (Transform patrolPoint in patrolPoints)
-            {
-                if(Vector2.Distance(transform.position, patrolPoint.position) >= detectionRadius)
-                {
-                    float angle = Mathf.Atan2(patrolPoint.position.y - transform.position.y, patrolPoint.position.x - transform.position.x) * Mathf.Rad2Deg - 90f;
-                    float smoothedAngle = Mathf.LerpAngle(rb.rotation, angle, rotationSpeed * Time.fixedDeltaTime);
-                    rb.MoveRotation(smoothedAngle); 
-                }
-                
-            } 
+            closestDist = dist;
+            closestPoint = patrolPoint;
         }
-        
     }
+
+    if (closestPoint == null)
+        return; // no qualifying point found
+
+    float angle = Mathf.Atan2(closestPoint.position.y - transform.position.y, closestPoint.position.x - transform.position.x) * Mathf.Rad2Deg - 90f;
+    float smoothedAngle = Mathf.LerpAngle(rb.rotation, angle, rotationSpeed * Time.fixedDeltaTime);
+    rb.MoveRotation(smoothedAngle);
+}                
 
 
     private void  KillSidewaysVelocity()
