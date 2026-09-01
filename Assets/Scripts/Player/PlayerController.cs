@@ -95,6 +95,8 @@ public class PlayerController : MonoBehaviour
 
         //Nitro Mechanics
         isBoosting = Input.GetButton("Boost") && nitroFuel > 0 && !nitroOnCooldown;
+
+        if(animator.gameObject.activeSelf)
         animator.SetBool("isBoosting",isBoosting);
         
         if (isBoosting)

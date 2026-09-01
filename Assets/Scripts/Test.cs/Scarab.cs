@@ -1,5 +1,5 @@
+using System;
 using Unity.Mathematics;
-using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(CircleCollider2D))]
@@ -23,6 +23,12 @@ public class Scarab : MonoBehaviour
     //Same reason as above. 
     private Rigidbody2D rb; 
 
+    [Header("Player Detection")]
+    [SerializeField]private float detectionRadius = 5f;
+    [SerializeField]private Transform [] patrolPoints;
+    private bool isPatrolling = true;
+    int ranNum;
+
     [Header("Shooting")]
     [SerializeField]private GameObject projectilePrefab;
     private float nextFireTime = 0f;
@@ -32,11 +38,7 @@ public class Scarab : MonoBehaviour
 
     [Header("WanderingControl")]
     private Transform spawnPosition;
-    private float pullStrength = 1f;
-    private float wanderStrength = 1f;
-    [SerializeField]private float maxWanderDistance = 5f;
-
-
+    
 
     void Awake()
     {
@@ -49,7 +51,7 @@ public class Scarab : MonoBehaviour
     void FixedUpdate()
     {
 
-        if (isTargeting && inRange && target != null)
+        if (inRange && target != null)
         {
             HandleThrust();
             HandleRotationTarget();
@@ -62,8 +64,7 @@ public class Scarab : MonoBehaviour
             HandleThrust();
             KillSidewaysVelocity();
             ClampSpeed();
-            HandleRotation();
-
+            HandleRotationPlayer();
         }
     }
 
@@ -77,16 +78,36 @@ public class Scarab : MonoBehaviour
 
     private void HandleRotationTarget()
     {
+        if (target == null)
+        {
+            return; // Exit the method if the target is null to avoid errors.
+        }
         float angle = Mathf.Atan2(target.position.y - transform.position.y, target.position.x - transform.position.x) * Mathf.Rad2Deg - 90f;
         float smoothedAngle = Mathf.LerpAngle(rb.rotation, angle, rotationSpeed * Time.fixedDeltaTime); 
         rb.MoveRotation(smoothedAngle);
     }
 
-    private void HandleRotation()
+    private void HandleRotationPlayer()
     {
-        float angle = UnityEngine.Random.insideUnitCircle.normalized.y * Mathf.Rad2Deg - 90f; // Calculate the angle based on a random direction in the unit circle.
-        float smoothedAngle = Mathf.LerpAngle(rb.rotation, angle, rotationSpeed * Time.fixedDeltaTime);// Smoothly interpolate the rotation angle towards the target angle using LerpAngle.
-        rb.MoveRotation(smoothedAngle);// Apply the smoothed rotation to the Rigidbody2D using MoveRotation.
+        if(patrolPoints == null)
+        {
+            return; // Exit the method if the target is null to avoid errors.
+        }
+        if(isPatrolling == true)
+        {
+            Debug.Log("Patrolling");
+            ranNum = UnityEngine.Random.Range(0, patrolPoints.Length);
+            Transform randomPatrolPoint = patrolPoints[ranNum];
+            float angle = Mathf.Atan2(randomPatrolPoint.position.y - transform.position.y, randomPatrolPoint.position.x - transform.position.x) * Mathf.Rad2Deg - 90f;
+            float smoothedAngle = Mathf.LerpAngle(rb.rotation, angle, rotationSpeed * Time.fixedDeltaTime);
+            rb.MoveRotation(smoothedAngle);
+            isPatrolling = false;
+        }
+        if(Vector2.Distance(transform.position, patrolPoints[ranNum].position) <= detectionRadius)
+        {
+            isPatrolling = true;
+        }
+        
     }
 
     private void  KillSidewaysVelocity()
@@ -110,7 +131,7 @@ public class Scarab : MonoBehaviour
 
     private void HandleShooting()
     {
-        if(inRange && isTargeting && nextFireTime <= Time.time)
+        if(inRange && nextFireTime <= Time.time && target!= null)
         {
             nextFireTime = Time.time + shootingRate;
             Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
@@ -126,13 +147,13 @@ public class Scarab : MonoBehaviour
         float angle = Mathf.Atan2(toSpawn.y, toSpawn.x) * Mathf.Rad2Deg - 90f;
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Obstacle") && isTargeting == false)
+        if (collision.gameObject.CompareTag("Obstacle"))
         {
-            isTargeting = true;
-            inRange = true;
             target = collision.transform;
+            inRange = true;
         }
     }
+
 }
