@@ -1,3 +1,4 @@
+using System;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEditor;
@@ -11,7 +12,7 @@ public class Scarab : MonoBehaviour
     [Header("Movement")]
     [SerializeField]private float acceleration = 2f;
     [SerializeField]private float maxSpeed = 5f;
-    [SerializeField]private float rotationSpeed = 10f;
+    [SerializeField]private float rotationSpeed = 15f;
     [SerializeField]private float linearDrag = 1f;
     [SerializeField]private float sidewaysDamping = 3f;
 
@@ -19,14 +20,16 @@ public class Scarab : MonoBehaviour
     private bool inRange = false;
     //private bool inRangePlayer = false;
     // Use this when i decide if i want to add player following to the scarab
-    [SerializeField]private Transform target;
-    //[SerializeField]private Transform playerTransform;
+    private Transform target;
+    
     //Same reason as above. 
     private Rigidbody2D rb; 
 
     [Header("Player Detection")]
+    [SerializeField]private Transform playerTransform;
     [SerializeField]private float detectionRadius = 5f;
     [SerializeField]private Transform [] patrolPoints;
+    private int currentWaypointIndex;
     private bool isPatrolling = true;
     int ranNum;
 
@@ -36,11 +39,16 @@ public class Scarab : MonoBehaviour
     [SerializeField]private float shootingRate = 0.5f;
     [SerializeField]private Transform firePoint;
     [SerializeField]private Transform firePoint2;
+    [SerializeField]private bool canShoot;
 
-    [Header("WanderingControl")]
+    [Header("Random Needed Variables")]
     private Transform spawnPosition;
-    
+    [SerializeField]private float lifetime = 10f;
 
+    void Start()
+    {
+        Destroy(gameObject, lifetime);
+    } 
     void Awake()
     {
         //[SerializeField]private Transform playerTransform;
@@ -59,6 +67,7 @@ public class Scarab : MonoBehaviour
             KillSidewaysVelocity();
             ClampSpeed();
             HandleShooting();
+            WanderingControl();
         }
         else
         {
@@ -66,6 +75,7 @@ public class Scarab : MonoBehaviour
             KillSidewaysVelocity();
             ClampSpeed();
             HandleRotationPlayer();
+            WanderingControl();
         }
     }
 
@@ -86,33 +96,27 @@ public class Scarab : MonoBehaviour
         float angle = Mathf.Atan2(target.position.y - transform.position.y, target.position.x - transform.position.x) * Mathf.Rad2Deg - 90f;
         float smoothedAngle = Mathf.LerpAngle(rb.rotation, angle, rotationSpeed * Time.fixedDeltaTime); 
         rb.MoveRotation(smoothedAngle);
-    }
+    } 
 
     private void HandleRotationPlayer()
     {
-  if (patrolPoints == null || patrolPoints.Length == 0)
-        return;
+        if (patrolPoints == null || patrolPoints.Length == 0)
+            return;
 
-    Transform closestPoint = null;
-    float closestDist = float.MaxValue;
-
-    foreach (Transform patrolPoint in patrolPoints)
-    {
-        float dist = Vector2.Distance(transform.position, patrolPoint.position);
-        if (dist >= detectionRadius && dist < closestDist)
+        Transform patrolPoint = patrolPoints[currentWaypointIndex];
+        if(Vector2.Distance(transform.position, patrolPoint.position) < 2)
         {
-            closestDist = dist;
-            closestPoint = patrolPoint;
+            currentWaypointIndex = (currentWaypointIndex  + 1) % patrolPoints.Length;
         }
-    }
-
-    if (closestPoint == null)
-        return; // no qualifying point found
-
-    float angle = Mathf.Atan2(closestPoint.position.y - transform.position.y, closestPoint.position.x - transform.position.x) * Mathf.Rad2Deg - 90f;
-    float smoothedAngle = Mathf.LerpAngle(rb.rotation, angle, rotationSpeed * Time.fixedDeltaTime);
-    rb.MoveRotation(smoothedAngle);
-}                
+        else
+        {
+          float angle = Mathf.Atan2(patrolPoint.position.y - transform.position.y, patrolPoint.position.x - transform.position.x) * Mathf.Rad2Deg - 90f;
+          float smoothedAngle = Mathf.LerpAngle(rb.rotation, angle, rotationSpeed * Time.fixedDeltaTime);
+          rb.MoveRotation(smoothedAngle);
+        }
+        
+        
+    }                
 
 
     private void  KillSidewaysVelocity()
@@ -136,7 +140,7 @@ public class Scarab : MonoBehaviour
 
     private void HandleShooting()
     {
-        if(inRange && nextFireTime <= Time.time && target!= null)
+        if(inRange && nextFireTime <= Time.time && target!= null&& canShoot)
         {
             nextFireTime = Time.time + shootingRate;
             Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
@@ -146,10 +150,23 @@ public class Scarab : MonoBehaviour
 
     private void WanderingControl()
     {
-        Vector2 toSpawn = (Vector2)spawnPosition.position - (Vector2)transform.position;
-        float distanceFromSpawn = toSpawn.magnitude;
+        if(Vector2.Distance(playerTransform.position, transform.position) < 100f)
+        {
+            canShoot = false;
+            Vector2 toMother = (Vector2)playerTransform.position - (Vector2)transform.position;
+            float distanceFromSpawn = toMother.magnitude;
+            float angle = Mathf.Atan2(toMother.y,toMother.x) * Mathf.Rad2Deg - 90f;
+            float smoothedAngle = Mathf.LerpAngle(rb.rotation, angle, rotationSpeed * Time.fixedDeltaTime);
+            rb.MoveRotation(smoothedAngle);
+
+        }
+        else
+        {
+            canShoot = true;
+            return;
+        }
         
-        float angle = Mathf.Atan2(toSpawn.y, toSpawn.x) * Mathf.Rad2Deg - 90f;
+        
     }
 
     void OnTriggerStay2D(Collider2D collision)
