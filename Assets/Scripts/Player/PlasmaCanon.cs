@@ -1,37 +1,66 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections.Generic;
 
 public class PlasmaCanon : MonoBehaviour
 {
     [Header("Projectile Settings")]
-    [SerializeField] private GameObject  projectilePrefabs;
+    [SerializeField] private GameObject projectilePrefabs;
 
     [Header("Ammo Settings")]
     [SerializeField] private int ammo = 200;
+    [SerializeField] private List<BulletEntry> bulletPrefabs;
+    private BulletType currentType = BulletType.Standard;
+
+    private GameObject GetCurrentPrefab()
+    {
+        BulletEntry entry = bulletPrefabs.Find(b => b.type == currentType);
+        if (entry.prefab == null)
+        {
+            Debug.LogWarning($"No prefab found for bullet type: {currentType}");
+        }
+        return entry.prefab;
+    }
 
     [Header("Fire Rate Settings")]
     [SerializeField] private float shootingRate = 0.5f;
     private float nextFireTime = 0f;
 
     [Header("Instantiation Points")]
-    [SerializeField]private Transform firePoint1;
-    [SerializeField]private Transform firePoint2;
+    [SerializeField] private Transform firePoint1;
+    [SerializeField] private Transform firePoint2;
 
-    public int Ammo => ammo; // Read-only public access if needed by UI
+    public int Ammo => ammo;
 
     void Update()
-    { 
-        // Use GetButton for automatic fire; swap to GetButtonDown for single-shot
-        if (Input.GetButton("Fire2") && CanFire()&& SettingsManager.instance.shotType == true)
+    {
+        Shoot();
+        bool middleButtonPressed = Mouse.current != null && Mouse.current.middleButton.wasPressedThisFrame;
+        if(middleButtonPressed && currentType == BulletType.Standard)
+        {
+            SwapBullet(BulletType.Homing);
+        }
+        else if(middleButtonPressed && currentType == BulletType.Homing)
+        {
+            SwapBullet(BulletType.Standard);
+        }
+    }
+
+    private void Shoot()
+    {
+        bool fire2Held = Mouse.current != null && Mouse.current.rightButton.isPressed;
+        bool spacePressed = Keyboard.current != null && Keyboard.current.altKey.wasPressedThisFrame;
+        
+
+
+        if (fire2Held && CanFire() && SettingsManager.instance.shotType == true)
         {
             Fire();
         }
-        else if(Keyboard.current.spaceKey.wasPressedThisFrame && CanFire() && SettingsManager.instance.shotType == false)
+        else if (spacePressed && CanFire() && SettingsManager.instance.shotType == false)
         {
-            Fire(); 
+            Fire();
         }
-        
-       
     }
 
     private bool CanFire()
@@ -41,31 +70,32 @@ public class PlasmaCanon : MonoBehaviour
 
     private void Fire()
     {
-        if (projectilePrefabs.[0] == null)
+        GameObject prefab = GetCurrentPrefab();
+        if (prefab == null)
         {
-            Debug.LogWarning("PlasmaCanon: No projectile prefab assigned!");
+            Debug.LogWarning("Fire() aborted — no valid prefab for current bullet type.");
             return;
         }
 
         ammo--;
         nextFireTime = Time.time + shootingRate;
 
-        //Instantiation
-        Instantiate(projectilePrefabs.[0],firePoint1.position, firePoint1.rotation);
-        Instantiate(projectilePrefabs.[0],firePoint2.position,firePoint2.rotation);
+        Instantiate(prefab, firePoint1.position, firePoint1.rotation);
+        Instantiate(prefab, firePoint2.position, firePoint2.rotation);
 
         Debug.Log($"Fired! Ammo remaining: {ammo}");
 
         if (ammo <= 0)
         {
             Debug.Log("Out of ammo!");
-            // OnOutOfAmmo?.Invoke(); // Uncomment if using an event
         }
     }
 
-    
+    public void SwapBullet(BulletType newType)
+    {
+        currentType = newType;
+    }
 
-    // Optional: call this to reload
     public void Reload(int amount)
     {
         ammo += amount;

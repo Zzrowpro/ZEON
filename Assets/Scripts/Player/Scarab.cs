@@ -1,7 +1,4 @@
-using System;
-using Unity.Mathematics;
-using Unity.VisualScripting;
-using UnityEditor;
+
 using UnityEngine;
 
 [RequireComponent(typeof(CircleCollider2D))]

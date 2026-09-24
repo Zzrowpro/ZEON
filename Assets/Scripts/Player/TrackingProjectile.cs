@@ -1,5 +1,3 @@
-
-using NUnit.Framework;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -7,20 +5,24 @@ public class TrackingProjectile : Projectile
 {
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
-    [SerializeField] private Transform target;
-    private Sprite notTargeting;
-    private Sprite targeting;
+    private Transform target;
+    [SerializeField] private Sprite notTargeting;
+    [SerializeField]private Sprite targeting;
+    [SerializeField] private LayerMask targetLayer;
     private bool isTargeting;
 
+    [Header("Configurable values")]
+    private int rotateSpeed;
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    void Start()
+    protected override void  Start()
     {
-        Raycast();
+        base.Start();
+        Raycast(); 
     }
 
     void Update()
@@ -39,8 +41,11 @@ public class TrackingProjectile : Projectile
     {
         if(target != null)
         {
-            Vector2 direction = target.position - transform.position;
-            rb.linearVelocity = direction * bulletSpeed;
+            Vector2 direction = ((Vector2)target.position - (Vector2)rb.position).normalized;
+            float rotateAmount = Vector3.Cross(direction, transform.up).z;
+            rb.angularVelocity = -rotateAmount * rotateSpeed;
+            rb.linearVelocity = transform.up * bulletSpeed;
+            
             isTargeting = true;
         }
         if(target == null)
@@ -51,7 +56,7 @@ public class TrackingProjectile : Projectile
 
     private void Raycast()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.up);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.up, Mathf.Infinity, targetLayer);
         if (hit)
         {
             target = hit.transform;

@@ -262,7 +262,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
   hp: 6
-  maxhp: 6
+  maxHp: 0
   isDead: 0
 --- !u!114 &6617476260267196883
 MonoBehaviour:
@@ -283,6 +283,7 @@ MonoBehaviour:
   directionChangeSpeed: 0.5
   maxSpinSpeed: 10
   roamRadius: 3
+  points: 2
   sprites:
   - {fileID: -156700482, guid: 3843d68b9a086ac4eaf98e3f76b11d51, type: 3}
   - {fileID: 1688518739, guid: 3843d68b9a086ac4eaf98e3f76b11d51, type: 3}

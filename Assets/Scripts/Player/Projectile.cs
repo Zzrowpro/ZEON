@@ -10,7 +10,9 @@ public class Projectile : MonoBehaviour
     public float lifetime;
     public int dmg;
 
-    void Start()
+    public GameObject explosionEffect;
+
+    protected virtual void  Start()
     {
         GetComponent<Rigidbody2D>().AddForce(transform.up * bulletSpeed, ForceMode2D.Impulse);
         Destroy(gameObject, lifetime);
@@ -32,8 +34,12 @@ public class Projectile : MonoBehaviour
             Health obstacle = collision.gameObject.GetComponent<Health>();
             if(obstacle != null)
             {
+                if(obstacle.hp - dmg >= 0)
+                {
+                    Instantiate(explosionEffect, transform.position, transform.rotation);
+                }
                 obstacle.TakeDamage(dmg);
-                DataManager.instance.points += 1;
+                DataManager.instance.points += collision.GetComponent<Obstacle>().points;
                 Destroy(gameObject);
             }
             else

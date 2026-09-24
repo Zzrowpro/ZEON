@@ -13,6 +13,8 @@ public class Obstacle : MonoBehaviour
     public float maxSpinSpeed = 10f;
     public float roamRadius = 3f;
 
+    public int points = 1;
+
     protected Rigidbody2D rb;
     protected Vector2 currentDirection;
     private Vector2 spawnPosition;
@@ -21,11 +23,15 @@ public class Obstacle : MonoBehaviour
     private PolygonCollider2D pc2D;
     [SerializeField]private Sprite [] sprites;
 
-    void Start()
+
+    void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         pc2D = GetComponent<PolygonCollider2D>();
+        rb = gameObject.GetComponent<Rigidbody2D>();
+    }
+    void Start()
+    {
 
         if(sprites.Length != 0) // Randomising what sprite shows up for the asteroid upon spawn
         {
