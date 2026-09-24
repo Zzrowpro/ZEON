@@ -7,6 +7,7 @@ public class Health : MonoBehaviour
     [SerializeField]public int hp;
     [SerializeField]public int maxHp;
     public bool isDead = false;
+    public GameObject effect;
 
     void Update()
     {
@@ -14,6 +15,8 @@ public class Health : MonoBehaviour
         {
             hp = maxHp;
         }
+
+        
 
     }
 
@@ -30,10 +33,16 @@ public class Health : MonoBehaviour
 
             if(hp <= 0)
             {
-                Destroy(gameObject);
-                isDead = true;
+                Dead();
             }
         }
+    }
+
+    private void Dead()
+    {
+        if(effect != null)Instantiate(effect, transform.position, transform.rotation);
+        isDead = true;
+        Destroy(gameObject);
     }
 
     

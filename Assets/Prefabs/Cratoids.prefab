@@ -264,6 +264,7 @@ MonoBehaviour:
   hp: 6
   maxHp: 0
   isDead: 0
+  effect: {fileID: 1828176872806910, guid: 64891a0eb28db934898420d80ca07cb3, type: 3}
 --- !u!114 &6617476260267196883
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -21,17 +21,13 @@ public class Obstacle : MonoBehaviour
 
     private SpriteRenderer sr;
     private PolygonCollider2D pc2D;
-    [SerializeField]private Sprite [] sprites;
+    [SerializeField]private Sprite [] sprites; 
 
-
-    void Awake()
+    void Start()
     {
         sr = GetComponent<SpriteRenderer>();
         pc2D = GetComponent<PolygonCollider2D>();
         rb = gameObject.GetComponent<Rigidbody2D>();
-    }
-    void Start()
-    {
 
         if(sprites.Length != 0) // Randomising what sprite shows up for the asteroid upon spawn
         {

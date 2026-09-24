@@ -82,6 +82,7 @@ MonoBehaviour:
   directionChangeSpeed: 1
   maxSpinSpeed: 10
   roamRadius: 3
+  points: 1
   sprites:
   - {fileID: 6508697118812104769, guid: 3843d68b9a086ac4eaf98e3f76b11d51, type: 3}
   - {fileID: -8578200942317029868, guid: 3843d68b9a086ac4eaf98e3f76b11d51, type: 3}
@@ -161,8 +162,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
   hp: 2
-  maxhp: 2
+  maxHp: 0
   isDead: 0
+  effect: {fileID: 1828176872806910, guid: 64891a0eb28db934898420d80ca07cb3, type: 3}
 --- !u!60 &7457382651498776676
 PolygonCollider2D:
   m_ObjectHideFlags: 0

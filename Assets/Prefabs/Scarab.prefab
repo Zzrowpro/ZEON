@@ -216,7 +216,7 @@ MonoBehaviour:
   shootingRate: 0.5
   firePoint: {fileID: 112859472767139686}
   firePoint2: {fileID: 3444018822013009871}
-  canShoot: 0
+  canShoot: 1
   lifetime: 10
 --- !u!114 &3226291305404746453
 MonoBehaviour:
@@ -233,6 +233,7 @@ MonoBehaviour:
   hp: 1
   maxHp: 1
   isDead: 0
+  effect: {fileID: 0}
 --- !u!1 &2187984122997505195
 GameObject:
   m_ObjectHideFlags: 0

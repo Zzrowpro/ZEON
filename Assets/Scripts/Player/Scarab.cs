@@ -1,4 +1,5 @@
 
+using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(CircleCollider2D))]
@@ -25,7 +26,7 @@ public class Scarab : MonoBehaviour
     [Header("Player Detection")]
     [SerializeField]private Transform playerTransform;
     [SerializeField]private float detectionRadius = 5f;
-    [SerializeField]private Transform [] patrolPoints;
+    [SerializeField]List <Transform> patrolPoints = new(); 
     private int currentWaypointIndex;
     private bool isPatrolling = true;
     int ranNum;
@@ -36,7 +37,7 @@ public class Scarab : MonoBehaviour
     [SerializeField]private float shootingRate = 0.5f;
     [SerializeField]private Transform firePoint;
     [SerializeField]private Transform firePoint2;
-    [SerializeField]private bool canShoot;
+    [SerializeField]private bool canShoot = true;
 
     [Header("Random Needed Variables")]
     private Transform spawnPosition;
@@ -44,10 +45,16 @@ public class Scarab : MonoBehaviour
 
     void Start()
     {
+        
         Destroy(gameObject, lifetime);
     } 
     void Awake()
     {
+        GameObject [] PatrolObjects  = GameObject.FindGameObjectsWithTag("PatrolPoints");
+        foreach(GameObject point in PatrolObjects)
+        {
+            patrolPoints.Add(point.transform);
+        }
         //[SerializeField]private Transform playerTransform;
         //Same reason as above. 
         rb = GetComponent<Rigidbody2D>();
@@ -97,13 +104,13 @@ public class Scarab : MonoBehaviour
 
     private void HandleRotationPlayer()
     {
-        if (patrolPoints == null || patrolPoints.Length == 0)
+        if (patrolPoints == null || patrolPoints.Count == 0)
             return;
 
         Transform patrolPoint = patrolPoints[currentWaypointIndex];
         if(Vector2.Distance(transform.position, patrolPoint.position) < 2)
         {
-            currentWaypointIndex = (currentWaypointIndex  + 1) % patrolPoints.Length;
+            currentWaypointIndex = (currentWaypointIndex  + 1) % patrolPoints.Count;
         }
         else
         {

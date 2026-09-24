@@ -1,4 +1,3 @@
-using NUnit.Framework;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
@@ -34,10 +33,6 @@ public class Projectile : MonoBehaviour
             Health obstacle = collision.gameObject.GetComponent<Health>();
             if(obstacle != null)
             {
-                if(obstacle.hp - dmg >= 0)
-                {
-                    Instantiate(explosionEffect, transform.position, transform.rotation);
-                }
                 obstacle.TakeDamage(dmg);
                 DataManager.instance.points += collision.GetComponent<Obstacle>().points;
                 Destroy(gameObject);

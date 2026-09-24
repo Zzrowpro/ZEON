@@ -41,7 +41,7 @@ public class TrackingProjectile : Projectile
     {
         if(target != null)
         {
-            Vector2 direction = ((Vector2)target.position - (Vector2)rb.position).normalized;
+            Vector2 direction = ((Vector2)target.position - rb.position).normalized;
             float rotateAmount = Vector3.Cross(direction, transform.up).z;
             rb.angularVelocity = -rotateAmount * rotateSpeed;
             rb.linearVelocity = transform.up * bulletSpeed;
