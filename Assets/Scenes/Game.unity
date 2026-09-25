@@ -2160,7 +2160,7 @@ GameObject:
   m_Component:
   - component: {fileID: 828524825}
   m_Layer: 0
-  m_Name: Fix scarab istantiation problem and Start on trooper
+  m_Name: Add Flame Boosters on Scarab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2832,7 +2832,7 @@ SpriteRenderer:
   m_SortingLayer: 4
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 5719455504136299416, guid: df30eacec1eb80541a3c1f83350f18de, type: 3}
+  m_Sprite: {fileID: 6265158378120174275, guid: df30eacec1eb80541a3c1f83350f18de, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4467,20 +4467,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 481878601168265117, guid: 804ba1d04ca14514a870d547b3524d90, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2688188838415318338, guid: 804ba1d04ca14514a870d547b3524d90, type: 3}
       propertyPath: m_Size.x
-      value: 1.4
+      value: 3.2
       objectReference: {fileID: 0}
     - target: {fileID: 2688188838415318338, guid: 804ba1d04ca14514a870d547b3524d90, type: 3}
       propertyPath: m_Size.y
-      value: 1.9333333
+      value: 3.2
       objectReference: {fileID: 0}
     - target: {fileID: 2688188838415318338, guid: 804ba1d04ca14514a870d547b3524d90, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 6712000054457363456, guid: 484f15106f0db2c42918737c621ddcc1, type: 3}
+      objectReference: {fileID: 21300000, guid: 25793f1ad01dd044e8fa1444c5f86d75, type: 3}
     - target: {fileID: 2688188838415318338, guid: 804ba1d04ca14514a870d547b3524d90, type: 3}
       propertyPath: m_Color.a
       value: 0.14901961
@@ -4503,7 +4503,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2688188838415318338, guid: 804ba1d04ca14514a870d547b3524d90, type: 3}
       propertyPath: m_WasSpriteAssigned
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4662359187519906691, guid: 804ba1d04ca14514a870d547b3524d90, type: 3}
       propertyPath: player
@@ -4511,15 +4511,15 @@ PrefabInstance:
       objectReference: {fileID: 1228039045}
     - target: {fileID: 5240143171086226346, guid: 804ba1d04ca14514a870d547b3524d90, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.78787
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5240143171086226346, guid: 804ba1d04ca14514a870d547b3524d90, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.78787
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5240143171086226346, guid: 804ba1d04ca14514a870d547b3524d90, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.78787
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5240143171086226346, guid: 804ba1d04ca14514a870d547b3524d90, type: 3}
       propertyPath: m_LocalPosition.x
