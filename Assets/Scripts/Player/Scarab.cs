@@ -26,7 +26,7 @@ public class Scarab : MonoBehaviour
     [Header("Player Detection")]
     [SerializeField]private Transform playerTransform;
     [SerializeField]private float detectionRadius = 5f;
-    [SerializeField]List <Transform> patrolPoints = new(); 
+    [SerializeField]List <Transform> patrolPoints;
     private int currentWaypointIndex;
     private bool isPatrolling = true;
     int ranNum;
@@ -51,10 +51,12 @@ public class Scarab : MonoBehaviour
     void Awake()
     {
         GameObject [] PatrolObjects  = GameObject.FindGameObjectsWithTag("PatrolPoints");
+        Debug.Log(PatrolObjects.Length);
         foreach(GameObject point in PatrolObjects)
         {
             patrolPoints.Add(point.transform);
-        }
+        }   
+        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         //[SerializeField]private Transform playerTransform;
         //Same reason as above. 
         rb = GetComponent<Rigidbody2D>();
@@ -75,6 +77,7 @@ public class Scarab : MonoBehaviour
         }
         else
         {
+            if(patrolPoints == null) return; 
             HandleThrust();
             KillSidewaysVelocity();
             ClampSpeed();

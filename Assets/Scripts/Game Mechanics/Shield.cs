@@ -5,11 +5,14 @@ using UnityEngine;
 
 public class Shield : MonoBehaviour
 {
-    public Transform player;
-    public GameObject projectilePrefab;
-    public float kB = 1f;
-    Health shieldHealth;
+    [SerializeField]private Transform player;
+    //public GameObject projectilePrefab;
+    private float kB = 1f;
+
+
+    private Health shieldHealth;
     private SpriteRenderer sr;
+
     public float speed = 0.2f;
     private Color c;
     
@@ -26,11 +29,16 @@ public class Shield : MonoBehaviour
         
         transform.position = new Vector2(player.position.x, player.position.y);
         transform.rotation = Quaternion.Euler(0f, 0f, player.eulerAngles.z);
+
+        /*
         float hue = Mathf.Repeat(Time.time * speed, 1f);
         float alpha = Mathf.PingPong(Time.time * speed, 1f);
         Color c = Color.HSVToRGB(hue, 1f, 1f);
         c.a = alpha;
         sr.color = c;
+        */
+
+        //Sheild is gonna be a sprite instead of looking like a power up.
 
     }
 

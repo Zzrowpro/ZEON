@@ -210,8 +210,7 @@ MonoBehaviour:
   sidewaysDamping: 3
   playerTransform: {fileID: 0}
   detectionRadius: 5
-  patrolPoints:
-  - {fileID: 0}
+  patrolPoints: []
   projectilePrefab: {fileID: 2826953703126582219, guid: 8ea3378308b3cb547afe198026b92eaa, type: 3}
   shootingRate: 0.5
   firePoint: {fileID: 112859472767139686}
