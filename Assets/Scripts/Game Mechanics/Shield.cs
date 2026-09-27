@@ -7,7 +7,8 @@ public class Shield : MonoBehaviour
 {
     [SerializeField]private Transform player;
     //public GameObject projectilePrefab;
-    private float kB = 1f;
+    [SerializeField]private float knockBack = 1f;
+    [SerializeField]private int damageGiven = 2;
 
 
     private Health shieldHealth;
@@ -52,10 +53,11 @@ public class Shield : MonoBehaviour
         else if (collision.gameObject.CompareTag("Obstacle"))
         {
             Rigidbody2D rb = collision.gameObject.GetComponent<Rigidbody2D>();
-            Destroy(collision.gameObject);
+            Health health = collision.gameObject.GetComponent<Health>();
+            health.TakeDamage(damageGiven);
             shieldHealth.TakeDamage(1);
 
-            rb.AddForce(transform.up * kB, ForceMode2D.Impulse);
+            rb.AddForce(transform.up * knockBack, ForceMode2D.Impulse);
         }
     }
 }

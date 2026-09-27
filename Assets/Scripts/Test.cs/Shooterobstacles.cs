@@ -15,6 +15,10 @@ public class Shooterobstacles : Obstacle, IMimicable //This is an interface it c
     public bool tryShoot = true;
     private bool isHalted = false;
 
+    private GameObject activeProjectile;
+
+    [SerializeField]private GameObject Halo;
+
     [Header("Shooter Settings")]
     [SerializeField]private GameObject projectilePrefab;
     private float nextFireTime;
@@ -29,10 +33,8 @@ public class Shooterobstacles : Obstacle, IMimicable //This is an interface it c
             Debug.LogWarning("AggroObstacle: No GameObject with tag 'Player' found!");
 
             playerController = player.GetComponent<PlayerController>();
+
     }
-
-
-
     protected override void HandleMovement()
     {
         if (inRange && target != null)
@@ -53,10 +55,16 @@ public class Shooterobstacles : Obstacle, IMimicable //This is an interface it c
                 rb.MovePosition(currentPosition + (direction * aggroSpeed * Time.deltaTime)); 
                 ShootingStance();
             }
+            else
+            {
+                ShootingStance();
+            }
               
         }
-        else
+        else if(inRange == false)
         {
+            Halt(false);
+            Debug.Log("Back to normal");
             base.HandleMovement();
         }
     }
@@ -67,6 +75,7 @@ public class Shooterobstacles : Obstacle, IMimicable //This is an interface it c
         Debug.Log("Halt");
         if (collision.gameObject.CompareTag("Player"))
             inRange = true;
+            Debug.Log("In range");
     }
 
     void OnTriggerExit2D(Collider2D collision)
@@ -75,6 +84,7 @@ public class Shooterobstacles : Obstacle, IMimicable //This is an interface it c
         {
             inRange = false;
             tryShoot = true;
+            Debug.Log("Not inrange");
         }
     }
             
@@ -87,22 +97,20 @@ public class Shooterobstacles : Obstacle, IMimicable //This is an interface it c
             Fire();
         }
         
-        Debug.Log("DID TS WORK");
-        
     }
 
     void Halt(bool halt)
     {
     isHalted = halt;
-    if (halt)
-    {
-        rb.linearVelocity = Vector2.zero;
-        rb.bodyType = RigidbodyType2D.Kinematic; // prevents physics from moving it
-    }
-    else
-    {
-        rb.bodyType = RigidbodyType2D.Dynamic;
-    }
+        if (halt)
+        {
+            rb.linearVelocity = Vector2.zero;
+            rb.bodyType = RigidbodyType2D.Kinematic; // prevents physics from moving it
+        }
+        else if(halt == false)
+        {
+            rb.bodyType = RigidbodyType2D.Dynamic;
+        }
     }
 
     public void CopyStateFrom(IMimicable other)
@@ -112,7 +120,14 @@ public class Shooterobstacles : Obstacle, IMimicable //This is an interface it c
 
     private bool CanFire()
     {
-        return Time.time >= nextFireTime;
+        return Time.time >= nextFireTime && CheckForProjectileGone();
+    }
+
+    private bool CheckForProjectileGone()
+    {
+        bool gone = activeProjectile == null; // Unity overloads == so this is true after Destroy() too
+        Halo.SetActive(!gone); //Can keep track of instantiated prefabs, good to note. 
+        return gone;
     }
 
     private void Fire()
@@ -123,10 +138,9 @@ public class Shooterobstacles : Obstacle, IMimicable //This is an interface it c
             return;
         }
         nextFireTime = Time.time + shootingRate;
-        GameObject ghost =  Instantiate(projectilePrefab, transform.position, transform.rotation); //A way to copy the state of one gameobject to another uupon instantiationb
-        IMimicable bMimic =  ghost.GetComponent<IMimicable>();
+        activeProjectile = Instantiate(projectilePrefab, transform.position, transform.rotation);
+        IMimicable bMimic = activeProjectile.GetComponent<IMimicable>();
         bMimic.CopyStateFrom(this);
-
     }
 
 }

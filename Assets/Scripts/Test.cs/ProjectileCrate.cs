@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class ProjectileCrate : MonoBehaviour, IMimicable
@@ -34,8 +35,8 @@ public class ProjectileCrate : MonoBehaviour, IMimicable
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Health health = collision.gameObject.GetComponentInParent<Health>();
-            health.TakeDamage(dmg);
+            PlayerHealth playerHealth = collision.gameObject.GetComponentInParent<PlayerHealth>();
+            playerHealth.TakeDamage(dmg);
             Destroy(gameObject);
         }
     }
