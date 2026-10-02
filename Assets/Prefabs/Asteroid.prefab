@@ -90,6 +90,7 @@ MonoBehaviour:
   - {fileID: 2306335819317273441, guid: 3843d68b9a086ac4eaf98e3f76b11d51, type: 3}
   - {fileID: -1119041093, guid: 3843d68b9a086ac4eaf98e3f76b11d51, type: 3}
   - {fileID: 65860952, guid: 3843d68b9a086ac4eaf98e3f76b11d51, type: 3}
+  sparksEffect: {fileID: 7087667330863750797, guid: ff5283a57f13f8c4894312001906a311, type: 3}
 --- !u!212 &6650608213892316451
 SpriteRenderer:
   serializedVersion: 2

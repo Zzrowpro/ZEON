@@ -39,6 +39,11 @@ public class ProjectileCrate : MonoBehaviour, IMimicable
             playerHealth.TakeDamage(dmg);
             Destroy(gameObject);
         }
+
+        if (collision.gameObject.CompareTag("Projectile"))
+        {
+            
+        }
     }
 
 }

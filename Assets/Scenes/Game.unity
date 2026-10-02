@@ -566,6 +566,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 93277862}
   m_CullTransparentMesh: 1
+--- !u!1 &101573871
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 101573872}
+  m_Layer: 0
+  m_Name: Fix Scripts
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &101573872
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 101573871}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -11.34945, y: -30.54268, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &127449587
 GameObject:
   m_ObjectHideFlags: 0
@@ -2008,7 +2039,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &647327992
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2023,15 +2054,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BallSpawner
   myObstacles:
   - prefab: {fileID: 2281760701106576878, guid: 5181d1c31f43909438dd595447ab7854, type: 3}
-    weight: 1
+    weight: 0.8
   - prefab: {fileID: 2281760701106576878, guid: baf4b80106b1485488d10e0c402382f2, type: 3}
-    weight: 0.5
-  amount: 10
+    weight: 0.4
+  - prefab: {fileID: 8200343172939050527, guid: 315a4067ca7d4a4458244292025a59f6, type: 3}
+    weight: 0.1
+  amount: 30
   player: {fileID: 1228039045}
-  spawnRadius: 20
-  despawnRadius: 30
-  spawnInterval: 0.5
-  minSpawnDistance: 7
+  spawnRadius: 70
+  despawnRadius: 80
+  spawnInterval: 1
+  minSpawnDistance: 5
 --- !u!4 &647327993
 Transform:
   m_ObjectHideFlags: 0
@@ -2947,8 +2980,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cc717d40bd325644823dfbff0ca7cf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
-  hp: 3
-  maxhp: 3
+  hp: 10000
+  maxhp: 10000
   isDead: 0
   flames: {fileID: 2085556282}
 --- !u!114 &1228039053
@@ -3391,63 +3424,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1507986900}
   m_CullTransparentMesh: 1
---- !u!1001 &1556058094
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2722569143450212157, guid: 315a4067ca7d4a4458244292025a59f6, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2722569143450212157, guid: 315a4067ca7d4a4458244292025a59f6, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2722569143450212157, guid: 315a4067ca7d4a4458244292025a59f6, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2722569143450212157, guid: 315a4067ca7d4a4458244292025a59f6, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2722569143450212157, guid: 315a4067ca7d4a4458244292025a59f6, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2722569143450212157, guid: 315a4067ca7d4a4458244292025a59f6, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2722569143450212157, guid: 315a4067ca7d4a4458244292025a59f6, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2722569143450212157, guid: 315a4067ca7d4a4458244292025a59f6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2722569143450212157, guid: 315a4067ca7d4a4458244292025a59f6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2722569143450212157, guid: 315a4067ca7d4a4458244292025a59f6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8200343172939050527, guid: 315a4067ca7d4a4458244292025a59f6, type: 3}
-      propertyPath: m_Name
-      value: Purple_Crate
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 315a4067ca7d4a4458244292025a59f6, type: 3}
 --- !u!1 &1597668764
 GameObject:
   m_ObjectHideFlags: 0
@@ -4594,4 +4570,4 @@ SceneRoots:
   - {fileID: 840045171}
   - {fileID: 29187995}
   - {fileID: 828524825}
-  - {fileID: 1556058094}
+  - {fileID: 101573872}

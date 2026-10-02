@@ -23,6 +23,10 @@ public class Obstacle : MonoBehaviour
     private PolygonCollider2D pc2D;
     [SerializeField]private Sprite [] sprites; 
 
+    private Transform sparksTransform;
+    [SerializeField]private GameObject sparksEffect;
+    private GameObject activeSparks;
+
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
@@ -89,6 +93,12 @@ public class Obstacle : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            Raycast();
+            if (sparksEffect)
+            {
+               activeSparks = Instantiate(sparksEffect, sparksTransform.position, sparksTransform.rotation);
+               Destroy(activeSparks, 2); 
+            }
             PlayerHealth playerHealth = collision.gameObject.GetComponentInParent<PlayerHealth>();
             if (playerHealth != null)
                 playerHealth.TakeDamage(1);
@@ -96,6 +106,15 @@ public class Obstacle : MonoBehaviour
             Health selfHealth = GetComponent<Health>();
             if (selfHealth != null)
                 selfHealth.TakeDamage(1);
+        }
+    }
+
+    private void Raycast()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, rb.linearVelocity, Mathf.Infinity);
+        if (hit)
+        {
+            sparksTransform = hit.transform;
         }
     }
 }

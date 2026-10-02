@@ -10,14 +10,14 @@ public class SpawnEntry
 
 public class BallSpawner : MonoBehaviour
 {
-    public List<SpawnEntry> myObstacles;
-    public int amount = 20;
-    public Transform player;
+    [SerializeField]private List<SpawnEntry> myObstacles;
+    [SerializeField]private int amount = 20;
+    [SerializeField]private Transform player;
 
-    public float spawnRadius = 50f;
-    public float despawnRadius = 60f;
-    public float spawnInterval = 2f;
-    public float minSpawnDistance = 5f;
+    [SerializeField]private float spawnRadius = 50f;
+    [SerializeField]private float despawnRadius = 60f;
+    [SerializeField]private float spawnInterval = 2f;
+    [SerializeField]private float minSpawnDistance = 5f;
 
     private List<GameObject> spawnedObjects = new();
     private float timer;
