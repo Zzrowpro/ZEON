@@ -29,12 +29,11 @@ public class PlayerController : MonoBehaviour
     }
 
     [Header("Visuals")]
-    public GameObject boosterSprite;    
+    [SerializeField]private GameObject boosterSprite;    
 
     private Rigidbody2D rb;
     private Vector2 mouseDirection;
     private bool boosting;
-
     private bool fuelCheck = false;
 
     [Header("Nitro")] // Stuff for the nitro ability
@@ -51,7 +50,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float nitroRefreshRate = 1f;
     [SerializeField] private float nitroCooldownDuration = 10f;  
     private bool nitroOnCooldown = false;
-    private bool canBoost = true;
     private bool isBoosting = false;
     private float nitroCooldownTimer = 0f;
 

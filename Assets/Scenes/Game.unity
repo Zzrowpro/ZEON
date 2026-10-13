@@ -2980,8 +2980,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cc717d40bd325644823dfbff0ca7cf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
-  hp: 10000
-  maxhp: 10000
+  Health: 3
+  MaxHealth: 3
   isDead: 0
   flames: {fileID: 2085556282}
 --- !u!114 &1228039053
@@ -3775,7 +3775,7 @@ MonoBehaviour:
   - {fileID: 93277864}
   - {fileID: 313067462}
   - {fileID: 599894530}
-  health: {fileID: 1228039052}
+  playerHealth: {fileID: 1228039052}
 --- !u!1 &1929510396
 GameObject:
   m_ObjectHideFlags: 0

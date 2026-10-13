@@ -1,38 +1,40 @@
 using Cinemachine;
 using Unity.Mathematics;
-using Unity.VisualScripting;
 using UnityEngine;
 
 
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField]public int hp;
-    [SerializeField]public int maxhp;
-    public bool isDead = false;
+    public int Health;
+    public int MaxHealth;
+    [SerializeField]private bool isDead = false;
 
-    private SpriteRenderer sr;
-    private PlayerController pc;
+    private SpriteRenderer spriteRenderer;
+    private PlayerController playerController;
+    private Collider2D playerCollider;
     [SerializeField] private GameObject flames;
-    private CinemachineImpulseSource impulseSource;
+    private CinemachineImpulseSource impulseSource; //Screen shake
 
     void Awake()
     {
-        sr = gameObject.GetComponent<SpriteRenderer>();
-        pc = gameObject.GetComponent<PlayerController>();
+        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        playerController = gameObject.GetComponent<PlayerController>();
         impulseSource = gameObject.GetComponent<CinemachineImpulseSource>();
+        playerCollider = GetComponent<Collider2D>(); 
+
     }
     void Update()
     {
-        if(hp > maxhp)
+        if(Health > MaxHealth)
         {
-            hp = maxhp;
+            Health = MaxHealth;
         }
 
     }
 
-    public void HpIncrease(int amount)
+    public void HealthIncrease(int amount)
     {
-        hp+= amount; 
+        Health += amount; 
     }
 
     public void TakeDamage(int damage)
@@ -41,13 +43,16 @@ public class PlayerHealth : MonoBehaviour
         CameraShakeManager.instance.CameraShake(impulseSource);
         if (!isDead)
         {
-            hp = math.clamp(hp - damage, 0, maxhp);
+            Health = math.clamp(Health - damage, 0, MaxHealth);
 
-            if(hp <= 0)
-            {
-                sr.enabled = false;
-                pc.enabled = false;
+            if(Health <= 0)
+            { 
+                spriteRenderer.enabled = false;
+                playerController.enabled = false;
+                playerCollider.enabled = false;
                 flames.SetActive(false);
+
+
                 isDead = true;
             }
         }
