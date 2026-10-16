@@ -64,6 +64,7 @@ public class Shooterobstacles : Obstacle, IMimicable //This is an interface it c
         else if(inRange == false)
         {
             Halt(false);
+            Halo.SetActive(true);
             Debug.Log("Back to normal");
             base.HandleMovement();
         }
