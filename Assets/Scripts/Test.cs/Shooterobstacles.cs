@@ -30,7 +30,7 @@ public class Shooterobstacles : Obstacle, IMimicable //This is an interface it c
         if (player != null)
             target = player.GetComponentInParent<Transform>();
         else
-            Debug.LogWarning("AggroObstacle: No GameObject with tag 'Player' found!");
+            CustomDebug.LogMessage("AggroObstacle: No GameObject with tag 'Player' found!");
 
             playerController = player.GetComponent<PlayerController>();
 
@@ -64,7 +64,7 @@ public class Shooterobstacles : Obstacle, IMimicable //This is an interface it c
         else if(inRange == false)
         {
             Halt(false);
-            Debug.Log("Back to normal");
+            CustomDebug.LogMessage("Back to normal");
             base.HandleMovement();
         }
     }
@@ -72,10 +72,10 @@ public class Shooterobstacles : Obstacle, IMimicable //This is an interface it c
     void OnTriggerEnter2D(Collider2D collision)
     {
 
-        Debug.Log("Halt");
+        CustomDebug.LogMessage("Halt");
         if (collision.gameObject.CompareTag("Player"))
             inRange = true;
-            Debug.Log("In range");
+            CustomDebug.LogMessage("In range");
     }
 
     void OnTriggerExit2D(Collider2D collision)
@@ -84,7 +84,7 @@ public class Shooterobstacles : Obstacle, IMimicable //This is an interface it c
         {
             inRange = false;
             tryShoot = true;
-            Debug.Log("Not inrange");
+            CustomDebug.LogMessage("Not inrange");
         }
     }
             
@@ -134,7 +134,7 @@ public class Shooterobstacles : Obstacle, IMimicable //This is an interface it c
     {
         if (projectilePrefab == null)
         {
-            Debug.LogWarning("PlasmaCanon: No projectile prefab assigned!");
+            CustomDebug.LogMessage("PlasmaCanon: No projectile prefab assigned!");
             return;
         }
         nextFireTime = Time.time + shootingRate;

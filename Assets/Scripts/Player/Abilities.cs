@@ -32,13 +32,13 @@ public class Abilities : MonoBehaviour
     {
        if (scarabPrefab == null)
        {
-           Debug.LogWarning("Abilities: No scarab prefab assigned!");
+           CustomDebug.LogMessage("Abilities: No scarab prefab assigned!");
            return;
        }
 
 
        Instantiate(scarabPrefab, scarabSpawnPoint.position, scarabSpawnPoint.rotation);
-       Debug.Log("Scarab spawned!");
+       CustomDebug.LogMessage("Scarab spawned!");
     }
 
     private bool CanSpawnScarab()

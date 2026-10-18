@@ -45,7 +45,7 @@ public class DataManager : MonoBehaviour
     void ApplyData(GameData data)
     {
         points = data.points;
-        Debug.Log("Data Reset Applied");
+        CustomDebug.LogMessage("Data Reset Applied");
 
         // Optional: notify other systems
         OnDataReset?.Invoke(); //Could have use if we plan on continuing the project later on
@@ -55,7 +55,7 @@ public class DataManager : MonoBehaviour
     public void SaveDefault()
     {
         defaultData = GetCurrentData();
-        Debug.Log("Default Data Saved");
+        CustomDebug.LogMessage("Default Data Saved");
     }
 
     // RESET TO DEFAULT 
@@ -63,7 +63,7 @@ public class DataManager : MonoBehaviour
     {
         if (defaultData == null)
         {
-            Debug.LogWarning("No default data saved!");
+            CustomDebug.LogMessage("No default data saved!");
             return;
         }
 

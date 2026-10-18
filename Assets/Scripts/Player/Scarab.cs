@@ -51,7 +51,7 @@ public class Scarab : MonoBehaviour
     void Awake()
     {
         GameObject [] PatrolObjects  = GameObject.FindGameObjectsWithTag("PatrolPoints");
-        Debug.Log(PatrolObjects.Length);
+        CustomDebug.LogMessage(PatrolObjects.Length.ToString());
         foreach(GameObject point in PatrolObjects)
         {
             patrolPoints.Add(point.transform);

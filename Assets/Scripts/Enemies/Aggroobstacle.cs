@@ -15,7 +15,7 @@ public class AggroObstacle : Obstacle
         if (player != null)
             target = player.GetComponentInParent<Transform>();
         else
-            Debug.LogWarning("AggroObstacle: No GameObject with tag 'Player' found!");
+            CustomDebug.LogMessage("AggroObstacle: No GameObject with tag 'Player' found!");
     }
 
     protected override void HandleMovement()
@@ -36,7 +36,7 @@ public class AggroObstacle : Obstacle
     void OnTriggerEnter2D(Collider2D collision)
     {
 
-        Debug.Log("Halt");
+        CustomDebug.LogMessage("Halt");
         if (collision.gameObject.CompareTag("Player"))
             inRange = true;
     }

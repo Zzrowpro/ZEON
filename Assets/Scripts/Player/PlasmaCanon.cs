@@ -17,7 +17,7 @@ public class PlasmaCanon : MonoBehaviour
         BulletEntry entry = bulletPrefabs.Find(b => b.type == currentType);
         if (entry.prefab == null)
         {
-            Debug.LogWarning($"No prefab found for bullet type: {currentType}");
+            CustomDebug.LogMessage($"No prefab found for bullet type: {currentType}");
         }
         return entry.prefab;
     }
@@ -73,7 +73,7 @@ public class PlasmaCanon : MonoBehaviour
         GameObject prefab = GetCurrentPrefab();
         if (prefab == null)
         {
-            Debug.LogWarning("Fire() aborted — no valid prefab for current bullet type.");
+            CustomDebug.LogMessage("Fire() aborted — no valid prefab for current bullet type.");
             return;
         }
 
@@ -83,11 +83,11 @@ public class PlasmaCanon : MonoBehaviour
         Instantiate(prefab, firePoint1.position, firePoint1.rotation);
         Instantiate(prefab, firePoint2.position, firePoint2.rotation);
 
-        Debug.Log($"Fired! Ammo remaining: {ammo}");
+        CustomDebug.LogMessage($"Fired! Ammo remaining: {ammo}");
 
         if (ammo <= 0)
         {
-            Debug.Log("Out of ammo!");
+            CustomDebug.LogMessage("Out of ammo!");
         }
     }
 
