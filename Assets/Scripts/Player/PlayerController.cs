@@ -1,3 +1,5 @@
+using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -5,6 +7,20 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+
+    //Actions 
+
+    public InputActionAsset InputActions;
+
+    //Input Actions
+    private InputAction boost;
+    private InputAction nitro;
+    private InputAction mousePos;
+    private InputAction aimStick;
+    private InputAction turn;
+
+
+    //Refrences
     [SerializeField]private Animator animator;
     [SerializeField]private FuelBar fuelBar;
     [SerializeField]private FuelBar nitroBar;
@@ -53,9 +69,37 @@ public class PlayerController : MonoBehaviour
     private bool isBoosting = false;
     private float nitroCooldownTimer = 0f;
 
+    [Header("Aiming")]
+    [SerializeField]private float stickDeadzone = 0.2f;
+    [SerializeField]private float turnSpeed = 200f; //Turning with A & D on the keyboard
+    
+    private Vector2 aimDirection = Vector2.up;
+    private float turnInput;
+    private bool usingStick;
+    private bool usingManual = false;
+
+    void OnEnable()
+    {
+        InputActions.FindActionMap("Gameplay").Enable();
+    }
+
+    void OnDisable()
+    {
+        InputActions.FindActionMap("Gameplay").Disable();
+    }
+
 
     void Awake()
     {
+        var map = InputActions.FindActionMap("Gameplay");
+        boost = map.FindAction("Boost");
+        nitro = map.FindAction("Nitro"); // add this action in your Input Actions asset
+        mousePos = map.FindAction("MousePos");
+        aimStick = map.FindAction("AimStick");
+        turn = map.FindAction("Turn", true);
+        
+    
+
         fuel = maxFuel;
         nitroFuel = maxNitroFuel;
         fuelBar.setMaxFuel(maxFuel);
@@ -72,15 +116,50 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        Vector2 stick = aimStick.ReadValue<Vector2>(); 
+        bool stickActive = stick.sqrMagnitude > stickDeadzone * stickDeadzone;
+        bool mouseMoved = Mouse.current != null && Mouse.current.delta.ReadValue().sqrMagnitude > 0f;
+        turnInput = turn.ReadValue<float>();
+        bool turnActive = Mathf.Abs(turnInput) > 0.01f;
+
+        //Choosing what input type to use, might make this free handle where they all can trigger at the same time
+        if (turnActive)
+        {
+            usingManual = true;
+        }
+        else if (stickActive)
+        {
+            usingManual = false; usingStick = true;
+        }
+        else if (mouseMoved)
+        {
+            usingManual = false; usingStick = false; 
+        }
+
+
+        if(!usingManual)
+        {
+            if (usingStick)
+            {
+                if(stickActive) aimDirection = stick.normalized;
+            }
+            else
+            {
+                Vector2 mouseWorld = Camera.main.ScreenToWorldPoint(mousePos.ReadValue<Vector2>());
+                aimDirection = (mouseWorld - (Vector2)transform.position).normalized;
+            }
+        }
+
         //Bar Displays
         fuelBar.setFuel(fuel);
         nitroBar.setFuel(NitroFuel);
-        
-        boosting = Mouse.current.leftButton.isPressed;
 
         // Mouse direction
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.value);
-        mouseDirection = (mousePos - transform.position).normalized;
+        // Vector3 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+        // mouseDirection = (mousePos - transform.position).normalized;
+
+
+        boosting = boost.IsPressed() && fuel > 0;
 
         if (boosting && fuel > 0)
         {
@@ -92,7 +171,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //Nitro Mechanics
-        isBoosting = Input.GetButton("Boost") && nitroFuel > 0 && !nitroOnCooldown;
+        isBoosting = nitro.IsPressed() && nitroFuel > 0 && !nitroOnCooldown; //Where boost action is assigned
 
         if(animator.gameObject.activeSelf)
         animator.SetBool("isBoosting",isBoosting);
@@ -131,7 +210,7 @@ public class PlayerController : MonoBehaviour
     {
         if(fuel > 0)
         {
-            RotateTowardsMouse();
+            RotateShip();
             HandleThrust();
             KillSidewaysVelocity();
             ClampSpeed();
@@ -147,9 +226,24 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    void RotateTowardsMouse() //MouseBased Movement
+    // void RotateTowardsMouse() //MouseBased Movement
+    // {
+    //     float angle = Mathf.Atan2(mouseDirection.y, mouseDirection.x) * Mathf.Rad2Deg - 90f;
+    //     float smoothedAngle = Mathf.LerpAngle(rb.rotation, angle, rotationSpeed * Time.fixedDeltaTime);
+    //     rb.MoveRotation(smoothedAngle);
+    // }
+
+    void RotateShip()
     {
-        float angle = Mathf.Atan2(mouseDirection.y, mouseDirection.x) * Mathf.Rad2Deg - 90f;
+        if (usingManual)
+        {
+            if(Math.Abs(turnInput) > 0.01f)
+            {
+                rb.MoveRotation(rb.rotation - turnInput * turnSpeed * Time.fixedDeltaTime);
+                return;
+            }
+        }
+        float angle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 90f;
         float smoothedAngle = Mathf.LerpAngle(rb.rotation, angle, rotationSpeed * Time.fixedDeltaTime);
         rb.MoveRotation(smoothedAngle);
     }
@@ -162,6 +256,7 @@ public class PlayerController : MonoBehaviour
         fuel -= 0.1f;
         
     }
+
 
     void KillSidewaysVelocity()
     {
@@ -181,6 +276,7 @@ public class PlayerController : MonoBehaviour
             rb.linearVelocity = rb.linearVelocity.normalized * maxSpeed;
         }
     }
+
 
     // void Burst() // TS DOES NOT WORK BTW
     // {

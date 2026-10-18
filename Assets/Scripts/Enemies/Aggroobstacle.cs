@@ -36,7 +36,7 @@ public class AggroObstacle : Obstacle
     void OnTriggerEnter2D(Collider2D collision)
     {
 
-        CustomDebug.LogMessage("Halt");
+        //CustomDebug.LogMessage("Halt");
         if (collision.gameObject.CompareTag("Player"))
             inRange = true;
     }

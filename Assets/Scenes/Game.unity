@@ -2376,52 +2376,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!1 &913536268
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 913536270}
-  - component: {fileID: 913536269}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &913536269
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 913536268}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c0793f17a157ac459f0eb9e99772b09, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PathCreator
-  path:
-    points: []
---- !u!4 &913536270
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 913536268}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &965205938
 GameObject:
   m_ObjectHideFlags: 0
@@ -2892,6 +2846,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3a982647ff56ff4dac3b9fc589eedd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
+  InputActions: {fileID: -944628639613478452, guid: 55fc42942ce793847bbb378dd48e10a2, type: 3}
   animator: {fileID: 2085556284}
   fuelBar: {fileID: 808171840}
   nitroBar: {fileID: 1929510398}
@@ -2910,6 +2865,8 @@ MonoBehaviour:
   nitroLossRate: 3
   nitroRefreshRate: 3
   nitroCooldownDuration: 2
+  stickDeadzone: 0.2
+  turnSpeed: 200
 --- !u!50 &1228039047
 Rigidbody2D:
   serializedVersion: 5
@@ -2949,6 +2906,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aba3f03536dd1c42a38935e2b5ad7c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlasmaCanon
+  InputActions: {fileID: -944628639613478452, guid: 55fc42942ce793847bbb378dd48e10a2, type: 3}
   projectilePrefabs: {fileID: 0}
   ammo: 30
   bulletPrefabs:
@@ -4617,4 +4575,3 @@ SceneRoots:
   - {fileID: 29187995}
   - {fileID: 828524825}
   - {fileID: 101573872}
-  - {fileID: 913536270}

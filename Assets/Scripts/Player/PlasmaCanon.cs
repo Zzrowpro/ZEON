@@ -2,8 +2,15 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
 
+
 public class PlasmaCanon : MonoBehaviour
 {
+
+    //Actions
+    public InputActionAsset InputActions;
+
+    private InputAction fire;
+
     [Header("Projectile Settings")]
     [SerializeField] private GameObject projectilePrefabs;
 
@@ -32,9 +39,19 @@ public class PlasmaCanon : MonoBehaviour
 
     public int Ammo => ammo;
 
+
+    void Awake()
+    {
+        var map = InputActions.FindActionMap("Gameplay");
+        fire = map.FindAction("fire");
+    }
+
     void Update()
     {
-        Shoot();
+        if (fire.WasPressedThisFrame())
+        {
+            Shoot();
+        }
         bool middleButtonPressed = Mouse.current != null && Mouse.current.middleButton.wasPressedThisFrame;
         if(middleButtonPressed && currentType == BulletType.Standard)
         {
@@ -48,16 +65,11 @@ public class PlasmaCanon : MonoBehaviour
 
     private void Shoot()
     {
-        bool fire2Held = Mouse.current != null && Mouse.current.rightButton.isPressed;
-        bool spacePressed = Keyboard.current != null && Keyboard.current.altKey.wasPressedThisFrame;
-        
-
-
-        if (fire2Held && CanFire() && SettingsManager.instance.shotType == true)
+        if (CanFire() && SettingsManager.instance.shotType == true)
         {
             Fire();
         }
-        else if (spacePressed && CanFire() && SettingsManager.instance.shotType == false)
+        else if (CanFire() && SettingsManager.instance.shotType == false)
         {
             Fire();
         }

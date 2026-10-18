@@ -64,7 +64,7 @@ public class Shooterobstacles : Obstacle, IMimicable //This is an interface it c
         else if(inRange == false)
         {
             Halt(false);
-            CustomDebug.LogMessage("Back to normal");
+            //CustomDebug.LogMessage("Back to normal");
             base.HandleMovement();
         }
     }
@@ -72,10 +72,10 @@ public class Shooterobstacles : Obstacle, IMimicable //This is an interface it c
     void OnTriggerEnter2D(Collider2D collision)
     {
 
-        CustomDebug.LogMessage("Halt");
+        //CustomDebug.LogMessage("Halt");
         if (collision.gameObject.CompareTag("Player"))
             inRange = true;
-            CustomDebug.LogMessage("In range");
+            //CustomDebug.LogMessage("In range");
     }
 
     void OnTriggerExit2D(Collider2D collision)
