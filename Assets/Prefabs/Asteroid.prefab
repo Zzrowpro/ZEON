@@ -75,8 +75,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9e8b208baf646042b04722e881394a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NewMonoBehaviourScript
-  minimum: 1.2
-  maximum: 3
+  minimum: 1
+  maximum: 2
   baseSpeed: 1
   aimlessStrength: 0.5
   directionChangeSpeed: 1
@@ -84,12 +84,12 @@ MonoBehaviour:
   roamRadius: 3
   points: 1
   sprites:
-  - {fileID: 6508697118812104769, guid: 3843d68b9a086ac4eaf98e3f76b11d51, type: 3}
-  - {fileID: -8578200942317029868, guid: 3843d68b9a086ac4eaf98e3f76b11d51, type: 3}
-  - {fileID: -6857289417567347133, guid: 3843d68b9a086ac4eaf98e3f76b11d51, type: 3}
-  - {fileID: 2306335819317273441, guid: 3843d68b9a086ac4eaf98e3f76b11d51, type: 3}
-  - {fileID: -1119041093, guid: 3843d68b9a086ac4eaf98e3f76b11d51, type: 3}
-  - {fileID: 65860952, guid: 3843d68b9a086ac4eaf98e3f76b11d51, type: 3}
+  - {fileID: -2244543243340742949, guid: 148067f101b3ce34f9e848789af7bfd3, type: 3}
+  - {fileID: 2619520171403366046, guid: 148067f101b3ce34f9e848789af7bfd3, type: 3}
+  - {fileID: 1335499673870057088, guid: 148067f101b3ce34f9e848789af7bfd3, type: 3}
+  - {fileID: 1507908627372422575, guid: 148067f101b3ce34f9e848789af7bfd3, type: 3}
+  - {fileID: -7919934119786583522, guid: 148067f101b3ce34f9e848789af7bfd3, type: 3}
+  - {fileID: -1929366605773643366, guid: 148067f101b3ce34f9e848789af7bfd3, type: 3}
   sparksEffect: {fileID: 7087667330863750797, guid: ff5283a57f13f8c4894312001906a311, type: 3}
 --- !u!212 &6650608213892316451
 SpriteRenderer:

@@ -4,10 +4,11 @@ using UnityEngine;
 public class AggroObstacle : Obstacle
 {
     [Header("Aggro Settings")]
-    public float aggroSpeed = 7f;
+    [SerializeField]private float aggroSpeed = 7f;
+    [SerializeField]private float rotationSpeed = 10f;
 
-    public Transform target;
-    public bool inRange;
+    private Transform target;
+    private bool inRange;
 
     void Awake()
     {
@@ -26,6 +27,9 @@ public class AggroObstacle : Obstacle
             Vector2 currentPosition = transform.position;
             Vector2 direction = (targetPosition - currentPosition).normalized;
             rb.MovePosition(currentPosition + (direction * aggroSpeed * Time.deltaTime));
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
+            float smoothedAngle = Mathf.LerpAngle(rb.rotation, angle, rotationSpeed * Time.fixedDeltaTime) ;
+            rb.MoveRotation(smoothedAngle);
         }
         else
         {

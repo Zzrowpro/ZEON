@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 6617476260267196883}
   - component: {fileID: 1875506223232458895}
   - component: {fileID: 1425988898403603015}
+  - component: {fileID: 8023132591248714429}
   m_Layer: 8
   m_Name: Cratoids
   m_TagString: Obstacle
@@ -193,15 +194,15 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 6020737956458514243, guid: 484f15106f0db2c42918737c621ddcc1, type: 3}
+  m_Sprite: {fileID: -4777737450165869593, guid: bdba8105f0b30c04787239418d0beb0f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.8666667, y: 0.8666667}
+  m_Size: {x: 3.2, y: 3.2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
 --- !u!61 &8961876492153026817
 BoxCollider2D:
@@ -241,8 +242,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.8666667, y: 0.8666667}
-    newSize: {x: 0.8666667, y: 0.8666667}
+    oldSize: {x: 3.2, y: 3.2}
+    newSize: {x: 3.2, y: 3.2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -277,8 +278,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9370279680daba44cb39bd68d54a7051, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  minimum: 1.2
-  maximum: 3
+  minimum: 1
+  maximum: 2
   baseSpeed: 1
   aimlessStrength: 0.5
   directionChangeSpeed: 0.5
@@ -291,9 +292,9 @@ MonoBehaviour:
   - {fileID: 1660596499, guid: 3843d68b9a086ac4eaf98e3f76b11d51, type: 3}
   - {fileID: -2086334152, guid: 3843d68b9a086ac4eaf98e3f76b11d51, type: 3}
   - {fileID: 1298587674, guid: 3843d68b9a086ac4eaf98e3f76b11d51, type: 3}
+  sparksEffect: {fileID: 0}
   aggroSpeed: 2
-  target: {fileID: 0}
-  inRange: 0
+  rotationSpeed: 10
 --- !u!61 &1875506223232458895
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -332,8 +333,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.8666667, y: 0.8666667}
-    newSize: {x: 0.8666667, y: 0.8666667}
+    oldSize: {x: 3.2, y: 3.2}
+    newSize: {x: 3.2, y: 3.2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -377,10 +378,10 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.2, y: 3.2}
+    newSize: {x: 3.2, y: 3.2}
+    adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
@@ -392,3 +393,25 @@ PolygonCollider2D:
       - {x: 0.58778536, y: -0.80901694}
       - {x: 0.9510565, y: 0.30901712}
   m_UseDelaunayMesh: 1
+--- !u!95 &8023132591248714429
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2281760701106576878}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b6f924afc7de0a74bbb3fb71e488d258, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
