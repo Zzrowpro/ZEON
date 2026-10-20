@@ -26,6 +26,7 @@ public class Obstacle : MonoBehaviour
     private Transform sparksTransform;
     [SerializeField]private GameObject sparksEffect;
     private GameObject activeSparks;
+    protected int num;
 
     public void Start()
     {
@@ -36,7 +37,7 @@ public class Obstacle : MonoBehaviour
         if(sprites.Length != 0) // Randomising what sprite shows up for the asteroid upon spawn
         {
             int ranNum = Random.Range(0, sprites.Length);
-            int num = ranNum;
+            num = ranNum;
             if(sr.sprite == null)
             {
                 sr.sprite = sprites[num];

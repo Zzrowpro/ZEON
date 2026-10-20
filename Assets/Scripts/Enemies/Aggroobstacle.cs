@@ -9,7 +9,6 @@ public class AggroObstacle : Obstacle
     [SerializeField]private float rotationSpeed = 10f;
 
     [SerializeField] private Animator animator; 
-    [SerializeField] private AnimatorController [] animatorControllers;
 
     private Transform target;
     private bool inRange;
@@ -25,22 +24,11 @@ public class AggroObstacle : Obstacle
         animator = GetComponent<Animator>();
     }
 
-    void Start()
+    public void Start()
     {
         base.Start();
         //Cant refrence the base start, this shi is hiding it FIX
-        if(animatorControllers.Length > 0)
-        {
-            int ranNum = Random.Range(0, animatorControllers.Length);
-            if(animator.runtimeAnimatorController == null)
-            {
-                animator.runtimeAnimatorController = animatorControllers[ranNum];
-            }
-            else
-            {
-                return; 
-            }
-        }
+        animator.SetInteger("ranInt", num);
     }
 
     protected override void HandleMovement()
