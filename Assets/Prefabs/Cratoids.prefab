@@ -293,8 +293,10 @@ MonoBehaviour:
   - {fileID: -2086334152, guid: 3843d68b9a086ac4eaf98e3f76b11d51, type: 3}
   - {fileID: 1298587674, guid: 3843d68b9a086ac4eaf98e3f76b11d51, type: 3}
   sparksEffect: {fileID: 0}
-  aggroSpeed: 2
+  m_aggroSpeed: 7
   rotationSpeed: 10
+  animator: {fileID: 8023132591248714429}
+  animatorControllers: []
 --- !u!61 &1875506223232458895
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -1,11 +1,15 @@
+using UnityEditor.Animations;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
 public class AggroObstacle : Obstacle
 {
     [Header("Aggro Settings")]
-    [SerializeField]private float aggroSpeed = 7f;
+    [SerializeField]private float m_aggroSpeed = 7f;
     [SerializeField]private float rotationSpeed = 10f;
+
+    [SerializeField] private Animator animator; 
+    [SerializeField] private AnimatorController [] animatorControllers;
 
     private Transform target;
     private bool inRange;
@@ -17,6 +21,26 @@ public class AggroObstacle : Obstacle
             target = player.GetComponentInParent<Transform>();
         else
             CustomDebug.LogMessage("AggroObstacle: No GameObject with tag 'Player' found!");
+
+        animator = GetComponent<Animator>();
+    }
+
+    void Start()
+    {
+        base.Start();
+        //Cant refrence the base start, this shi is hiding it FIX
+        if(animatorControllers.Length > 0)
+        {
+            int ranNum = Random.Range(0, animatorControllers.Length);
+            if(animator.runtimeAnimatorController == null)
+            {
+                animator.runtimeAnimatorController = animatorControllers[ranNum];
+            }
+            else
+            {
+                return; 
+            }
+        }
     }
 
     protected override void HandleMovement()
@@ -26,7 +50,7 @@ public class AggroObstacle : Obstacle
             Vector2 targetPosition = target.position;
             Vector2 currentPosition = transform.position;
             Vector2 direction = (targetPosition - currentPosition).normalized;
-            rb.MovePosition(currentPosition + (direction * aggroSpeed * Time.deltaTime));
+            rb.MovePosition(currentPosition + (direction * m_aggroSpeed * Time.deltaTime));
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
             float smoothedAngle = Mathf.LerpAngle(rb.rotation, angle, rotationSpeed * Time.fixedDeltaTime) ;
             rb.MoveRotation(smoothedAngle);

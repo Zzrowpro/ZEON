@@ -27,7 +27,7 @@ public class Obstacle : MonoBehaviour
     [SerializeField]private GameObject sparksEffect;
     private GameObject activeSparks;
 
-    void Start()
+    public void Start()
     {
         sr = GetComponent<SpriteRenderer>();
         pc2D = GetComponent<PolygonCollider2D>();
@@ -49,8 +49,6 @@ public class Obstacle : MonoBehaviour
             
         }
 
-        
-
         float ranScale = Random.Range(minimum, maximum);
         transform.localScale = new Vector3(ranScale, ranScale, 1);
 
@@ -60,17 +58,16 @@ public class Obstacle : MonoBehaviour
         float randomTorque = Random.Range(-maxSpinSpeed, maxSpinSpeed);
         rb.AddTorque(randomTorque);
 
-        OnStart();
+    }
+public void RunStart()
+    {
+        
+
     }
 
     void FixedUpdate()
     {
         HandleMovement();
-    }
-
-    protected virtual void OnStart()
-    {
-        
     }
 
     protected virtual void HandleMovement()
