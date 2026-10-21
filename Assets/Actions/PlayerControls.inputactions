@@ -3,7 +3,7 @@
     "name": "PlayerControls",
     "maps": [
         {
-            "name": "Gameplay",
+            "name": "Player",
             "id": "57078acb-c311-4c6d-909d-91e8f8e98adb",
             "actions": [
                 {
@@ -193,6 +193,45 @@
                     "action": "Turn",
                     "isComposite": false,
                     "isPartOfComposite": true
+                }
+            ]
+        },
+        {
+            "name": "UI",
+            "id": "208579e9-199c-4e07-818f-067135ed8911",
+            "actions": [
+                {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "ea5f837b-14ff-45d4-83e0-21480b6e551e",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "5fd9cf70-58bf-4554-959d-b219f44e0587",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b273771b-2f45-4464-afe9-7ca9a2592e6f",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

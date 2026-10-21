@@ -42,7 +42,7 @@ public class PlasmaCanon : MonoBehaviour
 
     void Awake()
     {
-        var map = InputActions.FindActionMap("Gameplay");
+        var map = InputActions.FindActionMap("Player");
         fire = map.FindAction("fire");
     }
 

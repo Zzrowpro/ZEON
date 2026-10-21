@@ -1,4 +1,4 @@
-using UnityEditor.Animations;
+
 using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
@@ -8,27 +8,36 @@ public class AggroObstacle : Obstacle
     [SerializeField]private float m_aggroSpeed = 7f;
     [SerializeField]private float rotationSpeed = 10f;
 
-    [SerializeField] private Animator animator; 
+    [SerializeField] private Animator animator;
+    private static readonly int[] StateHashes =
+    {
+    Animator.StringToHash("AggroObstacles_Blue"),
+    Animator.StringToHash("AggroObstacles_Green"),
+    Animator.StringToHash("AggroObstacles_Purple"),
+    Animator.StringToHash("AggroObstacles_Red"),
+    };
 
     private Transform target;
     private bool inRange;
 
     void Awake()
     {
-        GameObject player = GameObject.FindWithTag("Player");
-        if (player != null)
-            target = player.GetComponentInParent<Transform>();
-        else
-            CustomDebug.LogMessage("AggroObstacle: No GameObject with tag 'Player' found!");
+         GameObject player = GameObject.FindWithTag("Player");
+    if (player != null)
+        target = player.transform;
+    else
+        CustomDebug.LogMessage("AggroObstacle: No GameObject with tag 'Player' found!");
 
-        animator = GetComponent<Animator>();
+    if (animator == null)
+        animator = GetComponentInChildren<Animator>();
     }
 
-    public void Start()
+    public override void Start()
     {
         base.Start();
         //Cant refrence the base start, this shi is hiding it FIX
-        animator.SetInteger("ranInt", num);
+        if (animator != null)
+        animator.Play(StateHashes[num % StateHashes.Length], 0, Random.value);
     }
 
     protected override void HandleMovement()

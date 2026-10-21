@@ -1,5 +1,4 @@
 using System;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -78,20 +77,25 @@ public class PlayerController : MonoBehaviour
     private bool usingStick;
     private bool usingManual = false;
 
+    //Pause System : 
+    private PauseSystem pauseSystem;
+
     void OnEnable()
     {
-        InputActions.FindActionMap("Gameplay").Enable();
+        InputActions.FindActionMap("Player").Enable();
     }
 
     void OnDisable()
     {
-        InputActions.FindActionMap("Gameplay").Disable();
+        InputActions.FindActionMap("Player").Disable();
     }
 
 
     void Awake()
     {
-        var map = InputActions.FindActionMap("Gameplay");
+        //Pause System : 
+        pauseSystem = FindFirstObjectByType<PauseSystem>();
+        var map = InputActions.FindActionMap("Player");
         boost = map.FindAction("Boost");
         nitro = map.FindAction("Nitro"); // add this action in your Input Actions asset
         mousePos = map.FindAction("MousePos");
@@ -116,6 +120,8 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if(pauseSystem.GetIsPaused()) return;
+
         Vector2 stick = aimStick.ReadValue<Vector2>(); 
         bool stickActive = stick.sqrMagnitude > stickDeadzone * stickDeadzone;
         bool mouseMoved = Mouse.current != null && Mouse.current.delta.ReadValue().sqrMagnitude > 0f;

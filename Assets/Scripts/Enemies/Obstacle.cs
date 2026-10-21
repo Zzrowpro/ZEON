@@ -28,7 +28,7 @@ public class Obstacle : MonoBehaviour
     private GameObject activeSparks;
     protected int num;
 
-    public void Start()
+    public virtual void Start()
     {
         sr = GetComponent<SpriteRenderer>();
         pc2D = GetComponent<PolygonCollider2D>();
