@@ -47,9 +47,47 @@ public static class GameHelper
         rb2D.MoveRotation(smoothedAngle);
     }
 
-    static public void SnapToGrid(Vector2 position, float gridSize)
+
+    static public Vector2 SnapToGrid(Vector2 position, float gridSize)
+    {
+        Vector2 newPosition = new Vector2(Mathf.Round(position.x / gridSize), position.y/gridSize);
+        return newPosition;
+    }
+
+    public static float GetAngleFromVector2(Vector2 position)
+    {
+        float angle = MathF.Atan2(position.y, position.x) * Mathf.Rad2Deg;
+        return angle;
+    }
+
+    // public static float GetAngleFromVector3(Vector3 position)
+    // {
+        
+    //     return 0.1f;
+    // }
+
+    public static Vector2 GetVector2FromAngle(float angle)
+    {
+        Vector2 direction = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
+        return direction;
+    }
+
+    public static float WobbleValue(float baseValue, float amplitude, float speed)
+    {
+        return Mathf.Sin(baseValue * amplitude * (Time.deltaTime * speed));
+    }
+
+
+    public static void RandomVectorInCircle(float radius)
     {
         
     }
+
+    
+
+
+
+
+
 
 }   

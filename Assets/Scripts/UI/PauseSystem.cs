@@ -1,4 +1,3 @@
-using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -31,10 +30,15 @@ public class PauseSystem : MonoBehaviour
         
         if (pause.WasPressedThisFrame())
         {
-            isPaused = !isPaused;
-            Time.timeScale = isPaused ? 0 : 1;
-            pauseMenu.SetActive(isPaused);
+            Pause();
         }
+    }
+
+    public void Pause()
+    {
+        isPaused = !isPaused;
+        Time.timeScale = isPaused ? 0 : 1;
+        pauseMenu.SetActive(isPaused);
     }
 
     public bool GetIsPaused()
