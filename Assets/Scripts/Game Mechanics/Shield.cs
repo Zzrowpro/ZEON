@@ -1,11 +1,11 @@
 using UnityEngine;
 
-[RequireComponent(typeof(CapsuleCollider2D))]
+[RequireComponent(typeof(Collider2D))]
 [RequireComponent(typeof(Health))]
 
 public class Shield : MonoBehaviour
 {
-    [SerializeField]private Transform player;
+    private Transform player;
     //public GameObject projectilePrefab;
     [SerializeField]private float knockBack = 1f;
     [SerializeField]private int damageGiven = 2;
@@ -15,14 +15,13 @@ public class Shield : MonoBehaviour
     private SpriteRenderer sr;
 
     public float speed = 0.2f;
-    private Color c;
     
 
     void Awake()
     {
+        player = GameObject.Find("Player").transform;
         shieldHealth = GetComponent<Health>();
         sr = GetComponent<SpriteRenderer>();
-        c = GetComponent<SpriteRenderer>().color;
     }
 
     void Update()

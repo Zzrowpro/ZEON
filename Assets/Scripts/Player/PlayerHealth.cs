@@ -14,7 +14,9 @@ public class PlayerHealth : MonoBehaviour
     private PlayerController playerController;
     private Collider2D playerCollider;
     [SerializeField] private GameObject flames;
-    private CinemachineImpulseSource impulseSource; //Screen shake
+    private CinemachineImpulseSource impulseSource; //Screen shake´
+
+    private DamageFlash damageFlash;
 
     private Color originalColor;
 
@@ -23,7 +25,8 @@ public class PlayerHealth : MonoBehaviour
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         playerController = gameObject.GetComponent<PlayerController>();
         impulseSource = gameObject.GetComponent<CinemachineImpulseSource>();
-        playerCollider = GetComponent<Collider2D>(); 
+        playerCollider = GetComponent<Collider2D>();
+        damageFlash = GetComponent<DamageFlash>();
         originalColor = spriteRenderer.color;
 
     }
@@ -41,10 +44,7 @@ public class PlayerHealth : MonoBehaviour
         Health += amount; 
     }
 
-    public void TriggerFlash()
-    {
-        StartCoroutine(FlashCoroutine());
-    }
+ 
 
     public void TakeDamage(int damage)
     {
@@ -53,7 +53,7 @@ public class PlayerHealth : MonoBehaviour
         if (!isDead)
         {
             Health = math.clamp(Health - damage, 0, MaxHealth);
-            TriggerFlash();
+            damageFlash.CallDamageFlash();
 
             if(Health <= 0)
             { 
@@ -64,15 +64,6 @@ public class PlayerHealth : MonoBehaviour
                 isDead = true;
             }
         }
-    }
-
-    private IEnumerator FlashCoroutine()
-    {
-        spriteRenderer.color = Color.white;
-
-        yield return new WaitForSeconds(0.1f);
-
-        spriteRenderer.color = originalColor;
     }
 
     
