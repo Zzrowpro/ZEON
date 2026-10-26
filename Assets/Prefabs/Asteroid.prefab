@@ -14,6 +14,10 @@ GameObject:
   - component: {fileID: 6650608213892316451}
   - component: {fileID: 470943863408376948}
   - component: {fileID: 7457382651498776676}
+  - component: {fileID: 6936889438101232756}
+  - component: {fileID: 3519375515453551071}
+  - component: {fileID: -2710903926147360302}
+  - component: {fileID: 4671072789279993603}
   m_Layer: 8
   m_Name: Asteroid
   m_TagString: Obstacle
@@ -82,7 +86,6 @@ MonoBehaviour:
   directionChangeSpeed: 1
   maxSpinSpeed: 10
   roamRadius: 3
-  points: 1
   sprites:
   - {fileID: -2244543243340742949, guid: 148067f101b3ce34f9e848789af7bfd3, type: 3}
   - {fileID: 2619520171403366046, guid: 148067f101b3ce34f9e848789af7bfd3, type: 3}
@@ -117,7 +120,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: b7859b08603a139448bccd1234ee4d97, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -163,9 +166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
   hp: 2
-  maxHp: 0
-  isDead: 0
-  effect: {fileID: 1828176872806910, guid: 64891a0eb28db934898420d80ca07cb3, type: 3}
+  maxHp: 2
 --- !u!60 &7457382651498776676
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -218,3 +219,89 @@ PolygonCollider2D:
       - {x: 0.58778536, y: -0.80901694}
       - {x: 0.9510565, y: 0.30901712}
   m_UseDelaunayMesh: 1
+--- !u!114 &6936889438101232756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2281760701106576878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a6d224ad1ec41c4a879da0941654bde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KnockBackFeedback
+  strength: 10
+  delay: 0.15
+  OnBegin:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -1696172699797392971}
+        m_TargetAssemblyTypeName: Obstacle, Assembly-CSharp
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnDone:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -1696172699797392971}
+        m_TargetAssemblyTypeName: Obstacle, Assembly-CSharp
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+--- !u!114 &3519375515453551071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2281760701106576878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53646d3f776824e4982d6245566fd62d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamageFlash
+  _flashColor: {r: 1, g: 1, b: 1, a: 1}
+  flashTime: 0.25
+--- !u!114 &-2710903926147360302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2281760701106576878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 120d55a0b5002684a906b16989b0dc88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DeathEffect
+  effectPrefab: {fileID: 1828176872806910, guid: 64891a0eb28db934898420d80ca07cb3, type: 3}
+  effectLifetime: 2
+--- !u!114 &4671072789279993603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2281760701106576878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c40fb63b855ab8243a689ec06549a141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PointsReward
+  points: 1
+  popupPrefab: {fileID: 1204583364227265822, guid: 9491623f70eb5f2458f8f75c977ea8d9, type: 3}

@@ -8,9 +8,8 @@ public class AmmoDisplay : MonoBehaviour
 
     void Update()
     {
-        if (ammoDisplay)
-        {
-            ammoDisplay.text = $"X {PlasmaCanon.Ammo}";
-        }
+        // if (ammoDisplay)
+        // {
+        //     ammoDisplay.text = $"X {PlasmaCanon.Ammo}";
     }
 }

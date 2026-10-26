@@ -1,76 +1,48 @@
-using System.Collections;
-using Unity.Mathematics;
-using Unity.VisualScripting;
+using System;
 using UnityEngine;
 
-
+[RequireComponent(typeof(KnockBackFeedback))]
+[RequireComponent(typeof(DamageFlash))]
 public class Health : MonoBehaviour
 {
-    [SerializeField]public int hp;
-    [SerializeField]public int maxHp;
-    public bool isDead = false;
-    public GameObject effect;
-    private GameObject activeEffect;
+    [SerializeField] private int hp = 1;
+    [SerializeField] private int maxHp = 1;
 
-    private SpriteRenderer spriteRenderer;
-    private Color originalColor;
+    private bool isDead = false;
+    private DamageFlash damageFlash;
+    private KnockBackFeedback kbf;
 
-    void Update()
-    {
-        if(hp > maxHp)
-        {
-            hp = maxHp;
-        }
-    }
+    public event Action Died;
 
     void Awake()
     {
-       spriteRenderer = GetComponent<SpriteRenderer>();
-       originalColor = spriteRenderer.color;
+        damageFlash = GetComponent<DamageFlash>();
+        kbf = GetComponent<KnockBackFeedback>();
     }
 
     public void HpIncrease(int amount)
     {
-        hp+= amount; 
+        hp = Mathf.Min(hp + amount, maxHp);
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, GameObject sender)
     {
-        if (!isDead)
+        if (isDead) return;
+
+        hp = Mathf.Clamp(hp - damage, 0, maxHp);
+        damageFlash.CallDamageFlash();
+        kbf.PlayerFeedback(sender);
+
+        if (hp <= 0)
         {
-            hp = math.clamp(hp - damage, 0, maxHp);
-            TriggerFlash();
-
-            if(hp <= 0)
-            {
-                Dead();
-            }
+            Dead();
         }
-    }
-
-    public void TriggerFlash()
-    {
-        StartCoroutine(FlashCoroutine());
     }
 
     private void Dead()
     {
-        if(effect != null)activeEffect = Instantiate(effect, transform.position, transform.rotation);
-        Destroy(activeEffect, 2);
         isDead = true;
+        Died?.Invoke();
         Destroy(gameObject);
     }
-
-    private IEnumerator FlashCoroutine()
-    {
-        spriteRenderer.color = Color.white;
-
-        yield return new WaitForSeconds(0.1f);
-
-        spriteRenderer.color = originalColor;
-    }
-
-
-
-    
 }

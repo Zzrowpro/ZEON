@@ -13,8 +13,6 @@ public class Obstacle : MonoBehaviour
     public float maxSpinSpeed = 10f;
     public float roamRadius = 3f;
 
-    public int points = 1;
-
     protected Rigidbody2D rb;
     protected Vector2 currentDirection;
     private Vector2 spawnPosition;
@@ -103,7 +101,7 @@ public void RunStart()
 
             Health selfHealth = GetComponent<Health>();
             if (selfHealth != null)
-                selfHealth.TakeDamage(1);
+                selfHealth.TakeDamage(1, collision.gameObject);
         }
     }
 

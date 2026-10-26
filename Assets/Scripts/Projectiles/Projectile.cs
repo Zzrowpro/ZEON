@@ -5,10 +5,11 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    public float bulletSpeed;
-    public float lifetime;
-    public int dmg;
-
+    [SerializeField] protected float bulletSpeed = 30f;
+    [SerializeField] private float lifetime = 3;
+    [SerializeField] private int dmg = 1;
+    [SerializeField] private float knockBack = 15f;
+ 
     public GameObject explosionEffect;
 
     protected virtual void  Start()
@@ -31,10 +32,11 @@ public class Projectile : MonoBehaviour
         else if (collision.gameObject.CompareTag("Obstacle"))
         {
             Health obstacle = collision.gameObject.GetComponent<Health>();
+            Rigidbody2D rigidbody2D = collision.gameObject.GetComponent<Rigidbody2D>();
             if(obstacle != null)
             {
-                obstacle.TakeDamage(dmg);
-                DataManager.instance.points += collision.GetComponent<Obstacle>().points;
+                obstacle.TakeDamage(dmg, gameObject);
+                rigidbody2D.AddForce(transform.up * knockBack, ForceMode2D.Impulse);
                 Destroy(gameObject);
             }
             else

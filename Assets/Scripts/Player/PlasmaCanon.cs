@@ -15,7 +15,7 @@ public class PlasmaCanon : MonoBehaviour
     [SerializeField] private GameObject projectilePrefabs;
 
     [Header("Ammo Settings")]
-    [SerializeField] private int ammo = 200;
+    // [SerializeField] private int ammo = 200;
     [SerializeField] private List<BulletEntry> bulletPrefabs;
     private BulletType currentType = BulletType.Standard;
 
@@ -37,7 +37,7 @@ public class PlasmaCanon : MonoBehaviour
     [SerializeField] private Transform firePoint1;
     [SerializeField] private Transform firePoint2;
 
-    public int Ammo => ammo;
+    // public int Ammo => ammo;
 
 
     void Awake()
@@ -77,7 +77,8 @@ public class PlasmaCanon : MonoBehaviour
 
     private bool CanFire()
     {
-        return ammo > 0 && Time.time >= nextFireTime;
+        // return ammo > 0 && Time.time >= nextFireTime;
+        return Time.time >= nextFireTime;
     }
 
     private void Fire()
@@ -89,18 +90,18 @@ public class PlasmaCanon : MonoBehaviour
             return;
         }
 
-        ammo--;
+        // ammo--;
         nextFireTime = Time.time + shootingRate;
 
         Instantiate(prefab, firePoint1.position, firePoint1.rotation);
         Instantiate(prefab, firePoint2.position, firePoint2.rotation);
 
-        CustomDebug.LogMessage($"Fired! Ammo remaining: {ammo}");
+        // CustomDebug.LogMessage($"Fired! Ammo remaining: {ammo}");
 
-        if (ammo <= 0)
-        {
-            CustomDebug.LogMessage("Out of ammo!");
-        }
+        // if (ammo <= 0)
+        // {
+        //     CustomDebug.LogMessage("Out of ammo!");
+        // }
     }
 
     public void SwapBullet(BulletType newType)
@@ -110,6 +111,6 @@ public class PlasmaCanon : MonoBehaviour
 
     public void Reload(int amount)
     {
-        ammo += amount;
+        //&ammo += amount;
     }
 }

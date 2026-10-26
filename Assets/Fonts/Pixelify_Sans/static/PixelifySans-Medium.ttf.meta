@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c12dd55a7ef6a754986a7569ae34b53c
+guid: 2c6731c16149622419d2f9e14174e655
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Vipnagorgialla
+  - Pixelify Sans
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

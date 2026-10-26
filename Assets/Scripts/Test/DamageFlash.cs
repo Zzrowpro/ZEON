@@ -29,18 +29,28 @@ public class DamageFlash : MonoBehaviour
 
     private IEnumerator DamageFlasher()
     {
-        material.SetColor(FlashColorID, _flashColor);   
+        SetFlashColor(); 
         float elapsedTime = 0f;
         while (elapsedTime < flashTime)
         {
             elapsedTime += Time.deltaTime;
             float amount = Mathf.Lerp(1f, 0f, elapsedTime / flashTime);
-            material.SetFloat(FlashAmountID, amount);
+            SetFlashAmount(amount);
             yield return null;
         }
 
         material.SetFloat(FlashAmountID, 0f);
         _damageFlashCoroutine = null;
+    }
+
+     private void SetFlashColor()
+    {
+        material.SetColor(FlashColorID, _flashColor);
+    }
+
+    private void SetFlashAmount(float amount)
+    {
+        material.SetFloat(FlashAmountID, amount);
     }
 
     void OnDestroy()
