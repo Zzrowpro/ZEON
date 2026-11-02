@@ -34,8 +34,10 @@ public class PlasmaCanon : MonoBehaviour
     private float nextFireTime = 0f;
 
     [Header("Instantiation Points")]
-    [SerializeField] private Transform firePoint1;
-    [SerializeField] private Transform firePoint2;
+
+    [SerializeField]private Transform [] firePoints;
+    // [SerializeField] private Transform firePoint1;
+    // [SerializeField] private Transform firePoint2;
 
     // public int Ammo => ammo;
 
@@ -48,7 +50,7 @@ public class PlasmaCanon : MonoBehaviour
 
     void Update()
     {
-        if (fire.WasPressedThisFrame())
+        if (fire.IsPressed())
         {
             Shoot();
         }
@@ -93,8 +95,12 @@ public class PlasmaCanon : MonoBehaviour
         // ammo--;
         nextFireTime = Time.time + shootingRate;
 
-        Instantiate(prefab, firePoint1.position, firePoint1.rotation);
-        Instantiate(prefab, firePoint2.position, firePoint2.rotation);
+        // Instantiate(prefab, firePoint1.position, firePoint1.rotation);
+        // Instantiate(prefab, firePoint2.position, firePoint2.rotation);
+        foreach(Transform firePoint in firePoints)
+        {
+            Instantiate(prefab, firePoint.position, firePoint.rotation);
+        }
 
         // CustomDebug.LogMessage($"Fired! Ammo remaining: {ammo}");
 

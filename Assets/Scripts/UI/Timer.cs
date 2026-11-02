@@ -37,7 +37,7 @@ public class Timer : MonoBehaviour
             //scoreText.text = $"{Mathf.FloorToInt(pointsPerSecond)}x : {MathF.Ceiling(DataManager.instance.points)}";
             scoreText.text = string.Format("Points : {0}", DataManager.instance.points);
         }
-        changeColorBasedOnPoints(); 
+        // changeColorBasedOnPoints(); 
     }
 
 
@@ -46,16 +46,16 @@ public class Timer : MonoBehaviour
        DataManager.instance.points += pointsPerSecond * Time.deltaTime;
     }
 
-    private void changeColorBasedOnPoints()
-{
-    int level = Mathf.FloorToInt(pointsPerSecond);
-    switch (level)
-    {
-        case 1:  scoreText.color = new Color(225/255f, 225/255f, 225/255f); break; // grey
-        case 2:  scoreText.color = new Color( 30/255f, 100/255f, 255/255f); break; // blue
-        case 3:  scoreText.color = new Color( 50/255f, 205/255f,  50/255f); break; // green
-        case 4:  scoreText.color = new Color(255/255f, 140/255f,   0/255f); break; // orange
-        default: scoreText.color = new Color(255/255f,  30/255f,  30/255f); break; // red (5+)
-    }
-}
+//     private void changeColorBasedOnPoints()
+// {
+//     int level = Mathf.FloorToInt(pointsPerSecond);
+//     switch (level)
+//     {
+//         case 1:  scoreText.color = new Color(225/255f, 225/255f, 225/255f); break; // grey
+//         case 2:  scoreText.color = new Color( 30/255f, 100/255f, 255/255f); break; // blue
+//         case 3:  scoreText.color = new Color( 50/255f, 205/255f,  50/255f); break; // green
+//         case 4:  scoreText.color = new Color(255/255f, 140/255f,   0/255f); break; // orange
+//         default: scoreText.color = new Color(255/255f,  30/255f,  30/255f); break; // red (5+)
+//     }
+// }
 }

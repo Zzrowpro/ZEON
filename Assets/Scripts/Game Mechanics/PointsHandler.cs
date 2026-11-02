@@ -5,11 +5,13 @@ public class PointsReward : MonoBehaviour
 {
     [SerializeField] private int points = 1;
     [SerializeField] private GameObject popupPrefab;
+    private PointHud pointHud;
 
     private Health health;
 
     void Awake()
     {
+        pointHud = GameObject.Find("PointsHud").GetComponent<PointHud>();
         health = GetComponent<Health>();
     }
 
@@ -19,7 +21,7 @@ public class PointsReward : MonoBehaviour
     private void OnDied()
     {
         DataManager.instance.points += points;
-
+        pointHud.Pulse(points);
         GameObject obj = Instantiate(popupPrefab, transform.position, Quaternion.identity);
         obj.GetComponent<Popup>().points = points;
     }

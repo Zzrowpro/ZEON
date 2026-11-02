@@ -1,5 +1,4 @@
 
-
 using TMPro;
 using UnityEngine;
 
@@ -35,4 +34,6 @@ public class Popup : MonoBehaviour
         if(age > fadeStart)
         text.alpha = Mathf.InverseLerp(lifeTime, fadeStart, age);
     }
+
+    
 }

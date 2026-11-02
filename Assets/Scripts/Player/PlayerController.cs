@@ -151,8 +151,14 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                Vector2 mouseWorld = Camera.main.ScreenToWorldPoint(mousePos.ReadValue<Vector2>());
-                aimDirection = (mouseWorld - (Vector2)transform.position).normalized;
+                Vector2 screen = mousePos.ReadValue<Vector2>();
+                Camera cam = Camera.main;
+
+                // z = distance from camera to the plane the ship lives on
+                float depth = Mathf.Abs(cam.transform.position.z - transform.position.z);
+                Vector3 mouseWorld = cam.ScreenToWorldPoint(new Vector3(screen.x, screen.y, depth));
+
+                aimDirection = ((Vector2)mouseWorld - (Vector2)transform.position).normalized;
             }
         }
 

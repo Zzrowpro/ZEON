@@ -10,14 +10,17 @@ public class SpawnEntry
 
 public class BallSpawner : MonoBehaviour
 {
-    [SerializeField]private List<SpawnEntry> myObstacles;
-    [SerializeField]private int amount = 20;
-    [SerializeField]private Transform player;
+    [SerializeField] private List<SpawnEntry> myObstacles;
+    [SerializeField] private int amount = 20;
+    [SerializeField] private Transform player;
 
-    [SerializeField]private float spawnRadius = 50f;
-    [SerializeField]private float despawnRadius = 60f;
-    [SerializeField]private float spawnInterval = 2f;
-    [SerializeField]private float minSpawnDistance = 5f;
+    [SerializeField] private float spawnRadius = 50f;
+    [SerializeField] private float despawnRadius = 60f;
+    [SerializeField] private float spawnInterval = 2f;
+    [SerializeField] private float minSpawnDistance = 5f;
+
+    [SerializeField] private float fadeDuration = 1f;
+    [SerializeField] private bool fadeInitialSpawns = false;
 
     private List<GameObject> spawnedObjects = new();
     private float timer;
@@ -25,16 +28,7 @@ public class BallSpawner : MonoBehaviour
     void Start()
     {
         for (int i = 0; i < amount; i++)
-        {
-            float angle = Random.Range(0f, Mathf.PI * 2);
-            float dist = Random.Range(minSpawnDistance, spawnRadius);
-            Vector2 offset = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) * dist;
-            Vector3 spawnPos = player.position + new Vector3(offset.x, offset.y, 0);
-
-            GameObject prefab = PickWeightedRandom();
-            if (prefab != null)
-                spawnedObjects.Add(Instantiate(prefab, spawnPos, Quaternion.identity));
-        }
+            SpawnOne(fadeInitialSpawns);
     }
 
     void Update()
@@ -46,19 +40,30 @@ public class BallSpawner : MonoBehaviour
         CheckDespawn();
 
         if (spawnedObjects.Count < amount)
-            TrySpawn();
+            SpawnOne(true);
     }
 
-    void TrySpawn()
+    void SpawnOne(bool fade)
     {
+        GameObject prefab = PickWeightedRandom();
+        if (prefab == null) return;
+
         float angle = Random.Range(0f, Mathf.PI * 2);
-        float dist = Random.Range(minSpawnDistance, spawnRadius);
+        float dist = Mathf.Sqrt(Random.Range(minSpawnDistance * minSpawnDistance,
+                                             spawnRadius * spawnRadius));
         Vector2 offset = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) * dist;
         Vector3 spawnPos = player.position + new Vector3(offset.x, offset.y, 0);
 
-        GameObject prefab = PickWeightedRandom();
-        if (prefab != null)
-            spawnedObjects.Add(Instantiate(prefab, spawnPos, Quaternion.identity));
+        GameObject obj = Instantiate(prefab, spawnPos, Quaternion.identity);
+
+        if (fade)
+        {
+            if (!obj.TryGetComponent(out FadeIn fadeIn))
+                fadeIn = obj.AddComponent<FadeIn>();
+            fadeIn.duration = fadeDuration;
+        }
+
+        spawnedObjects.Add(obj);
     }
 
     void CheckDespawn()

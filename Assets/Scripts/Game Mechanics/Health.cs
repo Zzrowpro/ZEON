@@ -1,4 +1,5 @@
 using System;
+using Unity.Mathematics;
 using UnityEngine;
 
 [RequireComponent(typeof(KnockBackFeedback))]
@@ -6,13 +7,32 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     [SerializeField] private int hp = 1;
+    public int Hp
+    {
+        get{return hp;}
+        private set
+        {
+            hp = math.clamp(value, 0, maxHp); 
+            if(hp<= 0)
+            {
+                Dead();
+            }
+        }
+    }
+
     [SerializeField] private int maxHp = 1;
+    public int MaxHp
+    {
+        get{return maxHp;}
+        private set{}
+    }
 
     private bool isDead = false;
     private DamageFlash damageFlash;
     private KnockBackFeedback kbf;
 
     public event Action Died;
+    public event Action TookDamage;
 
     void Awake()
     {
@@ -22,21 +42,16 @@ public class Health : MonoBehaviour
 
     public void HpIncrease(int amount)
     {
-        hp = Mathf.Min(hp + amount, maxHp);
+        Hp = Mathf.Min(Hp + amount, maxHp);
     }
 
     public void TakeDamage(int damage, GameObject sender)
     {
         if (isDead) return;
-
-        hp = Mathf.Clamp(hp - damage, 0, maxHp);
+        TookDamage?.Invoke();
+        Hp -= damage;
         damageFlash.CallDamageFlash();
         kbf.PlayerFeedback(sender);
-
-        if (hp <= 0)
-        {
-            Dead();
-        }
     }
 
     private void Dead()

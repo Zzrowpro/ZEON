@@ -26,6 +26,11 @@ public class Obstacle : MonoBehaviour
     private GameObject activeSparks;
     protected int num;
 
+    void Update()
+    {
+
+    }
+
     public virtual void Start()
     {
         sr = GetComponent<SpriteRenderer>();
@@ -56,11 +61,6 @@ public class Obstacle : MonoBehaviour
 
         float randomTorque = Random.Range(-maxSpinSpeed, maxSpinSpeed);
         rb.AddTorque(randomTorque);
-
-    }
-public void RunStart()
-    {
-        
 
     }
 
