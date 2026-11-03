@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField]private int health;
+    [SerializeField]private int health = 4;
     public int Health
     {
         get{return health;}
@@ -16,6 +16,10 @@ public class PlayerHealth : MonoBehaviour
             if(health <= 0)
             {
                 isDead = true;
+                spriteRenderer.enabled = false;
+                playerController.enabled = false;
+                playerCollider.enabled = false;
+                flames.SetActive(false);
             }
         }
     }
@@ -59,14 +63,6 @@ public class PlayerHealth : MonoBehaviour
             Health = math.clamp(Health - damage, 0, rocketProfiles.maxHealth);
             damageFlash.CallDamageFlash();
 
-            if(Health <= 0)
-            { 
-                spriteRenderer.enabled = false;
-                playerController.enabled = false;
-                playerCollider.enabled = false;
-                flames.SetActive(false);
-                isDead = true;
-            }
         }
     }
 

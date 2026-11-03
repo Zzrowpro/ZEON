@@ -24,25 +24,17 @@ public class PlayerController : MonoBehaviour
     [SerializeField]private FuelBar fuelBar;
     [SerializeField]private FuelBar nitroBar;
     [SerializeField]private GameObject nb;
-
-    [Header("Movement")]
-    [SerializeField]private float acceleration = 15f;
-    [SerializeField]private float maxSpeed = 8f;
-    [SerializeField]private float rotationSpeed = 10f;
-    [SerializeField]private float linearDrag = 1f;
-    [SerializeField]private float sidewaysDamping = 3f;
+    [SerializeField]public RocketProfiles rocketProfiles;
 
     [Header("Movement Abilities")]
-    [SerializeField]private float maxFuel = 200f;
     [SerializeField]private float fuel;
     public float Fuel
     {
         get => fuel;
         
-        set => fuel = Mathf.Clamp(value, 0f, maxFuel);
+        set => fuel = Mathf.Clamp(value, 0f, rocketProfiles.maxFuel);
         
     }
-
     [Header("Visuals")]
     [SerializeField]private GameObject boosterSprite;    
 
@@ -52,18 +44,13 @@ public class PlayerController : MonoBehaviour
     private bool fuelCheck = false;
 
     [Header("Nitro")] // Stuff for the nitro ability
-    [SerializeField] private float maxNitroFuel = 20f;
     [SerializeField] private float nitroFuel;
     public float NitroFuel
     {
         get => nitroFuel;
-        set => nitroFuel = Mathf.Clamp(value, 0, maxNitroFuel);
+        set => nitroFuel = Mathf.Clamp(value, 0, rocketProfiles.maxFuel);
     }
-
-    [SerializeField] private float nitroMulti = 2f;
-    [SerializeField] private float nitroLossRate = 1f;
-    [SerializeField] private float nitroRefreshRate = 1f;
-    [SerializeField] private float nitroCooldownDuration = 10f;  
+ 
     private bool nitroOnCooldown = false;
     private bool isBoosting = false;
     private float nitroCooldownTimer = 0f;
@@ -104,17 +91,17 @@ public class PlayerController : MonoBehaviour
         
     
 
-        fuel = maxFuel;
-        nitroFuel = maxNitroFuel;
-        fuelBar.setMaxFuel(maxFuel);
-        nitroBar.setMaxFuel(maxNitroFuel);
+        fuel = rocketProfiles.maxFuel;
+        nitroFuel = rocketProfiles.maxNitroFuel;
+        fuelBar.setMaxFuel(rocketProfiles.maxFuel);
+        nitroBar.setMaxFuel(rocketProfiles.maxNitroFuel);
     }
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
 
-        rb.linearDamping = linearDrag;
+        rb.linearDamping = rocketProfiles.linearDrag;
         rb.angularDamping = 5f;
     }
 
@@ -190,7 +177,7 @@ public class PlayerController : MonoBehaviour
         
         if (isBoosting)
         {
-            NitroFuel -= nitroLossRate * Time.deltaTime;
+            NitroFuel -= rocketProfiles.nitroLossRate * Time.deltaTime;
             nb.SetActive(true);
             
             if (nitroFuel <= 0)
@@ -198,9 +185,9 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            NitroFuel += nitroRefreshRate * Time.deltaTime;
+            NitroFuel += rocketProfiles.nitroRefreshRate * Time.deltaTime;
             nb.SetActive(true);
-            if(nitroFuel == maxNitroFuel)
+            if(nitroFuel == rocketProfiles.maxNitroFuel)
             {
                 nb.SetActive(false);
             }
@@ -209,7 +196,7 @@ public class PlayerController : MonoBehaviour
         if (nitroOnCooldown)
         {
             nitroCooldownTimer += Time.deltaTime;
-            if (nitroCooldownTimer >= nitroCooldownDuration)
+            if (nitroCooldownTimer >= rocketProfiles.nitroCooldownDuration)
             {
                 nitroOnCooldown = false;
                 nitroCooldownTimer = 0f;
@@ -256,7 +243,7 @@ public class PlayerController : MonoBehaviour
             }
         }
         float angle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 90f;
-        float smoothedAngle = Mathf.LerpAngle(rb.rotation, angle, rotationSpeed * Time.fixedDeltaTime);
+        float smoothedAngle = Mathf.LerpAngle(rb.rotation, angle, rocketProfiles.rotationSpeed * Time.fixedDeltaTime);
         rb.MoveRotation(smoothedAngle);
     }
 
@@ -264,7 +251,7 @@ public class PlayerController : MonoBehaviour
     {
         if (!boosting) return;
 
-        rb.AddForce(transform.up * (isBoosting ? acceleration * nitroMulti : acceleration));
+        rb.AddForce(transform.up * (isBoosting ? rocketProfiles.acceleration * rocketProfiles.nitroMulti : rocketProfiles.acceleration));
         fuel -= 0.1f;
         
     }
@@ -278,14 +265,14 @@ public class PlayerController : MonoBehaviour
         float forwardSpeed = Vector2.Dot(rb.linearVelocity, forward);
         float sidewaysSpeed = Vector2.Dot(rb.linearVelocity, right);
 
-        rb.linearVelocity = forward * forwardSpeed + right * sidewaysSpeed * (1f - sidewaysDamping * Time.fixedDeltaTime);
+        rb.linearVelocity = forward * forwardSpeed + right * sidewaysSpeed * (1f - rocketProfiles.sidewaysDamping * Time.fixedDeltaTime);
     }
 
     void ClampSpeed()
     {
-        if (rb.linearVelocity.magnitude > maxSpeed)
+        if (rb.linearVelocity.magnitude > rocketProfiles.maxSpeed)
         {
-            rb.linearVelocity = rb.linearVelocity.normalized * maxSpeed;
+            rb.linearVelocity = rb.linearVelocity.normalized * rocketProfiles.maxSpeed;
         }
     }
 

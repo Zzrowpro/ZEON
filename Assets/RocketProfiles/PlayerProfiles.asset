@@ -22,9 +22,9 @@ MonoBehaviour:
   sidewaysDamping: 3
   maxFuel: 200
   maxNitroFuel: 20
-  nitroMulti: 2
-  nitroLossRate: 1
-  nitroRefreshRate: 1
-  nitroCooldownDuration: 10
+  nitroMulti: 10
+  nitroLossRate: 3
+  nitroRefreshRate: 3
+  nitroCooldownDuration: 2
   stickDeadzone: 0.2
   turnSpeed: 200
