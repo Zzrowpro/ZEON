@@ -1,4 +1,4 @@
-using System.Collections;
+using System;
 using Cinemachine;
 using Unity.Mathematics;
 using UnityEngine;
@@ -6,18 +6,31 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public int Health;
-    public int MaxHealth;
+    [SerializeField]private int health;
+    public int Health
+    {
+        get{return health;}
+        set
+        {
+            health = Math.Clamp(value, 0, rocketProfiles.maxHealth);
+            if(health <= 0)
+            {
+                isDead = true;
+            }
+        }
+    }
     [SerializeField]private bool isDead = false;
+    [SerializeField] RocketProfiles rocketProfiles;
+    [SerializeField] private GameObject flames;
 
     private SpriteRenderer spriteRenderer;
     private PlayerController playerController;
     private Collider2D playerCollider;
-    [SerializeField] private GameObject flames;
+    
+
     private CinemachineImpulseSource impulseSource; //Screen shake´
 
     private DamageFlash damageFlash;
-
     private Color originalColor;
 
     void Awake()
@@ -30,15 +43,6 @@ public class PlayerHealth : MonoBehaviour
         originalColor = spriteRenderer.color;
 
     }
-    void Update()
-    {
-        if(Health > MaxHealth)
-        {
-            Health = MaxHealth;
-        }
-
-    }
-
     public void HealthIncrease(int amount)
     {
         Health += amount; 
@@ -52,7 +56,7 @@ public class PlayerHealth : MonoBehaviour
         CameraShakeManager.instance.CameraShake(impulseSource);
         if (!isDead)
         {
-            Health = math.clamp(Health - damage, 0, MaxHealth);
+            Health = math.clamp(Health - damage, 0, rocketProfiles.maxHealth);
             damageFlash.CallDamageFlash();
 
             if(Health <= 0)

@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27dc3e50892e3da4db064a606255da10, type: 3}
+  m_Name: PlayerProfiles
+  m_EditorClassIdentifier: Assembly-CSharp::RocketProfiles
+  maxHealth: 5
+  shootingRate: 0.5
+  bulletPrefabs: {fileID: 2826953703126582219, guid: 8ea3378308b3cb547afe198026b92eaa, type: 3}
+  acceleration: 15
+  maxSpeed: 8
+  rotationSpeed: 10
+  linearDrag: 1
+  sidewaysDamping: 3
+  maxFuel: 200
+  maxNitroFuel: 20
+  nitroMulti: 2
+  nitroLossRate: 1
+  nitroRefreshRate: 1
+  nitroCooldownDuration: 10
+  stickDeadzone: 0.2
+  turnSpeed: 200

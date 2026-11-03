@@ -10,12 +10,14 @@ public class HealthDisplay : MonoBehaviour
     public Sprite fullHeart;
     public Image [] hearts;
 
+    [SerializeField] RocketProfiles rocketProfiles;
+
     public PlayerHealth playerHealth;
 
     void Update()
     {
         health = playerHealth.Health;
-        maxHealth = playerHealth.MaxHealth; 
+        maxHealth = rocketProfiles.maxHealth; 
         HeartsDisplay(); 
     } 
 

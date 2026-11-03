@@ -28,9 +28,6 @@ public class Scarab : MonoBehaviour
     [SerializeField]private float detectionRadius = 5f;
     [SerializeField]List <Transform> patrolPoints;
     private int currentWaypointIndex;
-    private bool isPatrolling = true;
-    int ranNum;
-
     [Header("Shooting")]
     [SerializeField]private GameObject projectilePrefab;
     private float nextFireTime = 0f;
@@ -40,7 +37,7 @@ public class Scarab : MonoBehaviour
     [SerializeField]private bool canShoot = true;
 
     [Header("Random Needed Variables")]
-    private Transform spawnPosition;
+    
     [SerializeField]private float lifetime = 10f;
 
     void Start()
@@ -60,7 +57,6 @@ public class Scarab : MonoBehaviour
         //[SerializeField]private Transform playerTransform;
         //Same reason as above. 
         rb = GetComponent<Rigidbody2D>();
-        spawnPosition = transform;
     }
 
     void FixedUpdate()

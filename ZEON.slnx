@@ -1,6 +1,5 @@
 ﻿<Solution>
   <Project Path="Assembly-CSharp.csproj" />
-  <Project Path="OneCommander.csproj" />
   <Project Path="Unity.ProGrids.Editor.csproj" />
   <Project Path="Unity.ProGrids.Editor.Tests.csproj" />
   <Project Path="Unity.ProGrids.csproj" />
