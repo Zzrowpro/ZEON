@@ -5225,7 +5225,7 @@ Camera:
   m_GameObject: {fileID: 69569599}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 2
+  m_ClearFlags: 4
   m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -17718,13 +17718,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 843841565}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04e62c2fbd3bf5a4bb9be14879cd341a, type: 3}
+  m_Script: {fileID: 11500000, guid: 3ed2284555904a2498c7b90137bbaa64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PointHud
   targetScale: {x: 2, y: 2, z: 1}
   idleAlpha: 0
   inflateDuration: 0.15
-  holdTime: 0.4
+  holdTime: 1
   deflateDuration: 1.5
 --- !u!1 &923941243
 GameObject:
@@ -24311,10 +24311,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Bomb
   time: 2
-  damage: 10
+  damage: 2
   effect: {fileID: 1329845292236604, guid: 9bba9cf244c53c5439505dfc96fdd11c, type: 3}
-  subdivisions: 441
-  radius: 16.49
+  effectLifetime: 2
+  targetPlayer: 1
+  subdivisions: 262
+  radius: 10.4
   lineRenderer: {fileID: 591797255}
 --- !u!4 &1668301088
 Transform:
@@ -24452,13 +24454,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f697a115a184a449a421994b871a1f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BasicMovement
-  minimum: 0.5
-  maximum: 2
-  baseSpeed: 0.5
-  aimlessStrength: 2
-  directionChangeSpeed: 1
-  maxSpinSpeed: 10
-  roamRadius: 3
+  driftSpeed: 0.25
+  rotateSpeed: 10
 --- !u!1 &1692056317
 GameObject:
   m_ObjectHideFlags: 0

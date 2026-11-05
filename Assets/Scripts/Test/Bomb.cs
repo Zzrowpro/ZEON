@@ -6,7 +6,9 @@ public class Bomb : MonoBehaviour
     [SerializeField] private float time = 2f;
     [SerializeField] private int damage;
     [SerializeField] private GameObject effect;
-
+    [SerializeField] private float effectLifetime = 2f;
+    [SerializeField] private bool targetPlayer = false;
+ 
     [Header("Range")]
     [SerializeField] private int subdivisions = 10;
     [SerializeField] private float radius = 5f;
@@ -37,20 +39,41 @@ public class Bomb : MonoBehaviour
     private IEnumerator WaitForExplosionCoroutine()
     {
         yield return new WaitForSeconds(time);
-        CheckSurroundings();
+        if(targetPlayer == false)CheckSurroundings();
+        else CheckForPlayer();
     }
 
     void CheckSurroundings()
+    {
+        int numColliders = Physics2D.OverlapCircle(transform.position, radius, ContactFilter2D.noFilter, hitColliders);
+        for (int i = 0; i < numColliders; i++)
         {
-            int numColliders = Physics2D.OverlapCircle(transform.position, radius, ContactFilter2D.noFilter, hitColliders);
-            for (int i = 0; i < numColliders; i++)
+            if (hitColliders[i].TryGetComponent(out Health health))
             {
-                if (hitColliders[i].TryGetComponent(out Health health))
-                {
-                    health.TakeDamage(damage);
-                }
+                health.TakeDamage(damage);
             }
-            if(effect)Instantiate(effect, transform.position, transform.rotation);
-            Destroy(gameObject, 0.1f);
         }
+        if (effect)
+        {
+            GameObject fx = Instantiate(effect, transform.position, transform.rotation);
+            Destroy(fx, effectLifetime);
+        }
+        Destroy(gameObject, effectLifetime);
+    }
+
+    void CheckForPlayer()
+    {
+        int numColliders = Physics2D.OverlapCircle(transform.position, radius, ContactFilter2D.noFilter, hitColliders);
+        for (int i = 0; i < numColliders; i++)
+        {
+            if (hitColliders[i].CompareTag("Player"))
+            {
+                hitColliders[i].TryGetComponent(out PlayerHealth playerHealth);
+                playerHealth.TakeDamage(damage);
+                break;
+            }
+        }
+        GameObject fx = Instantiate(effect, transform.position, transform.rotation);
+        Destroy(gameObject);
+    }
 }

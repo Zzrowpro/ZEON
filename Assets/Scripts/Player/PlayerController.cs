@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
     public float NitroFuel
     {
         get => nitroFuel;
-        set => nitroFuel = Mathf.Clamp(value, 0, rocketProfiles.maxFuel);
+        set => nitroFuel = Mathf.Clamp(value, 0, rocketProfiles.maxNitroFuel);
     }
  
     private bool nitroOnCooldown = false;
@@ -91,7 +91,7 @@ public class PlayerController : MonoBehaviour
         
     
 
-            fuel = rocketProfiles.maxFuel;
+        fuel = rocketProfiles.maxFuel;
         nitroFuel = rocketProfiles.maxNitroFuel;
         fuelBar.setMaxFuel(rocketProfiles.maxFuel);
         nitroBar.setMaxFuel(rocketProfiles.maxNitroFuel);
@@ -150,7 +150,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //Bar Displays
-        fuelBar.setFuel(fuel);
+        fuelBar.setFuel(Fuel);
         nitroBar.setFuel(NitroFuel);
 
         // Mouse direction
@@ -158,9 +158,9 @@ public class PlayerController : MonoBehaviour
         // mouseDirection = (mousePos - transform.position).normalized;
 
 
-        boosting = boost.IsPressed() && fuel > 0;
+        boosting = boost.IsPressed() && Fuel > 0;
 
-        if (boosting && fuel > 0)
+        if (boosting && Fuel > 0)
         {
             boosterSprite.SetActive(true);
         }
@@ -207,7 +207,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(fuel > 0)
+        if(Fuel > 0)
         {
             RotateShip();
             HandleThrust();
@@ -216,7 +216,7 @@ public class PlayerController : MonoBehaviour
             //Burst();
             fuelCheck = false;
         }
-        else if (fuel == 0 && !fuelCheck) // Push the players spaceship in a random direction when game ends.
+        else if (Fuel == 0 && !fuelCheck) // Push the players spaceship in a random direction when game ends.
         {
             fuelCheck = true;
             Vector2 direction = UnityEngine.Random.insideUnitCircle; 
@@ -252,7 +252,7 @@ public class PlayerController : MonoBehaviour
         if (!boosting) return;
 
         rb.AddForce(transform.up * (isBoosting ? rocketProfiles.acceleration * rocketProfiles.nitroMulti : rocketProfiles.acceleration));
-        fuel -= 0.1f;
+        Fuel -= 0.1f;
         
     }
 
