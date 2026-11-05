@@ -22,7 +22,7 @@ MonoBehaviour:
   sidewaysDamping: 3
   maxFuel: 200
   maxNitroFuel: 20
-  nitroMulti: 10
+  nitroMulti: 30
   nitroLossRate: 3
   nitroRefreshRate: 3
   nitroCooldownDuration: 2

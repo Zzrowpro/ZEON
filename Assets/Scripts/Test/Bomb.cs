@@ -1,34 +1,56 @@
-using System;
-using Unity.Mathematics;
+using System.Collections;
 using UnityEngine;
-
-[RequireComponent(typeof(CircleCollider2D))]
-[RequireComponent(typeof(LineRenderer))]
 public class Bomb : MonoBehaviour
 {
-    [SerializeField] private CircleCollider2D range;
-    private LineRenderer line; 
-    [SerializeField] private int segments;
-    private float radius;
-    void Awake()
+    [Header("Attributes")]
+    [SerializeField] private float time = 2f;
+    [SerializeField] private int damage;
+    [SerializeField] private GameObject effect;
+
+    [Header("Range")]
+    [SerializeField] private int subdivisions = 10;
+    [SerializeField] private float radius = 5f;
+    [SerializeField] private LineRenderer lineRenderer;
+
+    private readonly Collider2D[] hitColliders = new Collider2D[32];
+
+    void Start()
     {
-        range = GetComponent<CircleCollider2D>();
-        line = GetComponent<LineRenderer>();
-        radius = range.radius; //getting radius
-        line.useWorldSpace = false;
-        line.loop = true;
-        line.positionCount = segments;
-        CreateCircle();
+        StartCoroutine(WaitForExplosionCoroutine());
     }
 
-    void CreateCircle()
+    void Update()
     {
-        Vector3 [] points = new Vector3 [segments];
-        for(int i = 0; i < segments; i++)
+        float angleStep = 2f * Mathf.PI / subdivisions;
+        lineRenderer.positionCount = subdivisions;
+        for(int i  = 0; i < subdivisions; i++)
         {
-            float angle = ((float)i / (float)segments)*(math.PI * 2f);
-            points[i] = new Vector3(MathF.Cos(angle) * radius, Mathf.Sin(angle), 0f);
+            float xPosition = radius * Mathf.Cos(angleStep * i);
+            float yPosition = radius * Mathf.Sin(angleStep * i);
+
+            Vector3 pointInCircle = new Vector3(xPosition, yPosition);
+            lineRenderer.SetPosition(i, pointInCircle);
         }
-        line.SetPositions(points);
+
     }
+
+    private IEnumerator WaitForExplosionCoroutine()
+    {
+        yield return new WaitForSeconds(time);
+        CheckSurroundings();
+    }
+
+    void CheckSurroundings()
+        {
+            int numColliders = Physics2D.OverlapCircle(transform.position, radius, ContactFilter2D.noFilter, hitColliders);
+            for (int i = 0; i < numColliders; i++)
+            {
+                if (hitColliders[i].TryGetComponent(out Health health))
+                {
+                    health.TakeDamage(damage);
+                }
+            }
+            if(effect)Instantiate(effect, transform.position, transform.rotation);
+            Destroy(gameObject, 0.1f);
+        }
 }

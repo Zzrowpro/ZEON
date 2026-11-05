@@ -91,7 +91,7 @@ public class PlayerController : MonoBehaviour
         
     
 
-        fuel = rocketProfiles.maxFuel;
+            fuel = rocketProfiles.maxFuel;
         nitroFuel = rocketProfiles.maxNitroFuel;
         fuelBar.setMaxFuel(rocketProfiles.maxFuel);
         nitroBar.setMaxFuel(rocketProfiles.maxNitroFuel);

@@ -54,6 +54,14 @@ public class Health : MonoBehaviour
         kbf.PlayerFeedback(sender);
     }
 
+    public void TakeDamage(int damage)
+    {
+        if(isDead) return;
+        TookDamage?.Invoke();
+        Hp -= damage;
+        damageFlash.CallDamageFlash();
+    }
+
     private void Dead()
     {
         isDead = true;
