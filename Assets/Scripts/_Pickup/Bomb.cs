@@ -37,15 +37,14 @@ public class Bomb : MonoBehaviour
 
     void DrawCircle(float r)
     {
+        float localR = r / transform.lossyScale.x;
         float angleStep = 2f * Mathf.PI / subdivisions;
         lineRenderer.positionCount = subdivisions;
-        for(int i  = 0; i < subdivisions; i++)
+        for (int i = 0; i < subdivisions; i++)
         {
-            float xPosition = r * Mathf.Cos(angleStep * i);
-            float yPosition = r * Mathf.Sin(angleStep * i);
-
-            Vector3 pointInCircle = new Vector3(xPosition, yPosition);
-            lineRenderer.SetPosition(i, pointInCircle);
+            float x = localR * Mathf.Cos(angleStep * i);
+            float y = localR * Mathf.Sin(angleStep * i);
+            lineRenderer.SetPosition(i, new Vector3(x, y, 0));
         }
     }
 

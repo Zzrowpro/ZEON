@@ -41,10 +41,13 @@ public static class GameHelper
     public static void SmoothRotationToPoint(Transform target, Rigidbody2D rb2D, float rotationSpeed)
     {
         Vector2 position = target.position;
-        float angle = MathF.Atan2(position.y, position.x) * Mathf.Rad2Deg - 90f;
+        float angle = Mathf.Atan2(position.y, position.x) * Mathf.Rad2Deg - 90f;
         float smoothedAngle = Mathf.LerpAngle(rb2D.rotation, angle,rotationSpeed * Time.fixedDeltaTime);
         rb2D.MoveRotation(smoothedAngle);
     }
+
+    
+
 
 
     static public Vector2 SnapToGrid(Vector2 position, float gridSize)

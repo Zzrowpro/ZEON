@@ -91,8 +91,6 @@ public class PlasmaCanon : MonoBehaviour
             CustomDebug.LogMessage("Fire() aborted — no valid prefab for current bullet type.");
             return;
         }
-
-        // ammo--;
         nextFireTime = Time.time + shootingRate;
 
         // Instantiate(prefab, firePoint1.position, firePoint1.rotation);
@@ -109,6 +107,7 @@ public class PlasmaCanon : MonoBehaviour
         //     CustomDebug.LogMessage("Out of ammo!");
         // }
     }
+    
 
     public void SwapBullet(BulletType newType)
     {
