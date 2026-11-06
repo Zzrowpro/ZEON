@@ -8,7 +8,7 @@ public class SpawnEntry
     public float weight = 1f;
 }
 
-public class BallSpawner : MonoBehaviour
+public class ObstacleSpawner : MonoBehaviour
 {
     [SerializeField] private List<SpawnEntry> myObstacles;
     [SerializeField] private int amount = 20;
@@ -49,8 +49,7 @@ public class BallSpawner : MonoBehaviour
         if (prefab == null) return;
 
         float angle = Random.Range(0f, Mathf.PI * 2);
-        float dist = Mathf.Sqrt(Random.Range(minSpawnDistance * minSpawnDistance,
-                                             spawnRadius * spawnRadius));
+        float dist = Mathf.Sqrt(Random.Range(minSpawnDistance * minSpawnDistance,spawnRadius * spawnRadius));
         Vector2 offset = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) * dist;
         Vector3 spawnPos = player.position + new Vector3(offset.x, offset.y, 0);
 

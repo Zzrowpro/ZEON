@@ -12,6 +12,8 @@ public class Abilities : MonoBehaviour
     private InputAction spawnScarap;
     private InputAction spawnBomb;
 
+    private Rigidbody2D _rigibody2D;
+
    [Header("Scarab Settings")]
    [SerializeField] private int scarabCount = 2;
    [SerializeField] private float scarabCooldown = 5f;
@@ -34,6 +36,7 @@ public class Abilities : MonoBehaviour
         var map = InputActions.FindActionMap("Abilities");
         spawnScarap = map.FindAction("spawnScarab");
         spawnBomb = map.FindAction("spawnBomb");
+        _rigibody2D = GetComponent<Rigidbody2D>();
 
     }
 
@@ -73,12 +76,12 @@ public class Abilities : MonoBehaviour
     {
         bombCooldownTimer = bombCooldown;
         GameObject bomb = Instantiate(bombPrefab, transform.position, transform.rotation);
-        bomb.GetComponent<Rigidbody2D>().AddForce(bomb.transform.up, ForceMode2D.Impulse);
+        bomb.GetComponent<Rigidbody2D>().AddForce(bomb.transform.up * _rigibody2D.linearVelocity.magnitude, ForceMode2D.Impulse);
         totalBombs --;
     }
     private void SpawnScarab()
     {
-       if (scarabPrefab == null)
+       if (scarabPrefab == null)    
        {
            CustomDebug.LogMessage("Abilities: No scarab prefab assigned!");
            return;
@@ -94,14 +97,6 @@ public class Abilities : MonoBehaviour
     private bool CanSpawnScarab()
     {
         return scarabCooldownTimer <= 0f && canSpawnScarab;
-    }
-
-    private IEnumerator SpawnBombCoroutine()
-    {
-        bombCooldownTimer = bombCooldown;
-        SpawnBomb();
-        yield return new WaitForSeconds(bombCooldownTimer);
-        
     }
 
     private IEnumerator SpawnScarabCoroutine()
