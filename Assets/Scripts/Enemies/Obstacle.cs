@@ -89,12 +89,6 @@ public class Obstacle : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Raycast();
-            if (sparksEffect)
-            {
-               activeSparks = Instantiate(sparksEffect, sparksTransform.position, sparksTransform.rotation);
-               Destroy(activeSparks, 2); 
-            }
             PlayerHealth playerHealth = collision.gameObject.GetComponentInParent<PlayerHealth>();
             if (playerHealth != null)
                 playerHealth.TakeDamage(1);

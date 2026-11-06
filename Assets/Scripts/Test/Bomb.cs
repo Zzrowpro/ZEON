@@ -1,9 +1,10 @@
 using System.Collections;
+using Unity.Mathematics;
 using UnityEngine;
 public class Bomb : MonoBehaviour
 {
     [Header("Attributes")]
-    [SerializeField] private float time = 2f;
+    [SerializeField] private float duration = 2f;
     [SerializeField] private int damage;
     [SerializeField] private GameObject effect;
     [SerializeField] private float effectLifetime = 2f;
@@ -14,32 +15,66 @@ public class Bomb : MonoBehaviour
     [SerializeField] private float radius = 5f;
     [SerializeField] private LineRenderer lineRenderer;
 
+    private static readonly int FlashAmountID = Shader.PropertyToID("_FlashAmount");
     private readonly Collider2D[] hitColliders = new Collider2D[32];
+    private Material material;
+    private SpriteRenderer spriteRenderer;
+
+    void Awake()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        material = spriteRenderer.material;
+    }
 
     void Start()
     {
+        lineRenderer.loop = true;
+        lineRenderer.positionCount = subdivisions;
+        DrawCircle(radius);
         StartCoroutine(WaitForExplosionCoroutine());
+
+        
     }
 
-    void Update()
+    void DrawCircle(float r)
     {
         float angleStep = 2f * Mathf.PI / subdivisions;
         lineRenderer.positionCount = subdivisions;
         for(int i  = 0; i < subdivisions; i++)
         {
-            float xPosition = radius * Mathf.Cos(angleStep * i);
-            float yPosition = radius * Mathf.Sin(angleStep * i);
+            float xPosition = r * Mathf.Cos(angleStep * i);
+            float yPosition = r * Mathf.Sin(angleStep * i);
 
             Vector3 pointInCircle = new Vector3(xPosition, yPosition);
             lineRenderer.SetPosition(i, pointInCircle);
         }
-
     }
+
 
     private IEnumerator WaitForExplosionCoroutine()
     {
-        yield return new WaitForSeconds(time);
-        if(targetPlayer == false)CheckSurroundings();
+        float elapsed = 0f;
+        float phase = 0f;
+        float minSpeed = 2f;   // blinks per second at the start
+        float maxSpeed = 15f;  // blinks per second at the end
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            float t = elapsed / duration;
+
+            float speed = Mathf.Lerp(minSpeed, maxSpeed, t);
+            phase += speed * Time.deltaTime;
+
+            float blink = Mathf.Sin(phase * 2f * Mathf.PI) * 0.5f + 0.5f; // 0 to 1
+            material.SetFloat(FlashAmountID, blink);
+
+
+            // use it, e.g. on a color:
+            // lineRenderer.startColor = lineRenderer.endColor = new Color(1f, 0f, 0f, blink);
+            yield return null;
+        }
+        if(targetPlayer == false) CheckSurroundings();
         else CheckForPlayer();
     }
 
@@ -53,12 +88,9 @@ public class Bomb : MonoBehaviour
                 health.TakeDamage(damage);
             }
         }
-        if (effect)
-        {
-            GameObject fx = Instantiate(effect, transform.position, transform.rotation);
-            Destroy(fx, effectLifetime);
-        }
-        Destroy(gameObject, effectLifetime);
+        GameObject fx = Instantiate(effect, transform.position, transform.rotation);
+        Destroy(fx, effectLifetime);
+        Destroy(gameObject);
     }
 
     void CheckForPlayer()
@@ -74,6 +106,7 @@ public class Bomb : MonoBehaviour
             }
         }
         GameObject fx = Instantiate(effect, transform.position, transform.rotation);
+        Destroy(fx, effectLifetime);
         Destroy(gameObject);
     }
 }

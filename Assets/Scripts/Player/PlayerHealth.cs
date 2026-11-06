@@ -15,10 +15,12 @@ public class PlayerHealth : MonoBehaviour
             health = Math.Clamp(value, 0, rocketProfiles.maxHealth);
             if(health <= 0)
             {
+                OnPlayerDeath?.Invoke();
                 isDead = true;
                 spriteRenderer.enabled = false;
                 playerController.enabled = false;
                 playerCollider.enabled = false;
+                abilities.enabled = false;
                 flames.SetActive(false);
             }
         }
@@ -30,12 +32,15 @@ public class PlayerHealth : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private PlayerController playerController;
     private Collider2D playerCollider;
+    private Abilities abilities;
     
 
     private CinemachineImpulseSource impulseSource; //Screen shake´
 
     private DamageFlash damageFlash;
-    private Color originalColor;
+
+    public event Action OnPlayerDeath;
+
 
     void Awake()
     {
@@ -44,8 +49,7 @@ public class PlayerHealth : MonoBehaviour
         impulseSource = gameObject.GetComponent<CinemachineImpulseSource>();
         playerCollider = GetComponent<Collider2D>();
         damageFlash = GetComponent<DamageFlash>();
-        originalColor = spriteRenderer.color;
-
+        abilities = GetComponent<Abilities>();
     }
     public void HealthIncrease(int amount)
     {

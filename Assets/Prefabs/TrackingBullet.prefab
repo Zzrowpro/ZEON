@@ -81,10 +81,10 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1565858647
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -4641442739024422770, guid: 829442853f1bcae42822a5a37ea451d4, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -92,7 +92,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 2.1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
 --- !u!114 &1569159782524212556
 MonoBehaviour:
@@ -109,8 +109,10 @@ MonoBehaviour:
   bulletSpeed: 15
   lifetime: 3
   dmg: 1
-  notTargeting: {fileID: -4641442739024422770, guid: 829442853f1bcae42822a5a37ea451d4, type: 3}
-  targeting: {fileID: -4973035485871416625, guid: 829442853f1bcae42822a5a37ea451d4, type: 3}
+  knockBack: 15
+  explosionEffect: {fileID: 0}
+  notTargeting: {fileID: 8335118206565115116, guid: 09f4ee72fb7a1da438f177fa71acea18, type: 3}
+  targeting: {fileID: 8604467625421291195, guid: 09f4ee72fb7a1da438f177fa71acea18, type: 3}
   targetLayer:
     serializedVersion: 2
     m_Bits: 256

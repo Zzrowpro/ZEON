@@ -234,6 +234,54 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Abilities",
+            "id": "bfa0e11e-894a-4f88-9647-1d1903230d12",
+            "actions": [
+                {
+                    "name": "spawnScarab",
+                    "type": "Button",
+                    "id": "9d119473-9bf4-415c-bc8b-f23146cc7691",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "spawnBomb",
+                    "type": "Button",
+                    "id": "eab6ba61-27e3-4767-84ee-57cf2da49e8c",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "5b2d3e17-de6e-47c8-be68-a9ee5eecc0f8",
+                    "path": "<Keyboard>/z",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "spawnScarab",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1960abf2-48b7-4f5d-b30c-d8d340a3de85",
+                    "path": "<Keyboard>/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "spawnBomb",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

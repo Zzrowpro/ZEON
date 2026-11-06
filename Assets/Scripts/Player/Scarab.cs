@@ -1,4 +1,3 @@
-
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,142 +7,135 @@ using UnityEngine;
 public class Scarab : MonoBehaviour
 {
     [Header("Movement")]
-    [SerializeField]private float acceleration = 2f;
-    [SerializeField]private float maxSpeed = 5f;
-    [SerializeField]private float rotationSpeed = 15f;
-    [SerializeField]private float linearDrag = 1f;
-    [SerializeField]private float sidewaysDamping = 3f;
-
-    private bool isTargeting = false;
-    private bool inRange = false;
-    //private bool inRangePlayer = false;
-    // Use this when i decide if i want to add player following to the scarab
-    private Transform target;
-    
-    //Same reason as above. 
-    private Rigidbody2D rb; 
+    [SerializeField] private float acceleration = 2f;
+    [SerializeField] private float maxSpeed = 5f;
+    [SerializeField] private float rotationSpeed = 15f;
+    [SerializeField] private float linearDrag = 1f;
+    [SerializeField] private float sidewaysDamping = 3f;
 
     [Header("Player Detection")]
-    [SerializeField]private Transform playerTransform;
-    [SerializeField]private float detectionRadius = 5f;
-    [SerializeField]List <Transform> patrolPoints;
-    private int currentWaypointIndex;
+    [SerializeField] private Transform playerTransform;
+    [SerializeField] private float detectionRadius = 5f;
+    [SerializeField] private float maxDistanceFromPlayer = 40f;
+    [SerializeField] private List<Transform> patrolPoints = new List<Transform>();
+
     [Header("Shooting")]
-    [SerializeField]private GameObject projectilePrefab;
-    private float nextFireTime = 0f;
-    [SerializeField]private float shootingRate = 0.5f;
-    [SerializeField]private Transform firePoint;
-    [SerializeField]private Transform firePoint2;
-    [SerializeField]private bool canShoot = true;
+    [SerializeField] private LayerMask obstacleMask;
+    [SerializeField] private GameObject projectilePrefab;
+    [SerializeField] private float shootingRate = 0.5f;
+    [SerializeField] private Transform firePoint;
+    [SerializeField] private Transform firePoint2;
+    [SerializeField] private bool canShoot = true;
 
     [Header("Random Needed Variables")]
-    
-    [SerializeField]private float lifetime = 10f;
+    [SerializeField] private float lifetime = 10f;
+
+    private Rigidbody2D rb;
+    private Transform target;
+    private bool inRange = false;
+    private int currentWaypointIndex;
+    private float nextFireTime = 0f;
+
+    void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        rb.linearDamping = linearDrag;
+
+        GameObject[] patrolObjects = GameObject.FindGameObjectsWithTag("PatrolPoints");
+        foreach (GameObject point in patrolObjects)
+        {
+            patrolPoints.Add(point.transform);
+        }
+
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null) playerTransform = player.transform;
+    }
 
     void Start()
     {
-        
         Destroy(gameObject, lifetime);
-    } 
-    void Awake()
-    {
-        GameObject [] PatrolObjects  = GameObject.FindGameObjectsWithTag("PatrolPoints");
-        CustomDebug.LogMessage(PatrolObjects.Length.ToString());
-        foreach(GameObject point in PatrolObjects)
-        {
-            patrolPoints.Add(point.transform);
-        }   
-        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-        //[SerializeField]private Transform playerTransform;
-        //Same reason as above. 
-        rb = GetComponent<Rigidbody2D>();
     }
 
     void FixedUpdate()
     {
+        if (target == null) inRange = false;
 
-        if (inRange && target != null)
+        HandleThrust();
+        KillSidewaysVelocity();
+        ClampSpeed();
+
+        bool farFromPlayer = playerTransform != null &&
+            Vector2.Distance(playerTransform.position, transform.position) >= maxDistanceFromPlayer;
+
+        canShoot = !farFromPlayer;
+
+        // Only ONE rotation per physics step
+        if (farFromPlayer)
         {
-            HandleThrust();
-            HandleRotationTarget();
-            KillSidewaysVelocity();
-            ClampSpeed();
+            RotateToward(playerTransform.position);
+        }
+        else if (inRange)
+        {
+            RotateToward(target.position);
             HandleShooting();
-            WanderingControl();
         }
         else
         {
-            if(patrolPoints == null) return; 
-            HandleThrust();
-            KillSidewaysVelocity();
-            ClampSpeed();
-            HandleRotationPlayer();
-            WanderingControl();
+            Patrol();
         }
     }
-
-    
 
     private void HandleThrust()
     {
         rb.AddForce(transform.up * acceleration);
     }
 
-
-    private void HandleRotationTarget()
+    private void RotateToward(Vector2 worldPos)
     {
-        if (target == null)
-        {
-            return; // Exit the method if the target is null to avoid errors.
-        }
-        float angle = Mathf.Atan2(target.position.y - transform.position.y, target.position.x - transform.position.x) * Mathf.Rad2Deg - 90f;
-        float smoothedAngle = Mathf.LerpAngle(rb.rotation, angle, rotationSpeed * Time.fixedDeltaTime); 
-        rb.MoveRotation(smoothedAngle);
-    } 
+        Vector2 dir = worldPos - (Vector2)transform.position;
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90f;
+        float smoothed = Mathf.LerpAngle(rb.rotation, angle, rotationSpeed * Time.fixedDeltaTime);
+        rb.MoveRotation(smoothed);
+    }
 
-    private void HandleRotationPlayer()
+    private void Patrol()
     {
-        if (patrolPoints == null || patrolPoints.Count == 0)
-            return;
+        if (patrolPoints.Count == 0) return;
 
-        Transform patrolPoint = patrolPoints[currentWaypointIndex];
-        if(Vector2.Distance(transform.position, patrolPoint.position) < 2)
+        Transform point = patrolPoints[currentWaypointIndex];
+        if (Vector2.Distance(transform.position, point.position) < 2f)
         {
-            currentWaypointIndex = (currentWaypointIndex  + 1) % patrolPoints.Count;
+            currentWaypointIndex = (currentWaypointIndex + 1) % patrolPoints.Count;
         }
         else
         {
-          float angle = Mathf.Atan2(patrolPoint.position.y - transform.position.y, patrolPoint.position.x - transform.position.x) * Mathf.Rad2Deg - 90f;
-          float smoothedAngle = Mathf.LerpAngle(rb.rotation, angle, rotationSpeed * Time.fixedDeltaTime);
-          rb.MoveRotation(smoothedAngle);
+            RotateToward(point.position);
         }
-        
-        
-    }                
+    }
 
-
-    private void  KillSidewaysVelocity()
+    private void KillSidewaysVelocity()
     {
         Vector2 forward = transform.up;
         Vector2 right = transform.right;
 
-        float forwardSpeed = Vector2.Dot(rb.linearVelocity, forward); // Calculate the forward speed by taking the dot product of the linear velocity and the forward direction.
+        float forwardSpeed = Vector2.Dot(rb.linearVelocity, forward);
         float sidewaysSpeed = Vector2.Dot(rb.linearVelocity, right);
 
-        rb.linearVelocity = forward * forwardSpeed + right * sidewaysSpeed * (1f - sidewaysDamping * Time.fixedDeltaTime);
+        float damp = Mathf.Clamp01(1f - sidewaysDamping * Time.fixedDeltaTime);
+        rb.linearVelocity = forward * forwardSpeed + right * sidewaysSpeed * damp;
     }
 
     private void ClampSpeed()
     {
-        if (rb.linearVelocity.magnitude > maxSpeed) // if the magnitude of the velocity is greater than the max speed, then clamp it to the max speed.  
+        if (rb.linearVelocity.magnitude > maxSpeed)
         {
-            rb.linearVelocity = rb.linearVelocity.normalized * maxSpeed; // Normalize the velocity vector and multiply it by the max speed to clamp it.
+            rb.linearVelocity = rb.linearVelocity.normalized * maxSpeed;
         }
     }
 
     private void HandleShooting()
     {
-        if(inRange && nextFireTime <= Time.time && target!= null&& canShoot)
+        if (nextFireTime <= Time.time && canShoot && ObstacleAhead())
         {
             nextFireTime = Time.time + shootingRate;
             Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
@@ -151,33 +143,27 @@ public class Scarab : MonoBehaviour
         }
     }
 
-    private void WanderingControl()
+    private bool ObstacleAhead()
     {
-        if(Vector2.Distance(playerTransform.position, transform.position) >= 40f)
-        {
-            canShoot = false;
-            Vector2 toMother = (Vector2)playerTransform.position - (Vector2)transform.position;
-            float angle = Mathf.Atan2(toMother.y,toMother.x) * Mathf.Rad2Deg - 90f;
-            float smoothedAngle = Mathf.LerpAngle(rb.rotation, angle, rotationSpeed * Time.fixedDeltaTime);
-            rb.MoveRotation(smoothedAngle);
-
-        }
-        else
-        {
-            canShoot = true;
-            return;
-        }
-        
-        
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.up, detectionRadius * 2f, obstacleMask);
+        return hit.collider != null;
     }
 
     void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Obstacle"))
+        if (target == null && collision.CompareTag("Obstacle"))
         {
             target = collision.transform;
             inRange = true;
         }
     }
 
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.transform == target)
+        {
+            target = null;
+            inRange = false;
+        }
+    }
 }

@@ -45,6 +45,8 @@ GameObject:
   - component: {fileID: 7468892289217761576}
   - component: {fileID: -680995896907205171}
   - component: {fileID: 3226291305404746453}
+  - component: {fileID: 6277627684015344024}
+  - component: {fileID: 541802990476934835}
   m_Layer: 0
   m_Name: Scarab
   m_TagString: Untagged
@@ -115,7 +117,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1565858647
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: 65a6b3b57cd319b40ab62762a3bffba3, type: 3}
@@ -211,6 +213,9 @@ MonoBehaviour:
   playerTransform: {fileID: 0}
   detectionRadius: 5
   patrolPoints: []
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 256
   projectilePrefab: {fileID: 2826953703126582219, guid: 8ea3378308b3cb547afe198026b92eaa, type: 3}
   shootingRate: 0.5
   firePoint: {fileID: 112859472767139686}
@@ -231,8 +236,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Health
   hp: 1
   maxHp: 1
-  isDead: 0
-  effect: {fileID: 0}
+--- !u!114 &6277627684015344024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2146199506591097511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a6d224ad1ec41c4a879da0941654bde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KnockBackFeedback
+  strength: 16
+  delay: 0.15
+  OnBegin:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDone:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &541802990476934835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2146199506591097511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53646d3f776824e4982d6245566fd62d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamageFlash
+  _flashColor: {r: 1, g: 1, b: 1, a: 1}
+  flashTime: 0.25
 --- !u!1 &2187984122997505195
 GameObject:
   m_ObjectHideFlags: 0
