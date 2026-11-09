@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6679884364013794938}
   - component: {fileID: 8982320794470535912}
-  - component: {fileID: -8874209848803650006}
   - component: {fileID: 6421006700938903673}
   - component: {fileID: 5035173112049923170}
   - component: {fileID: 350891626120161245}
+  - component: {fileID: -4544350407363849915}
   m_Layer: 7
   m_Name: Enemy Bullet
   m_TagString: Projectile
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -8819026966517633057, guid: 09f4ee72fb7a1da438f177fa71acea18, type: 3}
+  m_Sprite: {fileID: 8604467625421291195, guid: 09f4ee72fb7a1da438f177fa71acea18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -95,23 +95,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &-8874209848803650006
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2826953703126582219}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f4b7cd5d173501418db50d5836534f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  bulletSpeed: 20
-  lifetime: 3
-  dmg: 1
-  knockBack: 1
-  explosionEffect: {fileID: 1337198075554910, guid: 25c7aa9ad705fe143a4d71c1c8deb7d4, type: 3}
 --- !u!50 &6421006700938903673
 Rigidbody2D:
   serializedVersion: 5
@@ -211,7 +194,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 06d48c7077f93124eaee2456d0a78d07, type: 2}
+  - {fileID: 2100000, guid: 88e60111d7222784ba4e2d5f56918ff5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -295,3 +278,20 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
+--- !u!114 &-4544350407363849915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2826953703126582219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f28916d7cd4d4bb40bd816bce0dfda50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyProjectile
+  bulletSpeed: 30
+  lifetime: 3
+  dmg: 1
+  knockBack: 15
+  explosionEffect: {fileID: 1828176872806910, guid: 64891a0eb28db934898420d80ca07cb3, type: 3}

@@ -16481,7 +16481,7 @@ SpriteRenderer:
   m_SortingLayer: 4
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: ecd43b276a05e394fb8d873836f51fb2, type: 3}
+  m_Sprite: {fileID: 7482667652216324306, guid: 2284744d83dd008449a0c71599b238f4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -16489,7 +16489,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
 --- !u!1 &599894528
 GameObject:
@@ -16965,7 +16965,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &647327993
 Transform:
   m_ObjectHideFlags: 0
@@ -16998,7 +16998,7 @@ MonoBehaviour:
     weight: 0.8
   - prefab: {fileID: 2281760701106576878, guid: baf4b80106b1485488d10e0c402382f2, type: 3}
     weight: 0.2
-  amount: 40
+  amount: 30
   player: {fileID: 1228039045}
   spawnRadius: 30
   despawnRadius: 35
@@ -17123,7 +17123,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: ecd43b276a05e394fb8d873836f51fb2, type: 3}
+  m_Sprite: {fileID: 7482667652216324306, guid: 2284744d83dd008449a0c71599b238f4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -17131,7 +17131,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
 --- !u!1 &808171837
 GameObject:
@@ -17898,9 +17898,14 @@ MonoBehaviour:
   lineRenderer: {fileID: 1205145503}
   subdivisions: 40
   dashCount: 30
-  bulletPrefab: {fileID: 2826953703126582219, guid: 8ea3378308b3cb547afe198026b92eaa, type: 3}
+  bulletPrefab: {fileID: 2826953703126582219, guid: b3dd7402ee9f87e42a7d36654bda0d8f, type: 3}
   bulletSpawnPoint: {fileID: 1546546829}
-  shootingRate: 1
+  shootingRate: 2
+  bulletSpeed: 10
+  accuracy: 1
+  maxSpreadDegrees: 15
+  velocitySmoothing: 10
+  fireAngleTolerance: 5
 --- !u!1 &1078219026
 GameObject:
   m_ObjectHideFlags: 0
@@ -18482,6 +18487,7 @@ GameObject:
   - component: {fileID: 1228039052}
   - component: {fileID: 1228039053}
   - component: {fileID: 1228039054}
+  - component: {fileID: 1228039055}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -18784,6 +18790,50 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   _flashColor: {r: 1, g: 1, b: 1, a: 1}
   flashTime: 0.25
+--- !u!114 &1228039055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1228039043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a6d224ad1ec41c4a879da0941654bde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KnockBackFeedback
+  strength: 14
+  delay: 0.1
+  OnBegin:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1228039046}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnDone:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1228039046}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!1 &1378877219
 GameObject:
   m_ObjectHideFlags: 0
@@ -24628,15 +24678,15 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: 10
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: ecd43b276a05e394fb8d873836f51fb2, type: 3}
+  m_Sprite: {fileID: 7482667652216324306, guid: 2284744d83dd008449a0c71599b238f4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 4, y: 4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
 --- !u!1 &1716492725
 GameObject:

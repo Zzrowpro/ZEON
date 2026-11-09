@@ -65,6 +65,7 @@ public class Health : MonoBehaviour
     private void Dead()
     {
         isDead = true;
+        kbf.Cancel();
         Died?.Invoke();
         Destroy(gameObject);
     }
