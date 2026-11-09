@@ -17739,10 +17739,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PathCreator
   path:
     points:
-    - {x: -6.005889, y: 7.0067058}
-    - {x: -6.091062, y: 8.5162}
-    - {x: -0.640234, y: 8.625883}
-    - {x: -1.3686371, y: 7.029673}
+    - {x: -4.8, y: 8.17}
+    - {x: -4.3, y: 8.67}
+    - {x: -3.3, y: 7.67}
+    - {x: -2.8, y: 8.17}
+    isClosed: 0
+    autoSetControlPoints: 0
 --- !u!212 &973472976
 SpriteRenderer:
   serializedVersion: 2
