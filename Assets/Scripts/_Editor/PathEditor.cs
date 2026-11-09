@@ -20,6 +20,7 @@ public class PathEditor : Editor
 
     void OnSceneGUI()
     {
+        Input();
         Draw();
     }
 
@@ -43,7 +44,8 @@ public class PathEditor : Editor
             Handles.color = Color.black;
             Handles.DrawLine(points[1], points[0]);
             Handles.DrawLine(points[2], points[3]);
-            Handles.DrawBezier(points[0], points[3], points[1], points[2], Color.blue, null, 2);
+            Handles.color = Color.green;
+            Handles.DrawBezier(points[0], points[3], points[1], points[2], Color.green, null, 2f);
         }
 
         Handles.color = Color.red;
