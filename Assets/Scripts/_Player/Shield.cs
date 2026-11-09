@@ -25,7 +25,6 @@ public class Shield : MonoBehaviour
 
     [Header("Debug (read-only)")]
     [SerializeField] private int stage = -1;
-    [SerializeField] private float percent = 1f;
 
     private Transform player;
     private Health shieldHealth;

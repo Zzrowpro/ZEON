@@ -5,7 +5,6 @@ public class EnemyProjectile : MonoBehaviour
     public float bulletSpeed = 30f;
     [SerializeField] private float lifetime = 3;
     [SerializeField] private int dmg = 1;
-    [SerializeField] private float knockBack = 15f;
  
     public GameObject explosionEffect;
 
@@ -28,10 +27,10 @@ public class EnemyProjectile : MonoBehaviour
 
         else if (collision.gameObject.CompareTag("Player"))
         {
-            PlayerHealth playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
-            if(playerHealth != null)
+            collision.gameObject.TryGetComponent(out PlayerHealth playerHealth);
+            if (playerHealth != null)
             {
-                playerHealth.TakeDamage(dmg);
+                playerHealth.TakeDamage(dmg,gameObject);
                 Destroy(gameObject);
             }
             else

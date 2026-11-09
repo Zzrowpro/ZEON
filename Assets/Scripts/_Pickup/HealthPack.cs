@@ -14,6 +14,10 @@ public class HealthPack : MonoBehaviour
 
     private float lifespan = 5f;
 
+    void Start()
+    {
+        Destroy(gameObject, lifespan);
+    }
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -31,8 +35,9 @@ public class HealthPack : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
 
-            Health player = collision.gameObject.GetComponent<Health>();
-            player.HpIncrease(hpInc);
+            PlayerHealth player = collision.gameObject.GetComponent<PlayerHealth>();
+            player.HealthIncrease(hpInc);
+            Destroy(gameObject);
         }
     }
 }

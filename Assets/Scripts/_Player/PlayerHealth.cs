@@ -16,6 +16,7 @@ public class PlayerHealth : MonoBehaviour
             if(health <= 0)
             {
                 OnPlayerDeath?.Invoke();
+                knockBackFeedback.Cancel(); 
                 isDead = true;
                 spriteRenderer.enabled = false;
                 playerController.enabled = false;
@@ -33,6 +34,7 @@ public class PlayerHealth : MonoBehaviour
     private PlayerController playerController;
     private Collider2D playerCollider;
     private Abilities abilities;
+    private KnockBackFeedback knockBackFeedback;
     
 
     private CinemachineImpulseSource impulseSource; //Screen shake´
@@ -50,6 +52,7 @@ public class PlayerHealth : MonoBehaviour
         playerCollider = GetComponent<Collider2D>();
         damageFlash = GetComponent<DamageFlash>();
         abilities = GetComponent<Abilities>();
+        knockBackFeedback = GetComponent<KnockBackFeedback>();
     }
     public void HealthIncrease(int amount)
     {
@@ -58,10 +61,21 @@ public class PlayerHealth : MonoBehaviour
 
  
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, GameObject sender)
     {
         //Screenshake
+        knockBackFeedback.PlayerFeedback(sender);
         CameraShakeManager.instance.CameraShake(impulseSource);
+        if (!isDead)
+        {
+            Health = math.clamp(Health - damage, 0, rocketProfiles.maxHealth);
+            damageFlash.CallDamageFlash();
+        }
+    }
+
+    public void TakeDamage(int damage)
+    {
+         CameraShakeManager.instance.CameraShake(impulseSource);
         if (!isDead)
         {
             Health = math.clamp(Health - damage, 0, rocketProfiles.maxHealth);

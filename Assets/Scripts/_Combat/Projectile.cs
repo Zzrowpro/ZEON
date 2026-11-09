@@ -8,7 +8,6 @@ public class Projectile : MonoBehaviour
     public float bulletSpeed = 30f;
     [SerializeField] private float lifetime = 3;
     [SerializeField] private int dmg = 1;
-    [SerializeField] private float knockBack = 15f;
  
     public GameObject explosionEffect;
 
