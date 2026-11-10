@@ -1,4 +1,5 @@
 using System;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -274,6 +275,11 @@ public class PlayerController : MonoBehaviour
         {
             rb.linearVelocity = rb.linearVelocity.normalized * rocketProfiles.maxSpeed;
         }
+    }
+ 
+    public void FuelIncrease(float value)
+    {
+        Fuel = math.round(fuel += value);
     }
 
 

@@ -1,8 +1,10 @@
 using Unity.Mathematics;
 using UnityEngine;
 
+//Scrap ts : make it pickup like healthpack
+
 [RequireComponent(typeof(Collider2D))]
-public class Fuel : MonoBehaviour
+public class FuelStation : MonoBehaviour
 {
     //Properties : 
     private float fuelAmount = 100f;

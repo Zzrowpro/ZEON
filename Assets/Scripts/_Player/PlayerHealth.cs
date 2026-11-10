@@ -54,6 +54,7 @@ public class PlayerHealth : MonoBehaviour
         abilities = GetComponent<Abilities>();
         knockBackFeedback = GetComponent<KnockBackFeedback>();
     }
+
     public void HealthIncrease(int amount)
     {
         Health += amount; 

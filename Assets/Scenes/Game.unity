@@ -16965,7 +16965,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &647327993
 Transform:
   m_ObjectHideFlags: 0
@@ -17003,7 +17003,7 @@ MonoBehaviour:
   spawnRadius: 30
   despawnRadius: 35
   spawnInterval: 0.5
-  minSpawnDistance: 12
+  minSpawnDistance: 10
   fadeDuration: 0.5
   fadeInitialSpawns: 0
 --- !u!1 &697722084
@@ -17705,6 +17705,8 @@ GameObject:
   - component: {fileID: 973472976}
   - component: {fileID: 973472977}
   - component: {fileID: 973472978}
+  - component: {fileID: 973472980}
+  - component: {fileID: 973472979}
   m_Layer: 0
   m_Name: HealthPack
   m_TagString: Untagged
@@ -17945,6 +17947,55 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
+--- !u!114 &973472979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 973472969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30a04f73341d5634092ba59bf16cc943, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HealthPack
+  healthIncrease: 3
+--- !u!58 &973472980
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 973472969}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.49
 --- !u!1 &1005062607
 GameObject:
   m_ObjectHideFlags: 0

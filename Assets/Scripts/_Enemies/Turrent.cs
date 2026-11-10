@@ -168,5 +168,5 @@ public class Turrent : MonoBehaviour
                 break;
             }
         }
-    }   
+    }
 }
