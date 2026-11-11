@@ -16965,7 +16965,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &647327993
 Transform:
   m_ObjectHideFlags: 0
@@ -17743,16 +17743,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PathCreator
   path:
     points:
-    - {x: -7.2313576, y: 7.6819263}
-    - {x: -6.7313576, y: 8.181921}
+    - {x: -8.271782, y: 6.401402}
+    - {x: -7.771782, y: 6.901397}
     - {x: -3.7530491, y: 7.570305}
     - {x: -3.6208272, y: 8.26494}
     - {x: -3.3513937, y: 9.680426}
     - {x: -0.70987594, y: 8.5317955}
     - {x: -0.647491, y: 9.2086}
     - {x: -0.5629945, y: 10.125289}
-    - {x: 2.814152, y: 11.874795}
-    - {x: 3.4534314, y: 11.236744}
+    - {x: 5.055071, y: 11.82144}
+    - {x: 5.6943502, y: 11.183389}
     isClosed: 0
     autoSetControlPoints: 0
   anchorCol: {r: 1, g: 0, b: 0, a: 1}
@@ -30365,13 +30365,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 687285151984010256, guid: 8cecf4ec4be7c694e8ef5fd130b214f1, type: 3}
+      propertyPath: hp
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 687285151984010256, guid: 8cecf4ec4be7c694e8ef5fd130b214f1, type: 3}
+      propertyPath: maxHp
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1433185921550185376, guid: 8cecf4ec4be7c694e8ef5fd130b214f1, type: 3}
       propertyPath: m_Name
       value: Base
       objectReference: {fileID: 0}
     - target: {fileID: 1433185921550185376, guid: 8cecf4ec4be7c694e8ef5fd130b214f1, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5126764110781052338, guid: 8cecf4ec4be7c694e8ef5fd130b214f1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -30413,7 +30421,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8602592803526590548, guid: 8cecf4ec4be7c694e8ef5fd130b214f1, type: 3}
+      propertyPath: accuracy
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 979296453099959689, guid: 8cecf4ec4be7c694e8ef5fd130b214f1, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
