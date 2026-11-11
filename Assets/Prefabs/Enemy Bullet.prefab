@@ -213,8 +213,8 @@ TrailRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 1565858647
-  m_SortingLayer: 3
+  m_SortingLayerID: 1409750591
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Time: 0.1
@@ -293,5 +293,4 @@ MonoBehaviour:
   bulletSpeed: 30
   lifetime: 3
   dmg: 1
-  knockBack: 15
   explosionEffect: {fileID: 1828176872806910, guid: 64891a0eb28db934898420d80ca07cb3, type: 3}

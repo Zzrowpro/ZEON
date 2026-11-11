@@ -26,12 +26,15 @@
             OnBegin?.Invoke();
             Vector2 direction = ((Vector2)transform.position - (Vector2)sender.transform.position).normalized;
             if (direction == Vector2.zero) direction = Vector2.right;
+            if(rb2D != null)
             rb2D.AddForce(direction * strength, ForceMode2D.Impulse);
             StartCoroutine(Reset());
         }
         private IEnumerator Reset()
         {
             yield return new WaitForSeconds(delay);
+
+            if(rb2D != null)
             rb2D.linearVelocity = Vector3.zero;
 
             if(cancelled) yield break;

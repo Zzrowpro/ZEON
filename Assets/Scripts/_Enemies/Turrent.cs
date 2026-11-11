@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Turrent : MonoBehaviour
@@ -25,12 +26,19 @@ public class Turrent : MonoBehaviour
     [SerializeField] private float velocitySmoothing = 10f; 
     [SerializeField] private float fireAngleTolerance = 5f; 
 
+    [Header("Loading")]
+    [SerializeField] private Animator animator;
+    [SerializeField] private float loadTime = 0.6f;
+    private bool isLoading;
+
     private Transform m_target;
     private Collider2D [] m_hitcolliders = new Collider2D [34];
     private Vector2 m_lastTargetPos; 
     private Vector2 m_targetVelocity; 
 
-    private Vector3 ShotOrigin => bulletSpawnPoint != null ? bulletSpawnPoint.position : transform.position; 
+    private Vector3 ShotOrigin => bulletSpawnPoint != null ? bulletSpawnPoint.position : transform.position;
+    private static readonly int IdleHash = Animator.StringToHash("Idle");
+    private static readonly int LoadHash = Animator.StringToHash("Load");
 
     void LateUpdate()
     {
@@ -41,6 +49,8 @@ public class Turrent : MonoBehaviour
         lineRenderer.textureMode = LineTextureMode.Stretch;
         lineRenderer.material.mainTextureScale = new Vector2(dashCount, 1);
         bulletSpeed = bulletPrefab.GetComponent<EnemyProjectile>().bulletSpeed;
+        if (animator == null) animator = GetComponentInChildren<Animator>();
+        if (animator == null) Debug.LogError("Turret: no Animator found", this);
     }
 
     void Update()
@@ -60,14 +70,13 @@ public class Turrent : MonoBehaviour
             TrackTargetVelocity(); 
             Vector2 aimPoint = GetAimPoint(); 
             Vector2 direction = aimPoint - (Vector2)transform.position; 
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + 90;
             Quaternion targetRotation = Quaternion.Euler(0, 0, angle);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
 
-            if (CanFire() && bulletPrefab != null &&
-                Vector2.Angle(transform.up, direction) <= fireAngleTolerance) 
+            if (!isLoading && CanFire() && bulletPrefab != null && Vector2.Angle(-transform.up, direction) <= fireAngleTolerance)
             {
-                Fire();
+                StartCoroutine(LoadAndFire());
             }
         }
     }
@@ -97,7 +106,7 @@ public class Turrent : MonoBehaviour
     }
 
     
-    private static bool TryGetInterceptTime(Vector2 d, Vector2 v, float s, out float time)
+    private static bool TryGetInterceptTime(Vector2 d, Vector2 v, float s, out float time) //Borrowed method
     {
         time = 0f;
         float a = Vector2.Dot(v, v) - s * s;
@@ -125,7 +134,7 @@ public class Turrent : MonoBehaviour
         return true;
     }
 
-    void DrawCircle(float r)
+    void DrawCircle(float r) 
     {
         float angleStep = 2f * Mathf.PI / subdivisions;
         lineRenderer.positionCount = subdivisions;
@@ -143,15 +152,17 @@ public class Turrent : MonoBehaviour
         return Time.time >= nextFireTime;
     }
 
-    private void Fire()
+    private void Fire(Vector2 direction)
     {
         nextFireTime = Time.time + shootingRate;
-        if(bulletPrefab != null)
-        {
-            float spread = Random.Range(-1f, 1f) * (1f - accuracy) * maxSpreadDegrees; 
-            Quaternion rot = transform.rotation * Quaternion.Euler(0, 0, spread); 
-            Instantiate(bulletPrefab, ShotOrigin, rot); 
-        }
+
+        float spread = Random.Range(-1f, 1f) * (1f - accuracy) * maxSpreadDegrees;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f + spread;
+        Quaternion rot = Quaternion.Euler(0, 0, angle);
+
+        Vector3 origin = ShotOrigin;
+        origin.z = 0f;
+        Instantiate(bulletPrefab, origin, rot);
     }
 
     private void SearchForPlayer()
@@ -168,5 +179,22 @@ public class Turrent : MonoBehaviour
                 break;
             }
         }
+    }
+
+    private IEnumerator LoadAndFire()
+    {
+       isLoading = true;
+        if (animator != null) animator.Play(LoadHash, 0, 0f);
+
+        yield return new WaitForSeconds(loadTime);
+
+        if (m_target != null)
+        {
+            Vector2 dir = GetAimPoint() - (Vector2)transform.position;
+            Fire(dir);
+        }
+
+        if (animator != null) animator.Play(IdleHash, 0, 0f);
+        isLoading = false;
     }
 }
