@@ -48,6 +48,7 @@ GameObject:
   - component: {fileID: 5597005815729338698}
   - component: {fileID: 3659554294594023927}
   - component: {fileID: 5509142575904721622}
+  - component: {fileID: 4228003969332446647}
   m_Layer: 0
   m_Name: Base
   m_TagString: Obstacle
@@ -97,7 +98,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: -876546973899608171, guid: b7eb1bd76a5047645bcfb5758cdcc546, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -175,8 +176,8 @@ LineRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 1409750591
-  m_SortingLayer: 2
+  m_SortingLayerID: 2119038293
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Positions:
@@ -332,8 +333,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 312925e26583b6b48a4b5f1565186a01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
-  hp: 0
-  maxHp: 2
+  hp: 6
+  maxHp: 6
 --- !u!95 &3659554294594023927
 Animator:
   serializedVersion: 7
@@ -370,6 +371,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DeathEffect
   effectPrefab: {fileID: 1329845292236604, guid: 9bba9cf244c53c5439505dfc96fdd11c, type: 3}
   effectLifetime: 2
+--- !u!114 &4228003969332446647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 552076889878154543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53646d3f776824e4982d6245566fd62d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamageFlash
+  _flashColor: {r: 1, g: 1, b: 1, a: 1}
+  flashTime: 0.25
 --- !u!1 &1526903770545596987
 GameObject:
   m_ObjectHideFlags: 0
@@ -430,7 +445,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: -876546973899608171, guid: b7eb1bd76a5047645bcfb5758cdcc546, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

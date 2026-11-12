@@ -22,7 +22,7 @@ public class DamageFlash : MonoBehaviour
             _materials[i].SetColor(FlashColorID, _flashColor);
             _materials[i].SetFloat(FlashAmountID, 0f);
         }
-    }
+    } 
 
     public void CallDamageFlash()
     {
