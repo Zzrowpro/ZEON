@@ -9,52 +9,54 @@ public class DamageFlash : MonoBehaviour
     private static readonly int FlashColorID = Shader.PropertyToID("_FlashColor");
     private static readonly int FlashAmountID = Shader.PropertyToID("_FlashAmount");
 
-    private SpriteRenderer spriteRenderer;
-    private Material material;
+    private Material[] _materials;
     private Coroutine _damageFlashCoroutine;
 
     void Awake()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        material = spriteRenderer.material; // creates a per-object instance
-        material.SetColor(FlashColorID, _flashColor);
-        material.SetFloat(FlashAmountID, 0f);
+        var renderers = GetComponentsInChildren<SpriteRenderer>(); // includes self
+        _materials = new Material[renderers.Length];
+        for (int i = 0; i < renderers.Length; i++)
+        {
+            _materials[i] = renderers[i].material; // per-object instance
+            _materials[i].SetColor(FlashColorID, _flashColor);
+            _materials[i].SetFloat(FlashAmountID, 0f);
+        }
     }
 
     public void CallDamageFlash()
     {
-        if (_damageFlashCoroutine != null)StopCoroutine(_damageFlashCoroutine);
+        if (_damageFlashCoroutine != null) StopCoroutine(_damageFlashCoroutine);
         _damageFlashCoroutine = StartCoroutine(DamageFlasher());
     }
 
     private IEnumerator DamageFlasher()
     {
-        SetFlashColor(); 
-        float elapsedTime = 0f;
-        while (elapsedTime < flashTime)
+        SetColor(_flashColor);
+        float elapsed = 0f;
+        while (elapsed < flashTime)
         {
-            elapsedTime += Time.deltaTime;
-            float amount = Mathf.Lerp(1f, 0f, elapsedTime / flashTime);
-            SetFlashAmount(amount);
+            elapsed += Time.deltaTime;
+            SetAmount(Mathf.Lerp(1f, 0f, elapsed / flashTime)); 
             yield return null;
         }
-
-        material.SetFloat(FlashAmountID, 0f);
+        SetAmount(0f);
         _damageFlashCoroutine = null;
     }
 
-     private void SetFlashColor()
+    private void SetColor(Color c)
     {
-        material.SetColor(FlashColorID, _flashColor);
+        foreach (var m in _materials) m.SetColor(FlashColorID, c);
     }
 
-    private void SetFlashAmount(float amount)
+    private void SetAmount(float a)
     {
-        material.SetFloat(FlashAmountID, amount);
+        foreach (var m in _materials) m.SetFloat(FlashAmountID, a);
     }
 
     void OnDestroy()
     {
-        if (material != null) Destroy(material); // clean up the instance
+        if (_materials == null) return;
+        foreach (var m in _materials) if (m != null) Destroy(m);
     }
 }
