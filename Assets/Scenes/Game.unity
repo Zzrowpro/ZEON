@@ -16967,7 +16967,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &647327993
 Transform:
   m_ObjectHideFlags: 0
@@ -28144,7 +28144,6 @@ GameObject:
   - component: {fileID: 1228039052}
   - component: {fileID: 1228039053}
   - component: {fileID: 1228039054}
-  - component: {fileID: 1228039055}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -28447,50 +28446,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   _flashColor: {r: 1, g: 1, b: 1, a: 1}
   flashTime: 0.25
---- !u!114 &1228039055
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1228039043}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a6d224ad1ec41c4a879da0941654bde, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::KnockBackFeedback
-  strength: 14
-  delay: 0.1
-  OnBegin:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1228039046}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnDone:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1228039046}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
 --- !u!1 &1378877219
 GameObject:
   m_ObjectHideFlags: 0
@@ -40042,6 +39997,10 @@ PrefabInstance:
     - target: {fileID: 552076889878154543, guid: 8cecf4ec4be7c694e8ef5fd130b214f1, type: 3}
       propertyPath: m_Name
       value: Base
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509142575904721622, guid: 8cecf4ec4be7c694e8ef5fd130b214f1, type: 3}
+      propertyPath: scaleWithObject
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7941156534056096237, guid: 8cecf4ec4be7c694e8ef5fd130b214f1, type: 3}
       propertyPath: m_LocalPosition.x

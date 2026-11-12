@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 aimDirection = Vector2.up;
     private float turnInput;
     private bool usingStick;
-    private bool usingManual = false;
+    private bool usingManual;
 
     //Pause System : 
     private PauseSystem pauseSystem;
@@ -108,6 +108,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        usingManual = true;
         if(pauseSystem.GetIsPaused()) return;
 
         Vector2 stick = aimStick.ReadValue<Vector2>(); 
@@ -119,7 +120,7 @@ public class PlayerController : MonoBehaviour
         //Choosing what input type to use, might make this free handle where they all can trigger at the same time
         if (turnActive)
         {
-            usingManual = true;
+            usingManual = true;     
         }
         else if (stickActive)
         {

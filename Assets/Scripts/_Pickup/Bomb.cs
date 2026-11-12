@@ -5,10 +5,13 @@ public class Bomb : MonoBehaviour
     [Header("Attributes")]
     [SerializeField] private float duration = 2f;
     [SerializeField] private int damage;
+    [SerializeField] private bool targetPlayer = false;
+
+    [Header("Effects")]
     [SerializeField] private GameObject effect;
     [SerializeField] private float effectLifetime = 2f;
-    [SerializeField] private bool targetPlayer = false;
- 
+    [SerializeField] private float effectSize = 1f;
+    
     [Header("Range")]
     [SerializeField] private int subdivisions = 10;
     [SerializeField] private float radius = 5f;
@@ -87,6 +90,7 @@ public class Bomb : MonoBehaviour
             }
         }
         GameObject fx = Instantiate(effect, transform.position, transform.rotation);
+        fx.transform.localScale = new Vector3(radius, radius, 0);
         Destroy(fx, effectLifetime);
         Destroy(gameObject);
     }

@@ -16,6 +16,7 @@ public class PlayerHealth : MonoBehaviour
             if(health <= 0)
             {
                 OnPlayerDeath?.Invoke();
+                if(knockBackFeedback != null)
                 knockBackFeedback.Cancel(); 
                 isDead = true;
                 spriteRenderer.enabled = false;
@@ -65,6 +66,7 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(int damage, GameObject sender)
     {
         //Screenshake
+        if(knockBackFeedback != null)
         knockBackFeedback.PlayerFeedback(sender);
         CameraShakeManager.instance.CameraShake(impulseSource);
         if (!isDead)

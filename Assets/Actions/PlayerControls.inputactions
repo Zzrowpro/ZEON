@@ -86,6 +86,39 @@
                 },
                 {
                     "name": "",
+                    "id": "b42cf771-1db9-49d5-9bde-101a4e4059cc",
+                    "path": "<HID::ShanWan PS3/PC Wired GamePad>/button8",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Boost",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bf93097d-0ca7-432c-b3d6-abece9519b5f",
+                    "path": "<HID::usb gamepad           >/button7",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Boost",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "255e83ce-9c87-4ac1-8ff6-f623a01019c5",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Boost",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "1ba597c2-1087-4701-b2b5-f71f3cae7665",
                     "path": "<Mouse>/rightButton",
                     "interactions": "",
@@ -119,6 +152,28 @@
                 },
                 {
                     "name": "",
+                    "id": "6723afc5-f58b-44bb-85bd-cdeb462e8d8d",
+                    "path": "<HID::ShanWan PS3/PC Wired GamePad>/button3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Fire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0ace9e1c-6e89-4048-8ed9-fa9835ff622b",
+                    "path": "<HID::usb gamepad           >/button3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Fire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "1c862636-a896-4b40-9320-748504f7256d",
                     "path": "<Gamepad>/rightShoulder",
                     "interactions": "",
@@ -141,6 +196,28 @@
                 },
                 {
                     "name": "",
+                    "id": "2f1af855-2758-499c-b052-c1c7cf15a803",
+                    "path": "<HID::ShanWan PS3/PC Wired GamePad>/button6",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Nitro",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a79eaffb-8e18-4eb1-8298-effec2504699",
+                    "path": "<HID::usb gamepad           >/button5",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Nitro",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "c14cbc03-8b9a-448d-a3ea-7ece654634f6",
                     "path": "<Mouse>/position",
                     "interactions": "",
@@ -154,6 +231,17 @@
                     "name": "",
                     "id": "aa347934-2b23-4463-b92b-0343c82c1448",
                     "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AimStick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "51083107-5eb2-4f3a-a0d8-1d395027a2b2",
+                    "path": "<Joystick>/stick",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -232,6 +320,17 @@
                     "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d16e7a81-73c8-4772-a303-277d8d4b16f5",
+                    "path": "<HID::ShanWan PS3/PC Wired GamePad>/button10",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -272,8 +371,30 @@
                 },
                 {
                     "name": "",
+                    "id": "a9ebc02d-1d37-4295-b3d6-c769e15c2824",
+                    "path": "<HID::ShanWan PS3/PC Wired GamePad>/button2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "spawnScarab",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "1960abf2-48b7-4f5d-b30c-d8d340a3de85",
                     "path": "<Keyboard>/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "spawnBomb",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1308049a-ef83-4cfb-8c17-43820c1d98f1",
+                    "path": "<HID::ShanWan PS3/PC Wired GamePad>/button4",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
