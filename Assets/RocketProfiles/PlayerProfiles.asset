@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27dc3e50892e3da4db064a606255da10, type: 3}
   m_Name: PlayerProfiles
   m_EditorClassIdentifier: Assembly-CSharp::RocketProfiles
-  maxHealth: 5
+  maxHealth: 8
   shootingRate: 0.5
   bulletPrefabs: {fileID: 2826953703126582219, guid: 8ea3378308b3cb547afe198026b92eaa, type: 3}
   acceleration: 15

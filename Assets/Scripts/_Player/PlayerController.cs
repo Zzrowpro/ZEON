@@ -21,7 +21,8 @@ public class PlayerController : MonoBehaviour
 
 
     //Refrences
-    [SerializeField]private Animator animator;
+    [SerializeField]private Animator flameAnimator;
+    
     [SerializeField]private FuelBar fuelBar;
     [SerializeField]private FuelBar nitroBar;
     [SerializeField]private GameObject nb;
@@ -53,10 +54,11 @@ public class PlayerController : MonoBehaviour
     }
  
     private bool nitroOnCooldown = false;
-    private bool isBoosting = false;
+    private bool isNitroBoosting = false;
     private float nitroCooldownTimer = 0f;
 
     [Header("Aiming")]
+    [SerializeField] private float mouseSwitchThreshold = 5f;
     [SerializeField]private float stickDeadzone = 0.2f;
     [SerializeField]private float turnSpeed = 200f; //Turning with A & D on the keyboard
     
@@ -64,6 +66,9 @@ public class PlayerController : MonoBehaviour
     private float turnInput;
     private bool usingStick;
     private bool usingManual;
+
+    private static readonly int IdleHash = Animator.StringToHash("Idle");
+    private static readonly int BoostingHash = Animator.StringToHash("RocketBoost");
 
     //Pause System : 
     private PauseSystem pauseSystem;
@@ -108,12 +113,12 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        usingManual = true;
         if(pauseSystem.GetIsPaused()) return;
 
         Vector2 stick = aimStick.ReadValue<Vector2>(); 
         bool stickActive = stick.sqrMagnitude > stickDeadzone * stickDeadzone;
-        bool mouseMoved = Mouse.current != null && Mouse.current.delta.ReadValue().sqrMagnitude > 0f;
+        //bool mouseMoved = Mouse.current != null && Mouse.current.delta.ReadValue().sqrMagnitude > 0f;
+        bool mouseMoved = Mouse.current != null &&Mouse.current.delta.ReadValue().sqrMagnitude > mouseSwitchThreshold * mouseSwitchThreshold;
         turnInput = turn.ReadValue<float>();
         bool turnActive = Mathf.Abs(turnInput) > 0.01f;
 
@@ -131,6 +136,10 @@ public class PlayerController : MonoBehaviour
             usingManual = false; usingStick = false; 
         }
 
+        if (usingManual)
+        {
+            aimDirection = transform.up;
+        }
 
         if(!usingManual)
         {
@@ -172,12 +181,12 @@ public class PlayerController : MonoBehaviour
         }
 
         //Nitro Mechanics
-        isBoosting = nitro.IsPressed() && nitroFuel > 0 && !nitroOnCooldown; //Where boost action is assigned
+        isNitroBoosting = nitro.IsPressed() && nitroFuel > 0 && !nitroOnCooldown; //Where boost action is assigned
 
-        if(animator.gameObject.activeSelf)
-        animator.SetBool("isBoosting",isBoosting);
+        if(flameAnimator.gameObject.activeSelf)
+        flameAnimator.SetBool("isBoosting",isNitroBoosting);
         
-        if (isBoosting)
+        if (isNitroBoosting)
         {
             NitroFuel -= rocketProfiles.nitroLossRate * Time.deltaTime;
             nb.SetActive(true);
@@ -238,12 +247,11 @@ public class PlayerController : MonoBehaviour
     {
         if (usingManual)
         {
-            if(Math.Abs(turnInput) > 0.01f)
-            {
+            if (Mathf.Abs(turnInput) > 0.01f)
                 rb.MoveRotation(rb.rotation - turnInput * turnSpeed * Time.fixedDeltaTime);
-                return;
-            }
+            return; // hold heading, skip mouse/stick aiming
         }
+
         float angle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 90f;
         float smoothedAngle = Mathf.LerpAngle(rb.rotation, angle, rocketProfiles.rotationSpeed * Time.fixedDeltaTime);
         rb.MoveRotation(smoothedAngle);
@@ -253,7 +261,7 @@ public class PlayerController : MonoBehaviour
     {
         if (!boosting) return;
 
-        rb.AddForce(transform.up * (isBoosting ? rocketProfiles.acceleration * rocketProfiles.nitroMulti : rocketProfiles.acceleration));
+        rb.AddForce(transform.up * (isNitroBoosting ? rocketProfiles.acceleration * rocketProfiles.nitroMulti : rocketProfiles.acceleration));
         Fuel -= 0.1f;
         
     }
