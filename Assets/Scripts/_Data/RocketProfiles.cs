@@ -28,5 +28,7 @@ public class RocketProfiles : ScriptableObject
     [Header("Aiming")]
     public float stickDeadzone = 0.2f;
     public float turnSpeed = 200f; //Turning with A & D on the keyboard
+
+    public bool InfiniteMode = false;
     
 }

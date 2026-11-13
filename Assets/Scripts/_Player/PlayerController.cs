@@ -99,7 +99,7 @@ public class PlayerController : MonoBehaviour
 
         fuel = rocketProfiles.maxFuel;
         nitroFuel = rocketProfiles.maxNitroFuel;
-        fuelBar.setMaxFuel(rocketProfiles.maxFuel);
+        if(rocketProfiles.InfiniteMode == false)fuelBar.setMaxFuel(rocketProfiles.maxFuel);
         nitroBar.setMaxFuel(rocketProfiles.maxNitroFuel);
     }
 
@@ -168,17 +168,24 @@ public class PlayerController : MonoBehaviour
         // Vector3 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         // mouseDirection = (mousePos - transform.position).normalized;
 
-
-        boosting = boost.IsPressed() && Fuel > 0;
-
-        if (boosting && Fuel > 0)
+        if(rocketProfiles.InfiniteMode == false)
         {
-            boosterSprite.SetActive(true);
+            boosting = boost.IsPressed() && Fuel > 0;
+
+            if (boosting && Fuel > 0)
+            {
+                boosterSprite.SetActive(true);
+            }
+            else if (!boosting)
+            {
+                boosterSprite.SetActive(false);
+            }
         }
-        else if (!boosting)
+        else
         {
-            boosterSprite.SetActive(false);
+            boosting = boost.IsPressed();
         }
+        
 
         //Nitro Mechanics
         isNitroBoosting = nitro.IsPressed() && nitroFuel > 0 && !nitroOnCooldown; //Where boost action is assigned
@@ -261,8 +268,16 @@ public class PlayerController : MonoBehaviour
     {
         if (!boosting) return;
 
-        rb.AddForce(transform.up * (isNitroBoosting ? rocketProfiles.acceleration * rocketProfiles.nitroMulti : rocketProfiles.acceleration));
-        Fuel -= 0.1f;
+        if(rocketProfiles.InfiniteMode == false)
+        {
+            rb.AddForce(transform.up * (isNitroBoosting ? rocketProfiles.acceleration * rocketProfiles.nitroMulti : rocketProfiles.acceleration));
+            Fuel -= 0.1f;
+        }
+        else
+        {
+            rb.AddForce(transform.up *(isNitroBoosting ? rocketProfiles.acceleration * rocketProfiles.nitroMulti : rocketProfiles.acceleration));
+        }
+        
         
     }
 
