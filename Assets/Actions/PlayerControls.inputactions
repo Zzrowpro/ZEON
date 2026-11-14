@@ -141,17 +141,6 @@
                 },
                 {
                     "name": "",
-                    "id": "a94885db-e549-4655-b09f-0ee030d43dfb",
-                    "path": "<Gamepad>/buttonSouth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Fire",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "6723afc5-f58b-44bb-85bd-cdeb462e8d8d",
                     "path": "<HID::ShanWan PS3/PC Wired GamePad>/button3",
                     "interactions": "",
@@ -165,6 +154,17 @@
                     "name": "",
                     "id": "0ace9e1c-6e89-4048-8ed9-fa9835ff622b",
                     "path": "<HID::usb gamepad           >/button3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Fire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bd0cf399-0991-4315-96d5-180815b82497",
+                    "path": "<Gamepad>/leftShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -339,7 +339,7 @@
             "id": "bfa0e11e-894a-4f88-9647-1d1903230d12",
             "actions": [
                 {
-                    "name": "spawnScarab",
+                    "name": "UseSlot1",
                     "type": "Button",
                     "id": "9d119473-9bf4-415c-bc8b-f23146cc7691",
                     "expectedControlType": "",
@@ -348,9 +348,18 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "spawnBomb",
+                    "name": "UseSlot2",
                     "type": "Button",
                     "id": "eab6ba61-27e3-4767-84ee-57cf2da49e8c",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "UseSlot3",
+                    "type": "Button",
+                    "id": "480a733f-812c-4b0e-836e-40ca93a4f609",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -365,7 +374,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "spawnScarab",
+                    "action": "UseSlot1",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -376,7 +385,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "spawnScarab",
+                    "action": "UseSlot1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7e94471f-f3c7-46c8-be4a-cbc2550bea42",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UseSlot1",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -387,7 +407,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "spawnBomb",
+                    "action": "UseSlot2",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -398,7 +418,40 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "spawnBomb",
+                    "action": "UseSlot2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e3d63262-1b99-4ab8-bbdf-bab02ba7b36f",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UseSlot2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4b26be9e-6671-42f6-9f72-365611612546",
+                    "path": "<Keyboard>/c",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UseSlot3",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "abd37900-d03e-4bbf-81d5-291b7c9a0e11",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UseSlot3",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

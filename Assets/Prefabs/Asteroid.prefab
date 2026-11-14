@@ -82,7 +82,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NewMonoBehaviourScript
   minimum: 1
   maximum: 2
-  baseSpeed: 1
+  baseSpeed: 2
   aimlessStrength: 0.5
   directionChangeSpeed: 1
   maxSpinSpeed: 10
@@ -141,7 +141,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1409750591
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -3990115924249217302, guid: 484f15106f0db2c42918737c621ddcc1, type: 3}
@@ -292,6 +292,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DeathEffect
   effectPrefab: {fileID: 1828176872806910, guid: 64891a0eb28db934898420d80ca07cb3, type: 3}
   effectLifetime: 2
+  scaleWithObject: 0
 --- !u!114 &4671072789279993603
 MonoBehaviour:
   m_ObjectHideFlags: 0

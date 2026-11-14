@@ -22,7 +22,6 @@ public class PlayerHealth : MonoBehaviour
                 spriteRenderer.enabled = false;
                 playerController.enabled = false;
                 playerCollider.enabled = false;
-                abilities.enabled = false;
                 flames.SetActive(false);
             }
         }
@@ -34,7 +33,6 @@ public class PlayerHealth : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private PlayerController playerController;
     private Collider2D playerCollider;
-    private Abilities abilities;
     private KnockBackFeedback knockBackFeedback;
     
 
@@ -52,7 +50,6 @@ public class PlayerHealth : MonoBehaviour
         impulseSource = gameObject.GetComponent<CinemachineImpulseSource>();
         playerCollider = GetComponent<Collider2D>();
         damageFlash = GetComponent<DamageFlash>();
-        abilities = GetComponent<Abilities>();
         knockBackFeedback = GetComponent<KnockBackFeedback>();
     }
 

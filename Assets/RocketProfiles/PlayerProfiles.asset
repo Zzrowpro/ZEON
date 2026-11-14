@@ -28,4 +28,4 @@ MonoBehaviour:
   nitroCooldownDuration: 2
   stickDeadzone: 0.2
   turnSpeed: 200
-  InfiniteMode: 1
+  InfiniteMode: 0
