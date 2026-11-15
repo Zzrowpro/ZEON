@@ -6,5 +6,4 @@ public class AbilityLoadoutUI
     public AbilityLoadout abilityLoadout;
 
     public List<TextMeshProUGUI> textMeshProUGUIs;
-    public List<> 
 }
