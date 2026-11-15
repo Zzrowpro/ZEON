@@ -15,8 +15,6 @@ public class BombAbility : Ability
         _player = GameObject.Find("Player"); 
         _rigibody2D = _player.GetComponent<Rigidbody2D>( );
         _transform = _player.GetComponent<Transform>();
-        
-
     } 
 
     protected override void Activate()
