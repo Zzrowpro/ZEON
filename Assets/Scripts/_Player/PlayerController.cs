@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]private FuelBar fuelBar;
     [SerializeField]private FuelBar nitroBar;
     [SerializeField]private GameObject nb;
-    [SerializeField]public RocketProfiles rocketProfiles;
+    public RocketProfiles rocketProfiles;
 
     [Header("Movement Abilities")]
     [SerializeField]private float fuel;
@@ -64,8 +64,9 @@ public class PlayerController : MonoBehaviour
     
     private Vector2 aimDirection = Vector2.up;
     private float turnInput;
-    private bool usingStick;
-    private bool usingManual;
+    public bool usingStick{get; private set;}
+    public bool usingManual{get; private set;}
+    public bool usingMouse{get; private set;}
 
     private static readonly int IdleHash = Animator.StringToHash("Idle");
     private static readonly int BoostingHash = Animator.StringToHash("RocketBoost");
@@ -119,6 +120,7 @@ public class PlayerController : MonoBehaviour
         bool stickActive = stick.sqrMagnitude > stickDeadzone * stickDeadzone;
         //bool mouseMoved = Mouse.current != null && Mouse.current.delta.ReadValue().sqrMagnitude > 0f;
         bool mouseMoved = Mouse.current != null &&Mouse.current.delta.ReadValue().sqrMagnitude > mouseSwitchThreshold * mouseSwitchThreshold;
+        usingMouse = mouseMoved;
         turnInput = turn.ReadValue<float>();
         bool turnActive = Mathf.Abs(turnInput) > 0.01f;
 

@@ -45,6 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScarabAbility
   cooldown: 2
+  sprite: {fileID: 373210690442623999, guid: 152b2fbd5f9cf4846ae0e60186d651d8, type: 3}
+  DeactivatedSprite: {fileID: 0}
   scarabPrefab: {fileID: 2146199506591097511, guid: c0fb36291cb59a24bafe51ff30594014, type: 3}
   scarabCount: 2
   canSpawnScarab: 1

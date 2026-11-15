@@ -45,4 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DummyAbility
   cooldown: 1
+  sprite: {fileID: -4462481987945752853, guid: 152b2fbd5f9cf4846ae0e60186d651d8, type: 3}
+  DeactivatedSprite: {fileID: 0}
   dummyPrefab: {fileID: 9068089873973309862, guid: 40998600084e00e4f934017d3de8b472, type: 3}

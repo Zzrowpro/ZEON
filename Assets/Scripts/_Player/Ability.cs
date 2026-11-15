@@ -3,7 +3,8 @@ using UnityEngine;
 public abstract class Ability : MonoBehaviour
 {
     [SerializeField] float cooldown = 2f;
-    public readonly Sprite sprite;
+    public Sprite sprite;
+    public Sprite DeactivatedSprite;
     private float nextReadyTime;
 
     public bool TryUse()

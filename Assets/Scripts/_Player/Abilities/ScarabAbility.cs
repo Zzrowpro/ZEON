@@ -32,6 +32,7 @@ public class ScarabAbility : Ability
            return;
        }
        Instantiate(scarabPrefab, _scarabSpawnPoint.position, _scarabSpawnPoint.rotation);
+       
        CustomDebug.LogMessage("Scarab spawned!");
     }
 }

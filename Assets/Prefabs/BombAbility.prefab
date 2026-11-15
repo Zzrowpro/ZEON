@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BombAbility
   cooldown: 2
+  sprite: {fileID: 2198061070534476701, guid: 152b2fbd5f9cf4846ae0e60186d651d8, type: 3}
   bombPrefab: {fileID: 6613367886535950994, guid: b5fae5688ab067f4cbda3f2b3750654c, type: 3}
   totalBombs: 2
   bombCooldown: 4
