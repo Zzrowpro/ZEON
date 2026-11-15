@@ -9,6 +9,7 @@ public class BombAbility : Ability
     [SerializeField]private int totalBombs = 2;
     [SerializeField]private float bombCooldown = 4.0f;
     [SerializeField]private bool canSpawnBomb = true;
+    public readonly Sprite sprite;
 
     void Awake()
     {

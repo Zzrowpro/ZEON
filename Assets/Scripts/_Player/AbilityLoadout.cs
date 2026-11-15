@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class AbilityLoadout : MonoBehaviour
 {
-    [SerializeField] int slotCount = 3;
-    [SerializeField]Ability[] slots;
+    public int slotCount = 3;
+    [SerializeField] public Ability[] slots;
 
     void Awake()
     {
