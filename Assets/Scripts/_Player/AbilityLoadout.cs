@@ -6,7 +6,6 @@ public class AbilityLoadout : MonoBehaviour
     public int slotCount = 3;
     public Ability[] slots;
     public UnityEvent useSlot;
-    private UnityEvent isEquiped;
 
     void Awake()
     {
@@ -15,8 +14,8 @@ public class AbilityLoadout : MonoBehaviour
     }
     public void UseSlot(int i)
     {
-        useSlot?.Invoke();
         if (i < 0 || i >= slots.Length) return;
+        useSlot?.Invoke();
         if (slots[i] != null) slots[i].TryUse();
     }
 

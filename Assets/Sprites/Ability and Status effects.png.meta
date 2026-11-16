@@ -442,7 +442,7 @@ TextureImporter:
       name: SpawnScarab
       rect:
         serializedVersion: 2
-        x: 15
+        x: 16
         y: 159
         width: 16
         height: 17
@@ -746,6 +746,28 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Fill
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f2118efac4d05045b315be547e898f0
+      internalID: 624699986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -771,6 +793,7 @@ TextureImporter:
       Ability and Status effects_9: -1908703644065398033
       AutomaticPulseCannonPowerup: 5397734931125796947
       DizzyStatusEffect: -8728679262002186747
+      Fill: 624699986
       FuelPickup: -3349743932299920283
       NitroPickup: 9089017227488734547
       PiercingBulletPowerup: 6220539914273565422

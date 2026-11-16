@@ -10,8 +10,7 @@ public class AbilityLoadoutUI : MonoBehaviour
     public AbilityLoadout abilityLoadout;
     public List<TextMeshProUGUI> hotKeyDisplay;
     public List<Image> images;
-    private List<Sprite> sprites = new List<Sprite>();
-    private List<Sprite> deactivatedSprites = new List<Sprite>();
+    public List<Image> cooldownOverlays;
 
     public InputActionAsset InputActions;
     private InputActionMap abilitiesMap;
@@ -31,12 +30,18 @@ public class AbilityLoadoutUI : MonoBehaviour
             Debug.LogError("Action map 'Abilities' not found. Check the name for typos.", this);
             return;
         }
+        if(abilityLoadout == null)
+        {
+            return;
+        }
         AssignActionsToInputActions();
-        AddSpritesToList();
-        AddDeactivatedSpritesToList();
-        AddSpritesToImages();
-        SetHotkeyText();
-    } 
+
+    }
+
+    void Update()
+    {
+        RefreshIcons();
+    }
 
 
 
@@ -49,62 +54,18 @@ public class AbilityLoadoutUI : MonoBehaviour
         }
     }
 
-    private void AddSpritesToImages()
-    {
-        int count = Mathf.Min(images.Count, sprites.Count); //When sequencing 2 arrays or lists in a for loop use matf.min big bro-
-        for (int i = 0; i < count; i++)
-        {
-            if (images[i] == null) continue;
-            images[i].sprite = sprites[i];
-        }
-    }
-
-    private void AddSpritesToList()
-    {
-        if(abilityLoadout != null)
-        {
-            int count = Mathf.Min(images.Count, abilityLoadout.slots.Length);
-            for (int i = 0; i < count; i++) sprites.Add(abilityLoadout.slots[i] != null ? abilityLoadout.slots[i].sprite : null);
-        }
-    }
-
-    public void AddDeactivatedSpritesToImages()
-    {
-        int count = Mathf.Min(images.Count, deactivatedSprites.Count);
-        for (int i = 0; i < count; i++)
-        {
-            if(abilityLoadout.slots[i].TryUse() == false  && images[i] == null)
-            {
-                images[i].sprite = deactivatedSprites[i];
-            }
-        }
-    }
-
-    private void AddDeactivatedSpritesToList()
+    private void RefreshIcons()
     {
         int count = Mathf.Min(images.Count, abilityLoadout.slots.Length);
-        for (int i = 0; i < count; i++)deactivatedSprites.Add(abilityLoadout.slots[i] != null ? abilityLoadout.slots[i].DeactivatedSprite : null);
-    }
-
-    private void SetHotkeyText()
-    {
-        int count = Mathf.Min(hotKeyDisplay.Count, inputActions.Count);
         for (int i = 0; i < count; i++)
         {
-            if (hotKeyDisplay[i] == null) continue;
-            hotKeyDisplay[i].text =  hotKeyDisplay[i].text = inputActions[i].GetBindingDisplayString(0);
-        }
-
-    }
-
-    private void CheckForSlotsOnCooldown()
-    {
-        foreach(Ability ability in abilityLoadout.slots)
-        {
-            if(ability.TryUse() == false)
-            {
-                
-            }
+            hotKeyDisplay[i].text =  inputActions[i].GetBindingDisplayString(0);
+            if (images[i] == null) continue;
+            Ability a = abilityLoadout.slots[i];
+            if (a == null) { images[i].sprite = null; continue; }
+            images[i].sprite = a.IsReady ? a.sprite : a.DeactivatedSprite;
+            if (i < cooldownOverlays.Count && cooldownOverlays[i] != null)
+            cooldownOverlays[i].fillAmount = a.CooldownNormalized;
         }
     }
     
