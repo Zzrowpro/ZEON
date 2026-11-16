@@ -4,8 +4,8 @@ using UnityEngine.Events;
 public class AbilityLoadout : MonoBehaviour
 {
     public int slotCount = 3;
-    [SerializeField] public Ability[] slots;
-    private UnityEvent useSlot;
+    public Ability[] slots;
+    public UnityEvent useSlot;
     private UnityEvent isEquiped;
 
     void Awake()
@@ -15,6 +15,7 @@ public class AbilityLoadout : MonoBehaviour
     }
     public void UseSlot(int i)
     {
+        useSlot?.Invoke();
         if (i < 0 || i >= slots.Length) return;
         if (slots[i] != null) slots[i].TryUse();
     }

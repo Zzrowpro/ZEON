@@ -11,18 +11,13 @@ public class AbilityLoadoutUI : MonoBehaviour
     public List<TextMeshProUGUI> hotKeyDisplay;
     public List<Image> images;
     private List<Sprite> sprites = new List<Sprite>();
+    private List<Sprite> deactivatedSprites = new List<Sprite>();
 
     public InputActionAsset InputActions;
     private InputActionMap abilitiesMap;
     private List<InputAction> inputActions = new List<InputAction>();
-    private PlayerController playerController;
 
-    private int slotCount;
 
-    void Awake()
-    {
-        playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-    }
     private void Start()
     {
         if (InputActions == null)
@@ -38,9 +33,12 @@ public class AbilityLoadoutUI : MonoBehaviour
         }
         AssignActionsToInputActions();
         AddSpritesToList();
+        AddDeactivatedSpritesToList();
         AddSpritesToImages();
         SetHotkeyText();
     } 
+
+
 
 
     private void AssignActionsToInputActions()
@@ -70,6 +68,24 @@ public class AbilityLoadoutUI : MonoBehaviour
         }
     }
 
+    public void AddDeactivatedSpritesToImages()
+    {
+        int count = Mathf.Min(images.Count, deactivatedSprites.Count);
+        for (int i = 0; i < count; i++)
+        {
+            if(abilityLoadout.slots[i].TryUse() == false  && images[i] == null)
+            {
+                images[i].sprite = deactivatedSprites[i];
+            }
+        }
+    }
+
+    private void AddDeactivatedSpritesToList()
+    {
+        int count = Mathf.Min(images.Count, abilityLoadout.slots.Length);
+        for (int i = 0; i < count; i++)deactivatedSprites.Add(abilityLoadout.slots[i] != null ? abilityLoadout.slots[i].DeactivatedSprite : null);
+    }
+
     private void SetHotkeyText()
     {
         int count = Mathf.Min(hotKeyDisplay.Count, inputActions.Count);
@@ -79,6 +95,17 @@ public class AbilityLoadoutUI : MonoBehaviour
             hotKeyDisplay[i].text =  hotKeyDisplay[i].text = inputActions[i].GetBindingDisplayString(0);
         }
 
+    }
+
+    private void CheckForSlotsOnCooldown()
+    {
+        foreach(Ability ability in abilityLoadout.slots)
+        {
+            if(ability.TryUse() == false)
+            {
+                
+            }
+        }
     }
     
 }

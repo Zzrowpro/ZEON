@@ -64,6 +64,7 @@ public class PlayerController : MonoBehaviour
     
     private Vector2 aimDirection = Vector2.up;
     private float turnInput;
+    
     public bool usingStick{get; private set;}
     public bool usingManual{get; private set;}
     public bool usingMouse{get; private set;}

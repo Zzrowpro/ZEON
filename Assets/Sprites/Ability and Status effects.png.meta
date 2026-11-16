@@ -175,7 +175,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: S
+      name: SpawnScarabOnCD
       rect:
         serializedVersion: 2
         x: 16
@@ -197,7 +197,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ability and Status effects_1
+      name: SpawnBombOnCD
       rect:
         serializedVersion: 2
         x: 48
@@ -219,7 +219,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ability and Status effects_2
+      name: SpawnShockwaveOnCD
       rect:
         serializedVersion: 2
         x: 80
@@ -241,7 +241,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ability and Status effects_3
+      name: SpawnDecoyOnCD
       rect:
         serializedVersion: 2
         x: 112
@@ -263,7 +263,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ability and Status effects_4
+      name: TriggerRadarOnCD
       rect:
         serializedVersion: 2
         x: 144
@@ -442,7 +442,7 @@ TextureImporter:
       name: SpawnScarab
       rect:
         serializedVersion: 2
-        x: 16
+        x: 15
         y: 159
         width: 16
         height: 17
@@ -762,12 +762,8 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Ability and Status effects_1: 350848216928734336
       Ability and Status effects_10: -3246518416996537306
       Ability and Status effects_11: -1371822394486983100
-      Ability and Status effects_2: -2997370574718026767
-      Ability and Status effects_3: 8049216089013031611
-      Ability and Status effects_4: 6236406408258311000
       Ability and Status effects_5: 7678431913696958346
       Ability and Status effects_6: -8108706190956138195
       Ability and Status effects_7: -4795417414878888827
@@ -778,15 +774,19 @@ TextureImporter:
       FuelPickup: -3349743932299920283
       NitroPickup: 9089017227488734547
       PiercingBulletPowerup: 6220539914273565422
-      S: 7492562188750218967
       ScatterShotPowerup: -2838047495079776000
       SheildPowerUp: 255822595055517556
       SpawnBomb: 2198061070534476701
+      SpawnBombOnCD: 350848216928734336
       SpawnDecoy: -4462481987945752853
+      SpawnDecoyOnCD: 8049216089013031611
       SpawnScarab: 373210690442623999
+      SpawnScarabOnCD: 7492562188750218967
       SpawnShockwave: 513599840165461162
+      SpawnShockwaveOnCD: -2997370574718026767
       TrackingBulletPowerup: 4970068588647586281
       TriggerRadar: 6173542779399909696
+      TriggerRadarOnCD: 6236406408258311000
       UpgradePowerup: -4459207901932453348
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0

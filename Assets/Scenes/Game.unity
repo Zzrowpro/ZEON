@@ -29076,6 +29076,21 @@ MonoBehaviour:
   - {fileID: 374293821}
   - {fileID: 2073994776}
   - {fileID: 28124874}
+  useSlot:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1162156066}
+        m_TargetAssemblyTypeName: AbilityLoadoutUI, Assembly-CSharp
+        m_MethodName: AddDeactivatedSpritesToImages
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1228039057
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41169,6 +41184,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1797850113}
     m_Modifications:
+    - target: {fileID: 294577801143622215, guid: f1add5a9840f2f3428e356e3d295b57a, type: 3}
+      propertyPath: DeactivatedSprite
+      value: 
+      objectReference: {fileID: 8049216089013031611, guid: 152b2fbd5f9cf4846ae0e60186d651d8, type: 3}
     - target: {fileID: 3156521114814529096, guid: f1add5a9840f2f3428e356e3d295b57a, type: 3}
       propertyPath: m_Name
       value: DummyAbility
@@ -41226,6 +41245,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1797850113}
     m_Modifications:
+    - target: {fileID: 4141953055596333119, guid: 44004f4da14485749917d95f9c83849b, type: 3}
+      propertyPath: DeactivatedSprite
+      value: 
+      objectReference: {fileID: 7492562188750218967, guid: 152b2fbd5f9cf4846ae0e60186d651d8, type: 3}
     - target: {fileID: 5781990190836691896, guid: 44004f4da14485749917d95f9c83849b, type: 3}
       propertyPath: m_Name
       value: ScarabAbility
@@ -41396,6 +41419,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4563110792095091693, guid: 1b66f896ccbf7b946a421851724f2886, type: 3}
+      propertyPath: DeactivatedSprite
+      value: 
+      objectReference: {fileID: 350848216928734336, guid: 152b2fbd5f9cf4846ae0e60186d651d8, type: 3}
     - target: {fileID: 8774567730581936129, guid: 1b66f896ccbf7b946a421851724f2886, type: 3}
       propertyPath: m_Name
       value: BombAbility
