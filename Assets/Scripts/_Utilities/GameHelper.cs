@@ -80,9 +80,14 @@ public static class GameHelper
     }
 
 
-    public static void RandomVectorInCircle(float radius)
+    public static bool CheckIsOffScreen(Transform transform, Camera mainCam)
     {
-        
+        Vector3 viewportPos = mainCam.WorldToViewportPoint(transform.position);
+        bool isOffScreen = viewportPos.x < 0f || viewportPos.x > 1f || 
+                           viewportPos.y < 0f || viewportPos.y > 1f || 
+                           viewportPos.z < 0f;
+
+        return isOffScreen; 
     }
 
     
