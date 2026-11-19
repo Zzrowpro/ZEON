@@ -7,6 +7,7 @@ public class UFO : MonoBehaviour
     [SerializeField] private Vector2 turnInterval = new Vector2(1f, 3f); // Time interval at which we change the direction in x axis 
     [SerializeField] private float acceleration = 2f;
     [SerializeField] private float speed = 0.5f;
+    [SerializeField] private Transform graphics;
 
     [SerializeField] private float laneSpeed = 2f;     
     [SerializeField] private float laneGain = 3f;       
@@ -37,6 +38,22 @@ public class UFO : MonoBehaviour
 
     void Update()
     {
+
+        float tiltAngle = 0f;
+        float threshold = 0.05f;
+
+        if (_rb.linearVelocityX > threshold)
+        {
+            tiltAngle = -2f; 
+        }
+        else if (_rb.linearVelocityX < -threshold)
+        {
+            tiltAngle = 2f; 
+        }
+
+        Quaternion targetRotation = Quaternion.Euler(0f, 0f, tiltAngle);
+        graphics.localRotation = Quaternion.Slerp(graphics.localRotation, targetRotation, 8f * Time.deltaTime);
+        
         Vector3 viewportPos = _mainCam.WorldToViewportPoint(transform.position);
         bool onScreen = viewportPos.x > -0.1f && viewportPos.x < 1.1f;
         
@@ -44,9 +61,10 @@ public class UFO : MonoBehaviour
             {
                 direction = Random.value < 0.5f ? -1f : 1f;
 
-                
                 //direction = -direction;
                 ScheduleNextTurn();
+
+                
                 
             }
 
@@ -58,8 +76,15 @@ public class UFO : MonoBehaviour
             ScheduleNextLane();
         } 
 
-        if (viewportPos.x < 0f)      direction = 1f;
-        else if (viewportPos.x > 1f) direction = -1f;  
+        if (viewportPos.x < 0f)
+        {
+            direction = 1f;
+
+        }
+        else if (viewportPos.x > 1f)
+        {
+            direction = -1;
+        }
     }
 
     void FixedUpdate()
