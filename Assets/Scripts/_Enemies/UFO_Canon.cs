@@ -14,6 +14,7 @@ public class UFO_Canon : MonoBehaviour
     [SerializeField] private float rotationSpeed = 1f; //If i want it to have a nossle like the turrent 
 
     private Rigidbody2D _rb;
+    private Camera _mainCam;
     private Transform _playerTransform;
     private Transform _target;
     private float _nextFireTime;
@@ -22,6 +23,7 @@ public class UFO_Canon : MonoBehaviour
     {
         GameObject player = GameObject.Find("Player");
         _playerTransform = player.transform;
+        _mainCam = Camera.main;
     
         _target = _playerTransform;
     }
@@ -32,8 +34,12 @@ public class UFO_Canon : MonoBehaviour
     }
 
     void Update()
-    {
-        if(Time.time >= _nextFireTime)
+    { 
+        Vector3 viewportPos = _mainCam.WorldToViewportPoint(transform.position);
+        bool onScreen = viewportPos.x > 0f && viewportPos.x < 1f && viewportPos.y > 0f && viewportPos.y < 1f;
+        
+        
+        if(Time.time >= _nextFireTime && onScreen)
         {
             foreach(Transform transform in instatiatePoints)
             {

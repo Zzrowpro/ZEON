@@ -1,12 +1,12 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class EnemyProjectile : MonoBehaviour
 {
     public float bulletSpeed = 30f;
-    [SerializeField] private float lifetime = 3;
+    [SerializeField] protected float lifetime = 3;
     [SerializeField] private int dmg = 1;
  
-    public GameObject explosionEffect;
 
     protected virtual void  Start()
     {

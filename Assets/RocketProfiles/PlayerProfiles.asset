@@ -19,7 +19,7 @@ MonoBehaviour:
   maxSpeed: 8
   rotationSpeed: 10
   linearDrag: 1
-  sidewaysDamping: 3
+  sidewaysDamping: 0.05
   maxFuel: 200
   maxNitroFuel: 20
   nitroMulti: 30

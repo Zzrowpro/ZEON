@@ -58,7 +58,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: b7859b08603a139448bccd1234ee4d97, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -104,9 +104,15 @@ GameObject:
   - component: {fileID: 2305768371486863721}
   - component: {fileID: 2649489182079174494}
   - component: {fileID: 9001719074070508611}
+  - component: {fileID: 2894715005434278298}
+  - component: {fileID: 3261707813034012684}
+  - component: {fileID: 5573500198461869878}
+  - component: {fileID: 3377050399768540917}
+  - component: {fileID: 4571280573488349585}
+  - component: {fileID: 5902629314243878971}
   m_Layer: 0
   m_Name: UFO
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -200,7 +206,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDamping: 0
+  m_LinearDamping: 1
   m_AngularDamping: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -232,9 +238,9 @@ MonoBehaviour:
   - 0
   - 2.5
   - 5
-  turnInterval: {x: 1, y: 3}
+  turnInterval: {x: 3, y: 7}
   acceleration: 2
-  speed: 0.5
+  speed: 5
   graphics: {fileID: 783715849498430170}
   laneSpeed: 2
   laneGain: 3
@@ -251,12 +257,142 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67a5ebdce95fc8f42a08d06d4a00769e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UFO_Canon
-  bulletPrefab: {fileID: 2826953703126582219, guid: b3dd7402ee9f87e42a7d36654bda0d8f, type: 3}
+  bulletPrefab: {fileID: 2157802161737195384, guid: bd8b72e98b7e4054aab78230d231a0cc, type: 3}
   nossle: {fileID: 2969580584237296897}
   instatiatePoints:
   - {fileID: 2969580584237296897}
   fireRate: 1
-  rotationSpeed: 1
+  rotationSpeed: 3
+--- !u!114 &2894715005434278298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5155516644077389721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a6d224ad1ec41c4a879da0941654bde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KnockBackFeedback
+  strength: 16
+  delay: 0.15
+  OnBegin:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDone:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &3261707813034012684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5155516644077389721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53646d3f776824e4982d6245566fd62d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamageFlash
+  _flashColor: {r: 1, g: 1, b: 1, a: 1}
+  flashTime: 0.25
+--- !u!114 &5573500198461869878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5155516644077389721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 312925e26583b6b48a4b5f1565186a01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health
+  hp: 1
+  maxHp: 1
+--- !u!60 &3377050399768540917
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5155516644077389721}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.2, y: 1.8}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -1.3000001, y: 0.90000004}
+      - {x: -1.6, y: 0.8}
+      - {x: -1.6, y: -0.90000004}
+      - {x: 1.6, y: -0.90000004}
+      - {x: 1.6, y: 0.3}
+      - {x: 1.3000001, y: 0.90000004}
+  m_UseDelaunayMesh: 1
+--- !u!114 &4571280573488349585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5155516644077389721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53646d3f776824e4982d6245566fd62d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamageFlash
+  _flashColor: {r: 1, g: 1, b: 1, a: 1}
+  flashTime: 0.25
+--- !u!114 &5902629314243878971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5155516644077389721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 120d55a0b5002684a906b16989b0dc88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DeathEffect
+  effectPrefab: {fileID: 1828176872806910, guid: 64891a0eb28db934898420d80ca07cb3, type: 3}
+  effectLifetime: 2
+  scaleWithObject: 0
 --- !u!1 &7945329649471277168
 GameObject:
   m_ObjectHideFlags: 0
@@ -267,8 +403,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2969580584237296897}
   m_Layer: 0
-  m_Name: Square
-  m_TagString: Untagged
+  m_Name: Aim Point
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
