@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
+using System.Collections;
 
 
 public class PlasmaCanon : MonoBehaviour
@@ -40,6 +41,9 @@ public class PlasmaCanon : MonoBehaviour
     // [SerializeField] private Transform firePoint2;
 
     // public int Ammo => ammo;
+
+    private Coroutine bulletRoutine;
+    private BulletType baseType;
 
 
     void Awake()
@@ -112,6 +116,22 @@ public class PlasmaCanon : MonoBehaviour
     public void SwapBullet(BulletType newType)
     {
         currentType = newType;
+    }
+
+    public void ApplyBulletType(BulletType newType, float duration)
+    {
+        if (bulletRoutine != null) StopCoroutine(bulletRoutine);
+        else baseType = currentType; 
+
+        bulletRoutine = StartCoroutine(BulletTypeRoutine(newType, duration));
+    }
+
+    private IEnumerator BulletTypeRoutine(BulletType newType, float duration)
+    {
+        currentType = newType;
+        yield return new WaitForSeconds(duration);
+        currentType = baseType;
+        bulletRoutine = null;
     }
 
     public void Reload(int amount)

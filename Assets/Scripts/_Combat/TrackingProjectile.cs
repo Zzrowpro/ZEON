@@ -3,63 +3,63 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class TrackingProjectile : Projectile
 {
-    private Rigidbody2D rb;
-    private SpriteRenderer spriteRenderer;
+    // [SerializeField] private Sprite notTargeting;
+    // [SerializeField] private Sprite targeting;
+
+    [Header("Targeting")]
+    [SerializeField] private float radius = 1f;
+    [SerializeField] private LayerMask targetMask;
+    [SerializeField] private float rotateSpeed = 300f;
+
+    private readonly Collider2D[] hits = new Collider2D[34];
+    private ContactFilter2D filter;
     private Transform target;
-    [SerializeField] private Sprite notTargeting;
-    [SerializeField]private Sprite targeting;
-    [SerializeField] private LayerMask targetLayer;
+    private Rigidbody2D rb;
+    private SpriteRenderer sr;
     private bool isTargeting;
 
-    [Header("Configurable values")]
-    private int rotateSpeed;
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        sr = GetComponent<SpriteRenderer>();
+        filter = new ContactFilter2D { useLayerMask = true, layerMask = targetMask, useTriggers = true };
     }
 
-    protected override void  Start()
-    {
-        base.Start();
-        Raycast(); 
-    }
-
-    void Update()
-    {
-        if (isTargeting)
-        {
-            spriteRenderer.sprite = targeting;
-        }
-        else
-        {
-            spriteRenderer.sprite = notTargeting;
-        }
-    }
 
     void FixedUpdate()
     {
-        if(target != null)
+        if (target == null) FindClosestTarget();
+
+        if (target != null)
         {
-            Vector2 direction = ((Vector2)target.position - rb.position).normalized;
-            float rotateAmount = Vector3.Cross(direction, transform.up).z;
-            rb.angularVelocity = -rotateAmount * rotateSpeed;
+            Vector2 dir = ((Vector2)target.position - rb.position).normalized;
+            float cross = Vector3.Cross(dir, transform.up).z;
+            rb.angularVelocity = -cross * rotateSpeed;
             rb.linearVelocity = transform.up * bulletSpeed;
-            
-            isTargeting = true;
         }
-        if(target == null)
+        else
         {
-            isTargeting = false;
+            rb.angularVelocity = 0f;
+        }
+
+        // SetTargeting(target != null);
+    }
+
+    void FindClosestTarget()
+    {
+        int n = Physics2D.OverlapCircle(transform.position, radius, filter, hits);
+        float best = float.MaxValue;
+        for (int i = 0; i < n; i++)
+        {
+            float d = ((Vector2)hits[i].transform.position - rb.position).sqrMagnitude;
+            if (d < best) { best = d; target = hits[i].transform; }
         }
     }
 
-    private void Raycast()
-    {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.up, Mathf.Infinity, targetLayer);
-        if (hit)
-        {
-            target = hit.transform;
-        }
-    }
+    // void SetTargeting(bool value)
+    // {
+    //     if (isTargeting == value) return;
+    //     isTargeting = value;
+    //     sr.sprite = value ? targeting : notTargeting;
+    // }
 }
