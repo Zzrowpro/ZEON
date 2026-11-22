@@ -75,7 +75,7 @@ public class Shield : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Obstacle"))
+        if (collision.gameObject.CompareTag("Obstacle") )
         {
             Health health = collision.gameObject.GetComponent<Health>();
             Rigidbody2D rb = collision.gameObject.GetComponent<Rigidbody2D>();
@@ -83,6 +83,15 @@ public class Shield : MonoBehaviour
             if (health != null) health.TakeDamage(damage, gameObject);
             shieldHealth.TakeDamage(1, collision.gameObject);
             if (rb != null) rb.AddForce(transform.up * knockBack, ForceMode2D.Impulse);
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("EnemyProjectile"))
+        {
+            Destroy(collision.gameObject);
+            shieldHealth.TakeDamage(1);
         }
     }
 
