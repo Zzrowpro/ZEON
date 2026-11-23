@@ -1,3 +1,4 @@
+using System.Collections;
 using DG.Tweening;
 using UnityEngine;
 
@@ -21,6 +22,14 @@ public class SlideIn : MonoBehaviour
         rect.anchoredPosition = targetPos + startOffset;
         tween = rect.DOAnchorPos(targetPos, duration).SetEase(Ease.OutBack).SetUpdate(true);
         tween.Play();
+    }
+
+    public IEnumerator DisableGameObject()
+    {
+        tween = rect.DOAnchorPos(startOffset, duration).SetEase(Ease.OutBack).SetUpdate(true);
+        tween.Play();
+        yield return new WaitForSeconds(duration);
+        gameObject.SetActive(false);
     }
 
     void OnDisable()
