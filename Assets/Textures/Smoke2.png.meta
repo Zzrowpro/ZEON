@@ -1,0 +1,533 @@
+fileFormatVersion: 2
+guid: f9c698fc223e14d4899c8df4c60a3214
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7588113491120894994
+    second: cloods_1_0
+  - first:
+      213: 2490542566008590365
+    second: cloods_1_1
+  - first:
+      213: -6025120289767418168
+    second: cloods_1_2
+  - first:
+      213: -1417414458716521378
+    second: cloods_1_3
+  - first:
+      213: 1114734124630410294
+    second: cloods_1_4
+  - first:
+      213: -6011120263870919578
+    second: cloods_1_5
+  - first:
+      213: 473308893475374830
+    second: cloods_1_6
+  - first:
+      213: 1871973805660407653
+    second: cloods_1_7
+  - first:
+      213: -563610879402678680
+    second: cloods_1_8
+  - first:
+      213: -279332240725117125
+    second: cloods_1_9
+  - first:
+      213: -1611969065621570470
+    second: cloods_1_10
+  - first:
+      213: -721978890175120660
+    second: cloods_1_11
+  - first:
+      213: 7854293324046840036
+    second: cloods_1_12
+  - first:
+      213: 7426244990327094415
+    second: cloods_1_13
+  - first:
+      213: -6622800037094983743
+    second: cloods_1_14
+  - first:
+      213: 7234224870052245129
+    second: cloods_1_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: cloods_1_0
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 783
+        width: 216
+        height: 223
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eebc36ebbfa91b690800000000000000
+      internalID: -7588113491120894994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cloods_1_1
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 783
+        width: 227
+        height: 225
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d109ee0b44f209220800000000000000
+      internalID: 2490542566008590365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cloods_1_2
+      rect:
+        serializedVersion: 2
+        x: 531
+        y: 782
+        width: 219
+        height: 225
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c61a67d409726ca0800000000000000
+      internalID: -6025120289767418168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cloods_1_3
+      rect:
+        serializedVersion: 2
+        x: 785
+        y: 787
+        width: 223
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5cf2b04f05545ce0800000000000000
+      internalID: -1417414458716521378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cloods_1_4
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 528
+        width: 226
+        height: 225
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6340a9db7c4587f00800000000000000
+      internalID: 1114734124630410294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cloods_1_5
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 528
+        width: 223
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66c42d1e7f5349ca0800000000000000
+      internalID: -6011120263870919578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cloods_1_6
+      rect:
+        serializedVersion: 2
+        x: 531
+        y: 526
+        width: 220
+        height: 226
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee602a05ee7819600800000000000000
+      internalID: 473308893475374830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cloods_1_7
+      rect:
+        serializedVersion: 2
+        x: 784
+        y: 526
+        width: 226
+        height: 225
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 567893312469af910800000000000000
+      internalID: 1871973805660407653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cloods_1_8
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 275
+        width: 224
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86668ad24e6ad28f0800000000000000
+      internalID: -563610879402678680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cloods_1_9
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 271
+        width: 224
+        height: 221
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b37f3499ecc9f1cf0800000000000000
+      internalID: -279332240725117125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cloods_1_10
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 272
+        width: 225
+        height: 223
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5c35b6eca221a9e0800000000000000
+      internalID: -1611969065621570470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cloods_1_11
+      rect:
+        serializedVersion: 2
+        x: 785
+        y: 270
+        width: 223
+        height: 223
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ceaf7cb46040bf5f0800000000000000
+      internalID: -721978890175120660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cloods_1_12
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 18
+        width: 224
+        height: 223
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e0b8851a2e000d60800000000000000
+      internalID: 7854293324046840036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cloods_1_13
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 16
+        width: 217
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8c787709725f0760800000000000000
+      internalID: 7426244990327094415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cloods_1_14
+      rect:
+        serializedVersion: 2
+        x: 526
+        y: 17
+        width: 222
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c7728294761714a0800000000000000
+      internalID: -6622800037094983743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cloods_1_15
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 15
+        width: 220
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98ea2c4d031256460800000000000000
+      internalID: 7234224870052245129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      cloods_1_0: -7588113491120894994
+      cloods_1_1: 2490542566008590365
+      cloods_1_10: -1611969065621570470
+      cloods_1_11: -721978890175120660
+      cloods_1_12: 7854293324046840036
+      cloods_1_13: 7426244990327094415
+      cloods_1_14: -6622800037094983743
+      cloods_1_15: 7234224870052245129
+      cloods_1_2: -6025120289767418168
+      cloods_1_3: -1417414458716521378
+      cloods_1_4: 1114734124630410294
+      cloods_1_5: -6011120263870919578
+      cloods_1_6: 473308893475374830
+      cloods_1_7: 1871973805660407653
+      cloods_1_8: -563610879402678680
+      cloods_1_9: -279332240725117125
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
