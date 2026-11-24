@@ -48,8 +48,9 @@ public class UFO_Canon : MonoBehaviour
         {
             if(shootVfx != null)
             {
-                GameObject sVfx =  Instantiate(shootVfx, transform.position, transform.rotation);
+                GameObject sVfx =  Instantiate(shootVfx, transform.position, Quaternion.identity);
                 sVfx.transform.localScale = shootVfxScale;
+                // sVfx.transform.rotation = new Quaternion(0.125f, 0, 0, 0);
                 Destroy(sVfx, effectLifetime);
             }
             foreach(Transform transform in instatiatePoints)
