@@ -263,6 +263,9 @@ MonoBehaviour:
   - {fileID: 2969580584237296897}
   fireRate: 1
   rotationSpeed: 3
+  shootVfx: {fileID: 1490084206298094157, guid: 60419eff151a33e4392fcac80c1c9aaf, type: 3}
+  effectLifetime: 0.4
+  shootVfxScale: {x: 0.1, y: 0.1, z: 1}
 --- !u!114 &2894715005434278298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -309,8 +312,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 312925e26583b6b48a4b5f1565186a01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
-  hp: 1
-  maxHp: 1
+  id: id
+  hp: 8
+  maxHp: 8
 --- !u!60 &3377050399768540917
 PolygonCollider2D:
   m_ObjectHideFlags: 0

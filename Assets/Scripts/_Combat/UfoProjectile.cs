@@ -18,10 +18,9 @@ public class UfoProjectile : EnemyProjectile
 
     protected override void Start()
     {
+        StartCoroutine(Delete());
         StartCoroutine(TrackingCoroutine());
-        Destroy(gameObject, lifetime);
     }
-
 
     private IEnumerator TrackingCoroutine()
     {
