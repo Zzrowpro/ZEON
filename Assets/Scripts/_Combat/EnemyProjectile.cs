@@ -1,25 +1,23 @@
 using UnityEngine;
+using System.Collections;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class EnemyProjectile : MonoBehaviour
 {
     public float bulletSpeed = 30f;
+    private bool hit = false;
     [SerializeField] protected float lifetime = 3;
+    [SerializeField] protected GameObject hitVFX;
     [SerializeField] private int dmg = 1;
- 
 
-    protected virtual void  Start()
+    protected virtual void Start()
     {
         GetComponent<Rigidbody2D>().AddForce(transform.up * bulletSpeed, ForceMode2D.Impulse);
-        Destroy(gameObject, lifetime);
+        StartCoroutine(Delete());
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        // if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Projectile"))
-        // {
-        //     return;
-        // }
         if (collision.isTrigger)
         {
             return;
@@ -31,13 +29,34 @@ public class EnemyProjectile : MonoBehaviour
             if (playerHealth != null)
             {
                 playerHealth.TakeDamage(dmg,gameObject);
+                hit = true;
+
+                if (hitVFX != null)
+                {
+                    GameObject vfx = Instantiate(hitVFX,transform.position,Quaternion.identity);
+                    Destroy(vfx,3);
+                }
                 Destroy(gameObject);
             }
             else
             {
                 Destroy(gameObject);
-            }     
-            
+            }      
         }
+    }
+
+    protected virtual IEnumerator Delete()
+    {
+        yield return new WaitForSeconds(lifetime);
+
+        Debug.Log(hit);
+
+        if (!hit && hitVFX != null)
+        {
+            GameObject vfx = Instantiate(hitVFX,transform.position,Quaternion.identity);
+            Destroy(vfx,3);
+        }
+
+        Destroy(gameObject);
     }
 }

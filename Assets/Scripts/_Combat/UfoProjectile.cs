@@ -5,15 +5,9 @@ using UnityEngine;
 public class UfoProjectile : EnemyProjectile
 {
     [SerializeField]private float trackDuration = 0.5f; 
-
     private Transform _target;
     private Transform _playerTransform;
-
     private Rigidbody2D _rb;
-
-    
-    
-    
     
     void Awake()
     {
@@ -24,10 +18,9 @@ public class UfoProjectile : EnemyProjectile
 
     protected override void Start()
     {
+        StartCoroutine(Delete());
         StartCoroutine(TrackingCoroutine());
-        Destroy(gameObject, lifetime);
     }
-
 
     private IEnumerator TrackingCoroutine()
     {
@@ -42,8 +35,5 @@ public class UfoProjectile : EnemyProjectile
             yield return null;
         }
         _rb.linearVelocity = lastDir * bulletSpeed;
-        
     }
-
-
 }
