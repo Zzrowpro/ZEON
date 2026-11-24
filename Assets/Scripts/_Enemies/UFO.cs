@@ -44,11 +44,11 @@ public class UFO : MonoBehaviour
 
         if (_rb.linearVelocityX > threshold)
         {
-            tiltAngle = -2f; 
+            tiltAngle = -5f; 
         }
         else if (_rb.linearVelocityX < -threshold)
         {
-            tiltAngle = 2f; 
+            tiltAngle = 5f; 
         }
 
         Quaternion targetRotation = Quaternion.Euler(0f, 0f, tiltAngle);

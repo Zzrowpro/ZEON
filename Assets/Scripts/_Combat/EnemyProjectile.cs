@@ -5,9 +5,9 @@ public class EnemyProjectile : MonoBehaviour
 {
     public float bulletSpeed = 30f;
     [SerializeField] protected float lifetime = 3;
+    [SerializeField] protected GameObject hitVFX;
     [SerializeField] private int dmg = 1;
  
-
     protected virtual void  Start()
     {
         GetComponent<Rigidbody2D>().AddForce(transform.up * bulletSpeed, ForceMode2D.Impulse);
@@ -16,10 +16,6 @@ public class EnemyProjectile : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        // if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Projectile"))
-        // {
-        //     return;
-        // }
         if (collision.isTrigger)
         {
             return;
@@ -31,6 +27,13 @@ public class EnemyProjectile : MonoBehaviour
             if (playerHealth != null)
             {
                 playerHealth.TakeDamage(dmg,gameObject);
+
+                if (hitVFX != null)
+                {
+                    GameObject vfx = Instantiate(hitVFX,transform.position,Quaternion.identity);
+                    Destroy(vfx,3);
+                }
+
                 Destroy(gameObject);
             }
             else

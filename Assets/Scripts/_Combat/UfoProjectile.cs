@@ -5,15 +5,9 @@ using UnityEngine;
 public class UfoProjectile : EnemyProjectile
 {
     [SerializeField]private float trackDuration = 0.5f; 
-
     private Transform _target;
     private Transform _playerTransform;
-
     private Rigidbody2D _rb;
-
-    
-    
-    
     
     void Awake()
     {
@@ -42,8 +36,5 @@ public class UfoProjectile : EnemyProjectile
             yield return null;
         }
         _rb.linearVelocity = lastDir * bulletSpeed;
-        
     }
-
-
 }
