@@ -1,12 +1,9 @@
 using UnityEngine;
+using System.Collections;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class UFO_Canon : MonoBehaviour
 {
-    //Always able to shoot player as long as in scene
-    //FireRate
-    //Damage
-
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform nossle;
     [SerializeField] private Transform [] instatiatePoints;
@@ -43,19 +40,17 @@ public class UFO_Canon : MonoBehaviour
         Vector3 viewportPos = _mainCam.WorldToViewportPoint(transform.position);
         bool onScreen = viewportPos.x > 0f && viewportPos.x < 1f && viewportPos.y > 0f && viewportPos.y < 1f;
         
-        
         if(Time.time >= _nextFireTime && onScreen)
         {
             if(shootVfx != null)
             {
                 GameObject sVfx =  Instantiate(shootVfx, transform.position, Quaternion.identity);
                 sVfx.transform.localScale = shootVfxScale;
-                // sVfx.transform.rotation = new Quaternion(0.125f, 0, 0, 0);
                 Destroy(sVfx, effectLifetime);
             }
             foreach(Transform transform in instatiatePoints)
             {
-                Instantiate(bulletPrefab, transform.position, transform.rotation);
+                StartCoroutine(Shoot());
             }
             GetNextFireTime();
         }
@@ -71,5 +66,11 @@ public class UFO_Canon : MonoBehaviour
     private void GetNextFireTime()
     {
         _nextFireTime = Time.time + fireRate; 
+    }
+
+    private IEnumerator Shoot()
+    {
+        yield return new WaitForSeconds(0.2f);
+        Instantiate(bulletPrefab, transform.position, transform.rotation);
     }
 }
