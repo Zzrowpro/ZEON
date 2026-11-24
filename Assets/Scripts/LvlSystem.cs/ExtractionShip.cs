@@ -47,8 +47,7 @@ public class ExtractionShip : MonoBehaviour
 
     public IEnumerator DisableGameObject()
     {
-        tween = transform.DOMove(targetPos + startOffset, duration)
-                         .SetEase(Ease.OutBack).SetUpdate(true);
+        tween = transform.DOMove(targetPos + startOffset, duration).SetEase(Ease.OutBack).SetUpdate(true);
         yield return new WaitForSecondsRealtime(duration);
         gameObject.SetActive(false);
     }
