@@ -166,6 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 312925e26583b6b48a4b5f1565186a01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
+  id: asteroid
   hp: 2
   maxHp: 2
 --- !u!60 &7457382651498776676

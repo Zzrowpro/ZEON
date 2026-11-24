@@ -1,0 +1,1 @@
+public class ObjectiveProgress { public int count; }

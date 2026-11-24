@@ -6,7 +6,9 @@ using UnityEngine;
 [RequireComponent(typeof(DamageFlash))]
 public class Health : MonoBehaviour
 {
+    [SerializeField] private string id = "id";
     [SerializeField] private int hp = 1;
+    
     public int Hp
     {
         get{return hp;}
@@ -26,6 +28,7 @@ public class Health : MonoBehaviour
         get{return maxHp;}
         private set{}
     }
+    
 
     private bool isDead = false;
     private DamageFlash damageFlash;
@@ -65,6 +68,7 @@ public class Health : MonoBehaviour
     private void Dead()
     {
         isDead = true;
+        GameEvents.Report(id);
         kbf.Cancel();
         Died?.Invoke();
         Destroy(gameObject);
