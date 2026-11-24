@@ -9,11 +9,11 @@ public class PlasmaCanon : MonoBehaviour
 
     //Actions
     public InputActionAsset InputActions;
-
     private InputAction fire;
 
     [Header("Projectile Settings")]
     [SerializeField] private GameObject projectilePrefabs;
+    [SerializeField] private ParticleSystem vfx;
 
     [Header("Ammo Settings")]
     // [SerializeField] private int ammo = 200;
@@ -103,6 +103,8 @@ public class PlasmaCanon : MonoBehaviour
         {
             Instantiate(prefab, firePoint.position, firePoint.rotation);
         }
+
+        vfx.Play();
 
         // CustomDebug.LogMessage($"Fired! Ammo remaining: {ammo}");
 
