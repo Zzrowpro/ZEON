@@ -4919,6 +4919,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ee0cbd34a71f4c4d8d5e7b52a63ba85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TrackingPowerUp
+  pickupVFX: {fileID: 979869599097677101, guid: d5b76def14d77294f9845eee026dda86, type: 3}
   speed: 4
   turnRate: 8
   lifetime: 5

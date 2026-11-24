@@ -3,6 +3,7 @@ using UnityEngine;
 [RequireComponent(typeof(CircleCollider2D))]
 public abstract class PowerUp : MonoBehaviour
 {
+    [SerializeField] private GameObject pickupVFX;
     [SerializeField] private float speed = 4f;
     [SerializeField] private float turnRate = 8f;
     [SerializeField] protected float lifetime = 5f;
@@ -36,7 +37,11 @@ public abstract class PowerUp : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.CompareTag("Player")) return;
+
         Apply(other.gameObject);
+        GameObject vfx = Instantiate(pickupVFX,transform.position,Quaternion.identity);
+        Destroy(vfx,3);
+
         if(_effects != null)
         {
             GameObject fx = Instantiate(_effects, transform.position, transform.rotation);
