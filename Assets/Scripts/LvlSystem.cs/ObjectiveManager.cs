@@ -8,12 +8,13 @@ public class ObjectiveManager : MonoBehaviour
     public GameObject levelPanel;
 
     bool done;
-    public bool Done => done;   // others can read it, only this class can set it
+    public bool Done => done;
 
     readonly Dictionary<Objective, ObjectiveProgress> progress = new();
 
     void OnEnable()  => GameEvents.OnReport += HandleReport;
     void OnDisable() => GameEvents.OnReport -= HandleReport;
+
 
     void Start()
     {
@@ -21,12 +22,23 @@ public class ObjectiveManager : MonoBehaviour
             progress[o] = new ObjectiveProgress();
     }
 
-    void HandleReport(string id)
+    public int GetCount(Objective o) => progress.TryGetValue(o, out var p) ? p.count : 0;
+
+    public bool IsObjectiveDone(Objective o) => progress.TryGetValue(o, out var p) && o.IsComplete(p);
+
+    void HandleReport(string id, int amount)
     {
         if (done || progress.Count == 0) return;
 
+        bool changed = false;
         foreach (var kv in progress)
-            if (kv.Key.Matches(id)) kv.Value.count++;
+        {
+            if (!kv.Key.Matches(id)) continue;
+            kv.Value.count += amount;
+            changed = true;
+        }
+
+        if (changed) GameEvents.RaiseProgressChanged();
 
         if (progress.All(kv => kv.Key.IsComplete(kv.Value)))
         {

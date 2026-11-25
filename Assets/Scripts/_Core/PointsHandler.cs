@@ -24,5 +24,6 @@ public class PointsReward : MonoBehaviour
         pointHud.Pulse(points);
         GameObject obj = Instantiate(popupPrefab, transform.position, Quaternion.identity);
         obj.GetComponent<Popup>().points = points;
+        GameEvents.Report(PointsObjective.PointsId, points);
     }
 }

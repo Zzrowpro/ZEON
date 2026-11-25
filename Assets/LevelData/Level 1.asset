@@ -15,3 +15,4 @@ MonoBehaviour:
   levelName: Level 1
   objectives:
   - {fileID: 11400000, guid: 1720f88dda7d7b14288b7d987b66d912, type: 2}
+  - {fileID: 11400000, guid: 59027e9baedacef4ea6812cf24fcd424, type: 2}
