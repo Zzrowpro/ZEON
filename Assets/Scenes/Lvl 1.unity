@@ -39502,6 +39502,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tasks
       objectReference: {fileID: 0}
+    - target: {fileID: 2993057061459595136, guid: fc3109641818e284c81ed15f902be918, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 2614619144461338311, guid: e27574bf1b76ddf4293725a1e4690c8b, type: 3}
     - target: {fileID: 3063097713856259652, guid: fc3109641818e284c81ed15f902be918, type: 3}
       propertyPath: manager
       value: 
