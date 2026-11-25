@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3704236177696955140}
   - component: {fileID: -9029049046758086349}
   m_Layer: 0
-  m_Name: Projectile_Crate 1
+  m_Name: Projectile_Crate_Remodel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

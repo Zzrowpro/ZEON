@@ -35,7 +35,7 @@ public class Timer : MonoBehaviour
         if (scoreText)
         {
             //scoreText.text = $"{Mathf.FloorToInt(pointsPerSecond)}x : {MathF.Ceiling(DataManager.instance.points)}";
-            scoreText.text = string.Format("Points : {0}", DataManager.instance.points);
+            scoreText.text = string.Format("{0:00000}", DataManager.instance.points);
         }
         // changeColorBasedOnPoints(); 
     }

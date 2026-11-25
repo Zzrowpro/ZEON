@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8c4f09490e3137b4f92b3940f5b8e6ae, type: 3}
-  m_Name: Get100Points
+  m_Name: GetXPoints
   m_EditorClassIdentifier: Assembly-CSharp::PointsObjective
   description: Get 100 Points
-  amount: 100
+  amount: 20

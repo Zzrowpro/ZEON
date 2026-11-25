@@ -9,6 +9,7 @@ public class WaypointTarget : MonoBehaviour
     public static event Action<WaypointTarget> Removed;
 
     public Sprite icon;
+    public string text; 
     public Color color = Color.white;
     public Vector3 offset = Vector3.up;   // marker floats above the object
 

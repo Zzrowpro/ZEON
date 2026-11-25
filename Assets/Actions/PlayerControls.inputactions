@@ -128,6 +128,50 @@
                 },
                 {
                     "name": "",
+                    "id": "f9cca368-5d76-4cf1-8f7e-62ec8cd1ae7f",
+                    "path": "<Joystick>/stick/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Boost",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cf176786-1fda-40f4-8597-c516847e847c",
+                    "path": "<Joystick>/stick/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Boost",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8a34dc7f-93a0-4e36-bb24-9618bca50ebd",
+                    "path": "<Joystick>/stick/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Boost",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "47d3457d-1fcd-487f-b608-f53613758de9",
+                    "path": "<Joystick>/stick/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Boost",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "1ba597c2-1087-4701-b2b5-f71f3cae7665",
                     "path": "<Mouse>/rightButton",
                     "interactions": "",
@@ -183,6 +227,17 @@
                 },
                 {
                     "name": "",
+                    "id": "19831446-02dd-4f23-ba6c-3002dc504a39",
+                    "path": "<HID::DragonRise Inc.   Generic   USB  Joystick  >/button2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Fire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "1c862636-a896-4b40-9320-748504f7256d",
                     "path": "<Gamepad>/rightShoulder",
                     "interactions": "",
@@ -218,6 +273,17 @@
                     "name": "",
                     "id": "a79eaffb-8e18-4eb1-8298-effec2504699",
                     "path": "<HID::usb gamepad           >/button5",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Nitro",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e76242c0-4262-422a-a45d-99286380b2f1",
+                    "path": "<Joystick>/trigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -301,6 +367,17 @@
                     "action": "Extract",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2cb04f53-e6b2-4965-a24e-af2ddee1c075",
+                    "path": "<HID::DragonRise Inc.   Generic   USB  Joystick  >/button3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Extract",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -312,6 +389,15 @@
                     "name": "Pause",
                     "type": "Button",
                     "id": "ea5f837b-14ff-45d4-83e0-21480b6e551e",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ToggleObjPanel",
+                    "type": "Button",
+                    "id": "d9628cb8-54b3-4fb7-8889-af8a72a0c482",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -349,6 +435,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "99fbc0a4-29de-4126-a93b-597ea1529b99",
+                    "path": "<HID::DragonRise Inc.   Generic   USB  Joystick  >/button7",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2fad8dd7-57d1-483f-b4f0-a81415f9ff36",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ToggleObjPanel",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -422,6 +530,17 @@
                 },
                 {
                     "name": "",
+                    "id": "e8c34186-a1a0-4a35-a913-e966a6a8e009",
+                    "path": "<HID::DragonRise Inc.   Generic   USB  Joystick  >/button4",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UseSlot1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "1960abf2-48b7-4f5d-b30c-d8d340a3de85",
                     "path": "<Keyboard>/x",
                     "interactions": "",
@@ -455,6 +574,17 @@
                 },
                 {
                     "name": "",
+                    "id": "811317dc-d5ac-49c4-9489-02beb5780aa8",
+                    "path": "<HID::DragonRise Inc.   Generic   USB  Joystick  >/button5",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UseSlot2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "4b26be9e-6671-42f6-9f72-365611612546",
                     "path": "<Keyboard>/c",
                     "interactions": "",
@@ -468,6 +598,17 @@
                     "name": "",
                     "id": "abd37900-d03e-4bbf-81d5-291b7c9a0e11",
                     "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UseSlot3",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4976d1fc-66e3-491b-bdb2-78a4fe9f87c9",
+                    "path": "<HID::DragonRise Inc.   Generic   USB  Joystick  >/button6",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

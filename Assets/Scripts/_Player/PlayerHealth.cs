@@ -41,6 +41,7 @@ public class PlayerHealth : MonoBehaviour
     private DamageFlash damageFlash;
 
     public event Action OnPlayerDeath;
+    public event Action TookDamage; 
 
 
     void Awake()
@@ -80,6 +81,7 @@ public class PlayerHealth : MonoBehaviour
         {
             Health = math.clamp(Health - damage, 0, rocketProfiles.maxHealth);
             damageFlash.CallDamageFlash();
+            TookDamage?.Invoke();
 
         }
     }
