@@ -98,7 +98,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -876546973899608171, guid: b7eb1bd76a5047645bcfb5758cdcc546, type: 3}
+  - {fileID: 2100000, guid: b7859b08603a139448bccd1234ee4d97, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -333,6 +333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 312925e26583b6b48a4b5f1565186a01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
+  id: id
   hp: 6
   maxHp: 6
 --- !u!95 &3659554294594023927
@@ -371,6 +372,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DeathEffect
   effectPrefab: {fileID: 1329845292236604, guid: 9bba9cf244c53c5439505dfc96fdd11c, type: 3}
   effectLifetime: 2
+  scaleWithObject: 0
 --- !u!114 &4228003969332446647
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -445,7 +447,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -876546973899608171, guid: b7eb1bd76a5047645bcfb5758cdcc546, type: 3}
+  - {fileID: 2100000, guid: b7859b08603a139448bccd1234ee4d97, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -495,13 +497,15 @@ MonoBehaviour:
   lineRenderer: {fileID: 3133177894999229642}
   subdivisions: 40
   dashCount: 30
-  bulletPrefab: {fileID: 2826953703126582219, guid: b3dd7402ee9f87e42a7d36654bda0d8f, type: 3}
+  bulletPrefab: {fileID: 5202462742742864998, guid: 3b91dceb8357d734d9f1ba96df9ea805, type: 3}
   bulletSpawnPoint: {fileID: 5500292356562945164}
   shootingRate: 2
+  chargingVFX: {fileID: 5384234494003029480, guid: cc23eea4fc69fb343a9427b631b5edcd, type: 3}
+  shootVFX: {fileID: 241312576183959973, guid: 6139e2ed9c6117e4cad1d10a092c5aaf, type: 3}
   bulletSpeed: 10
   accuracy: 1
   maxSpreadDegrees: 15
   velocitySmoothing: 10
   fireAngleTolerance: 5
   animator: {fileID: 3659554294594023927}
-  loadTime: 0.6
+  loadTime: 3

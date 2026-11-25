@@ -49,8 +49,6 @@ public class EnemyProjectile : MonoBehaviour
     {
         yield return new WaitForSeconds(lifetime);
 
-        Debug.Log(hit);
-
         if (!hit && hitVFX != null)
         {
             GameObject vfx = Instantiate(hitVFX,transform.position,Quaternion.identity);

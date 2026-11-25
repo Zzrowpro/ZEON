@@ -16,6 +16,8 @@ public class Turrent : MonoBehaviour
     [SerializeField]private GameObject bulletPrefab;
     [SerializeField]private Transform bulletSpawnPoint;
     [SerializeField]private float shootingRate = 0.5f;
+    [SerializeField]private GameObject chargingVFX;
+    [SerializeField]private GameObject shootVFX;
     private float nextFireTime = 0f;
 
     [Header("Prediction")] 
@@ -185,8 +187,13 @@ public class Turrent : MonoBehaviour
     {
        isLoading = true;
         if (animator != null) animator.Play(LoadHash, 0, 0f);
+        GameObject vfx = Instantiate(chargingVFX, bulletSpawnPoint.transform.position, Quaternion.identity);
+        vfx.transform.parent = gameObject.transform;
+        Destroy(vfx,loadTime);
 
         yield return new WaitForSeconds(loadTime);
+
+        Destroy(Instantiate(shootVFX,bulletSpawnPoint.transform.position, Quaternion.identity),2);
 
         if (m_target != null)
         {
