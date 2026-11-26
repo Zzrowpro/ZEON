@@ -23,12 +23,14 @@ public class PlayerHealth : MonoBehaviour
                 playerController.enabled = false;
                 playerCollider.enabled = false;
                 flames.SetActive(false);
+                Destroy(Instantiate(deathVFX,transform.position,Quaternion.identity),4);
             }
         }
     }
     [SerializeField]private bool isDead = false;
     [SerializeField] RocketProfiles rocketProfiles;
     [SerializeField] private GameObject flames;
+    [SerializeField] private GameObject deathVFX;
 
     private SpriteRenderer spriteRenderer;
     private PlayerController playerController;
@@ -43,7 +45,6 @@ public class PlayerHealth : MonoBehaviour
     public event Action OnPlayerDeath;
     public event Action TookDamage; 
 
-
     void Awake()
     {
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
@@ -57,9 +58,7 @@ public class PlayerHealth : MonoBehaviour
     public void HealthIncrease(int amount)
     {
         Health += amount; 
-    }
-
- 
+    } 
 
     public void TakeDamage(int damage, GameObject sender)
     {

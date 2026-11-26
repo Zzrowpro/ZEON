@@ -314,7 +314,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Health
   id: id
   hp: 8
-  maxHp: 8
+  deathVFX: {fileID: 3514284973401286746, guid: ffdb90e968fe06949bc29d7050df8b5b, type: 3}
+  maxHp: 4
 --- !u!60 &3377050399768540917
 PolygonCollider2D:
   m_ObjectHideFlags: 0

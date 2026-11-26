@@ -187,9 +187,9 @@ public class Turrent : MonoBehaviour
     {
        isLoading = true;
         if (animator != null) animator.Play(LoadHash, 0, 0f);
-        GameObject vfx = Instantiate(chargingVFX, bulletSpawnPoint.transform.position, Quaternion.identity);
-        vfx.transform.parent = gameObject.transform;
-        Destroy(vfx,loadTime);
+        GameObject currentChargeObject = Instantiate(chargingVFX, bulletSpawnPoint.transform.position, Quaternion.identity);
+        currentChargeObject.transform.parent = gameObject.transform;
+        Destroy(currentChargeObject,loadTime);
 
         yield return new WaitForSeconds(loadTime);
 

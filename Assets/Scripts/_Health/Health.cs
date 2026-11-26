@@ -8,6 +8,7 @@ public class Health : MonoBehaviour
 {
     [SerializeField] private string id = "id";
     [SerializeField] private int hp = 1;
+    [SerializeField] private GameObject deathVFX;
     
     public int Hp
     {
@@ -23,6 +24,7 @@ public class Health : MonoBehaviour
     }
 
     [SerializeField] private int maxHp = 1;
+
     public int MaxHp
     {
         get{return maxHp;}
@@ -72,5 +74,8 @@ public class Health : MonoBehaviour
         kbf.Cancel();
         Died?.Invoke();
         Destroy(gameObject);
+
+        if (deathVFX != null)
+            Destroy(Instantiate(deathVFX,transform.position,Quaternion.identity),4);
     }
 }

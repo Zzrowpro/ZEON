@@ -10170,6 +10170,7 @@ MonoBehaviour:
   isDead: 0
   rocketProfiles: {fileID: 11400000, guid: 446911b674fb1c748bc87a7c9f4ac66c, type: 2}
   flames: {fileID: 4965665402936372385}
+  deathVFX: {fileID: 3514284973401286746, guid: ffdb90e968fe06949bc29d7050df8b5b, type: 3}
 --- !u!114 &3330076335812213586
 MonoBehaviour:
   m_ObjectHideFlags: 0
