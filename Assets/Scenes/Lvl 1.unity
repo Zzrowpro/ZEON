@@ -16238,9 +16238,9 @@ RectTransform:
   - {fileID: 552736283}
   - {fileID: 1785218201}
   - {fileID: 1430584655}
+  - {fileID: 1105047692}
   - {fileID: 1567265633}
   - {fileID: 2081704159}
-  - {fileID: 1105047692}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -21865,6 +21865,7 @@ MonoBehaviour:
   - {fileID: 135716614}
   - {fileID: 1951006675}
   - {fileID: 1433378615}
+  hotKeyIcons: []
   images:
   - {fileID: 202466620}
   - {fileID: 843149963}
@@ -21873,7 +21874,10 @@ MonoBehaviour:
   - {fileID: 269325763}
   - {fileID: 2011876774}
   - {fileID: 1540132512}
+  gamepadIcons: []
   InputActions: {fileID: -944628639613478452, guid: 55fc42942ce793847bbb378dd48e10a2, type: 3}
+  keyboardScheme: Keyboard & Mouse
+  gamepadScheme: Gamepad
 --- !u!114 &1013182567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22136,8 +22140,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WaypointHUD
   iconPrefab: {fileID: 1384196244661573710, guid: 3678d96b80bc8ad4bb535658696d9132, type: 3}
+  player: {fileID: 46873378}
   edgeMargin: 100
-  arrowDistance: 1
+  unitsToMeters: 1
+  showWhenOnScreen: 1
 --- !u!1 &1148756950
 GameObject:
   m_ObjectHideFlags: 0
