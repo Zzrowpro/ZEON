@@ -34,7 +34,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0.25, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.9, z: 0}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1565858647
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 20
   m_MaskInteraction: 0
   m_Sprite: {fileID: -5418904266059204465, guid: 7cf8b70bde20ee4449660240b4a90f50, type: 3}
@@ -119,7 +119,6 @@ MonoBehaviour:
   fullHealthSprite: {fileID: -5418904266059204465, guid: 7cf8b70bde20ee4449660240b4a90f50, type: 3}
   animator: {fileID: 6561642487874964473}
   stage: -1
-  percent: 1
 --- !u!114 &9161882630342445268
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,7 +131,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 312925e26583b6b48a4b5f1565186a01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
+  id: id
   hp: 5
+  deathVFX: {fileID: 0}
   maxHp: 5
 --- !u!95 &6561642487874964473
 Animator:
