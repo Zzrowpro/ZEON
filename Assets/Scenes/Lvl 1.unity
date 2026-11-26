@@ -39502,10 +39502,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tasks
       objectReference: {fileID: 0}
-    - target: {fileID: 2993057061459595136, guid: fc3109641818e284c81ed15f902be918, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 2614619144461338311, guid: e27574bf1b76ddf4293725a1e4690c8b, type: 3}
+    - target: {fileID: 2923332798184387372, guid: fc3109641818e284c81ed15f902be918, type: 3}
+      propertyPath: offset.x
+      value: 350
+      objectReference: {fileID: 0}
     - target: {fileID: 3063097713856259652, guid: fc3109641818e284c81ed15f902be918, type: 3}
       propertyPath: manager
       value: 
@@ -39536,7 +39536,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6485916539868649778, guid: fc3109641818e284c81ed15f902be918, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 346.478
+      value: 411.248
       objectReference: {fileID: 0}
     - target: {fileID: 6485916539868649778, guid: fc3109641818e284c81ed15f902be918, type: 3}
       propertyPath: m_SizeDelta.y
@@ -39572,7 +39572,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6485916539868649778, guid: fc3109641818e284c81ed15f902be918, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 779
+      value: 775.94684
       objectReference: {fileID: 0}
     - target: {fileID: 6485916539868649778, guid: fc3109641818e284c81ed15f902be918, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -39589,6 +39589,18 @@ PrefabInstance:
     - target: {fileID: 6485916539868649778, guid: fc3109641818e284c81ed15f902be918, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7319824047241739453, guid: fc3109641818e284c81ed15f902be918, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 321.871
+      objectReference: {fileID: 0}
+    - target: {fileID: 7319824047241739453, guid: fc3109641818e284c81ed15f902be918, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 10.829
+      objectReference: {fileID: 0}
+    - target: {fileID: 7319824047241739453, guid: fc3109641818e284c81ed15f902be918, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.0024909
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

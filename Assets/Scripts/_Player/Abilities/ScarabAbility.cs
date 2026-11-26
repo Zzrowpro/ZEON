@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class ScarabAbility : Ability
@@ -18,9 +19,15 @@ public class ScarabAbility : Ability
 
     protected override void Activate()
     {
+        StartCoroutine(ActivateSpawnScarab()); 
+    }
+
+    private IEnumerator ActivateSpawnScarab()
+    {
         for (int i = 0; i < scarabCount; i++)
         {    
             SpawnScarab();
+            yield return new WaitForSeconds(1);
         }
     }
 

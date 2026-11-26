@@ -206,8 +206,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6592b6d420a6c11449057f77731070fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Scarab
-  acceleration: 2
-  maxSpeed: 5
+  acceleration: 6
+  maxSpeed: 10
   rotationSpeed: 5
   linearDrag: 1
   sidewaysDamping: 3
@@ -236,6 +236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 312925e26583b6b48a4b5f1565186a01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
+  id: id
   hp: 1
   maxHp: 1
 --- !u!114 &6277627684015344024
