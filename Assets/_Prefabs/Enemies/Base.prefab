@@ -333,8 +333,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 312925e26583b6b48a4b5f1565186a01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
-  id: id
+  id: canon
   hp: 6
+  deathVFX: {fileID: 0}
   maxHp: 6
 --- !u!95 &3659554294594023927
 Animator:

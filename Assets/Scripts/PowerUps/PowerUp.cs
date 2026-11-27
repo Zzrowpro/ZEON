@@ -3,13 +3,13 @@ using UnityEngine;
 [RequireComponent(typeof(CircleCollider2D))]
 public abstract class PowerUp : MonoBehaviour
 {
-    [SerializeField] private GameObject pickupVFX;
+
     [SerializeField] private float speed = 4f;
     [SerializeField] private float turnRate = 8f;
     [SerializeField] protected float lifetime = 5f;
 
     [Header("PickUpEffects")]
-    [SerializeField] private GameObject _effects;
+    [SerializeField] private GameObject pickupVFX;
     private float _effectsLifeTime;
 
     private float id;
@@ -41,12 +41,6 @@ public abstract class PowerUp : MonoBehaviour
         Apply(other.gameObject);
         GameObject vfx = Instantiate(pickupVFX,transform.position,Quaternion.identity);
         Destroy(vfx,3);
-
-        if(_effects != null)
-        {
-            GameObject fx = Instantiate(_effects, transform.position, transform.rotation);
-            Destroy(fx, _effectsLifeTime);
-        }
         Destroy(gameObject);
     }
 

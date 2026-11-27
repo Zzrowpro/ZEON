@@ -9955,6 +9955,7 @@ GameObject:
   - component: {fileID: 3228715494065668738}
   - component: {fileID: 7130264843339808891}
   - component: {fileID: 4373888925177358411}
+  - component: {fileID: 3823394073701821783}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -10166,7 +10167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cc717d40bd325644823dfbff0ca7cf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
-  health: 8
+  health: 200
   isDead: 0
   rocketProfiles: {fileID: 11400000, guid: 446911b674fb1c748bc87a7c9f4ac66c, type: 2}
   flames: {fileID: 4965665402936372385}
@@ -10293,6 +10294,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AbilityInput
   InputActions: {fileID: -944628639613478452, guid: 55fc42942ce793847bbb378dd48e10a2, type: 3}
+--- !u!114 &3823394073701821783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4973293398771710301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e7bebd69c8450843b0e159ec918265d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProfileBuff
 --- !u!1 &5322227691116108937
 GameObject:
   m_ObjectHideFlags: 0

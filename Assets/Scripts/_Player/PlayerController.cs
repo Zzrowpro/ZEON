@@ -303,10 +303,27 @@ public class PlayerController : MonoBehaviour
             rb.linearVelocity = rb.linearVelocity.normalized * rocketProfiles.maxSpeed;
         }
     }
+
+    public void SetProfile(RocketProfiles profile)
+    {
+        rocketProfiles = profile;
+
+        if (rb != null) rb.linearDamping = rocketProfiles.linearDrag;
+        if (!rocketProfiles.InfiniteMode) fuelBar.setMaxFuel(rocketProfiles.maxFuel);
+        nitroBar.setMaxFuel(rocketProfiles.maxNitroFuel);
+
+        Fuel = fuel;              // run the clamp again against the new max
+        NitroFuel = nitroFuel;
+    }
  
     public void FuelIncrease(float value)
     {
-        Fuel = math.round(fuel += value);
+        Fuel = math.round(Fuel += value);
+    }
+
+    public void NitroIncrease(float value)
+    {
+        NitroFuel = math.round(NitroFuel += value);
     }
 
 

@@ -4850,9 +4850,9 @@ GameObject:
   - component: {fileID: 3129278638043174749}
   - component: {fileID: 8796751311810714050}
   - component: {fileID: 4409604568920851962}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: TurretBullet
-  m_TagString: Projectile
+  m_TagString: EnemyProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
