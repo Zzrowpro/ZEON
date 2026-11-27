@@ -38,7 +38,9 @@ public class PlayerController : MonoBehaviour
         
     }
     [Header("Visuals")]
-    [SerializeField]private GameObject boosterSprite;    
+    [SerializeField]private GameObject boosterSprite;
+    [SerializeField]private AudioSource boostLoopSound;
+    [SerializeField]private AudioSource boostStartSound;
 
     private Rigidbody2D rb;
     private Vector2 mouseDirection;
@@ -200,7 +202,10 @@ public class PlayerController : MonoBehaviour
         {
             NitroFuel -= rocketProfiles.nitroLossRate * Time.deltaTime;
             nb.SetActive(true);
-            
+
+            if (!boostStartSound.isPlaying)
+                 //boostStartSound.Play();
+
             if (nitroFuel <= 0)
                 nitroOnCooldown = true;
         }
@@ -269,7 +274,12 @@ public class PlayerController : MonoBehaviour
 
     void HandleThrust() //Also handles nitro switching
     {
-        if (!boosting) return;
+        if (!boosting) {boostLoopSound.Stop(); return;}
+
+        if (!boostLoopSound.isPlaying)
+        {
+            boostLoopSound.Play();
+        }
 
         if(rocketProfiles.InfiniteMode == false)
         {
