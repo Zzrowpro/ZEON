@@ -14,6 +14,7 @@ public class UFO_Canon : MonoBehaviour
     [SerializeField] private GameObject shootVfx;
     [SerializeField] private float effectLifetime;
     [SerializeField] private Vector3 shootVfxScale = new Vector3(1,1,1);
+    [SerializeField] private AudioSource shootSound;
 
     private Rigidbody2D _rb;
     private Camera _mainCam;
@@ -70,6 +71,7 @@ public class UFO_Canon : MonoBehaviour
 
     private IEnumerator Shoot()
     {
+        shootSound.Play();
         yield return new WaitForSeconds(0.2f);
         Instantiate(bulletPrefab, transform.position, transform.rotation);
     }

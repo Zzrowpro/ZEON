@@ -3,7 +3,6 @@ using Cinemachine;
 using Unity.Mathematics;
 using UnityEngine;
 
-
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField]private int health = 4;
@@ -23,7 +22,11 @@ public class PlayerHealth : MonoBehaviour
                 playerController.enabled = false;
                 playerCollider.enabled = false;
                 flames.SetActive(false);
-                Destroy(Instantiate(deathVFX,transform.position,Quaternion.identity),4);
+
+                GameObject vfx = Instantiate(deathVFX,transform.position,Quaternion.identity);
+                AudioSource deathSound = vfx.GetComponent<AudioSource>();
+                deathSound.Play();
+                Destroy(vfx,5);
             }
         }
     }

@@ -69,13 +69,19 @@ public class Health : MonoBehaviour
 
     private void Dead()
     {
+        if (deathVFX != null)
+        {
+            GameObject vfx = Instantiate(deathVFX,transform.position,Quaternion.identity);
+            AudioSource deathSound = vfx.GetComponent<AudioSource>();
+            deathSound.Play();
+            Destroy(vfx,5);
+        }
+
+
         isDead = true;
         GameEvents.Report(id);
         kbf.Cancel();
         Died?.Invoke();
         Destroy(gameObject);
-
-        if (deathVFX != null)
-            Destroy(Instantiate(deathVFX,transform.position,Quaternion.identity),4);
     }
 }
