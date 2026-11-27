@@ -40,10 +40,10 @@ public class Timer : MonoBehaviour
         // changeColorBasedOnPoints(); 
     }
 
-
+    
     private void scalePoints()
     {
-       DataManager.instance.points += pointsPerSecond * Time.deltaTime;
+       DataManager.instance.points += (int)(pointsPerSecond * Time.deltaTime);
     }
 
 //     private void changeColorBasedOnPoints()

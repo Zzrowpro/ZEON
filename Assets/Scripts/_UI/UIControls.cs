@@ -6,6 +6,7 @@ public class UIControls : MonoBehaviour
 {
     public ObjDisplayAnim objDisplayAnim;
     public InputActionAsset InputActions;
+    public AudioClip buttonClick;
 
 
     private InputAction toggleObjPanel;
@@ -25,6 +26,11 @@ public class UIControls : MonoBehaviour
         var map = InputActions.FindActionMap("UI");
         toggleObjPanel = map.FindAction("ToggleObjPanel");
     }
+
+    public void PlaySFX()
+    {
+        AudioManager.instance.PlaySoundFXClip(buttonClick,transform, 1f);
+    } 
 
     void Update()
     {
