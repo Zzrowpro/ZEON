@@ -14,9 +14,6 @@ public class LevelCompleteMenu : MonoBehaviour
     [SerializeField] float rowDelay = 0.35f;
     [SerializeField] float countDuration = 1.5f;
 
-    [Header("Testing")]
-    [SerializeField] int testPoints = 1250;    // remove once GetPoints reads your real score
-
     Sequence seq;
     int shownPoints;
 
@@ -57,7 +54,7 @@ public class LevelCompleteMenu : MonoBehaviour
         if (seq != null && seq.IsActive()) seq.Complete();
     }
 
-    int GetPoints() => testPoints;   // TODO: return your HUD score here
+    int GetPoints() => DataManager.instance.points;  
 
     static string Format(int v) => v.ToString("D5");   // 00021 style, matches your HUD
 }
