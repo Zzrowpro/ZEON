@@ -14,4 +14,15 @@ public class SceneChanger : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Time.timeScale = 1;
     }
+
+
+    public void Quit()
+    {
+        Application.Quit();
+
+        // Stops Play Mode when testing inside the Unity Editor
+        #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+        #endif
+    }
 }
