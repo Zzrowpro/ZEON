@@ -17,6 +17,8 @@ public class LevelCompleteMenu : MonoBehaviour
     Sequence seq;
     int shownPoints;
 
+    //Try enabling from the stars or panel script 
+
     void OnEnable()
     {
         foreach (Transform child in rowContainer) Destroy(child.gameObject);
@@ -24,7 +26,6 @@ public class LevelCompleteMenu : MonoBehaviour
         shownPoints = 0;
         pointsText.text = Format(0);
 
-        // SetUpdate(true): keep animating while Time.timeScale is 0
         seq = DOTween.Sequence().SetUpdate(true);
 
         foreach (var o in manager.level.objectives)
