@@ -8,7 +8,7 @@ using UnityEngine.UI;
 [System.Serializable]
 public class ControlIcon
 {
-    public string control;   // e.g. buttonSouth, buttonEast, buttonWest, buttonNorth, leftShoulder, rightTrigger
+    public string control;   // e.g. buttonSouth, buttonEast, buttonWest, buttonNorth, leftShoulder, rightTrigger, Setup the arcade machine input before tmrw
     public Sprite sprite;
 }
 
@@ -16,7 +16,7 @@ public class AbilityLoadoutUI : MonoBehaviour
 {
     public AbilityLoadout abilityLoadout;
     public List<TextMeshProUGUI> hotKeyDisplay;
-    public List<Image> hotKeyIcons;          // one Image per slot, for controller icons
+    public List<Image> hotKeyIcons;          // one Image per slot, for controller icons, dont have time to draw so scrapped 
     public List<Image> images;
     public List<Image> cooldownOverlays;
     public List<ControlIcon> gamepadIcons;
@@ -101,9 +101,9 @@ public class AbilityLoadoutUI : MonoBehaviour
             if (binding.isComposite) continue;
             if (!BelongsToGroup(binding, group)) continue;
 
-            if (text == "") text = action.GetBindingDisplayString(b);   // fallback text
+            if (text == "") text = action.GetBindingDisplayString(b);  
 
-            // "<Gamepad>/buttonSouth" -> "buttonSouth"
+    
             string path = binding.effectivePath;
             string controlName = path.Substring(path.LastIndexOf('/') + 1);
 

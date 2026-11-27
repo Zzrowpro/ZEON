@@ -5,13 +5,13 @@ using UnityEngine.UI;
 
 public class WaypointHUD : MonoBehaviour
 {
-    [SerializeField] RectTransform iconPrefab;   // Image + a child TMP_Text (anchors: middle-center)
+    [SerializeField] RectTransform iconPrefab;  
     [SerializeField] Transform player;           // distance is measured from here
     [SerializeField] float marginLeft = 30f;
     [SerializeField] float marginRight = 30f;
     [SerializeField] float marginTop = 80f;
     [SerializeField] float marginBottom = 90f;
-    [SerializeField] float labelGap = 12f;       // space between dot and text
+    [SerializeField] float labelGap = 12f;       
     [SerializeField] float unitsToMeters = 1f;
     [SerializeField] bool showWhenOnScreen = true;
 

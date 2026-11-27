@@ -14,11 +14,10 @@ public class LevelCompleteMenu : MonoBehaviour
     [SerializeField] float rowDelay = 0.35f;
     [SerializeField] float countDuration = 1.5f;
 
-    [Header("Testing")]
-    [SerializeField] int testPoints = 1250;    // remove once GetPoints reads your real score
-
     Sequence seq;
     int shownPoints;
+
+    //Try enabling from the stars or panel script 
 
     void OnEnable()
     {
@@ -27,7 +26,6 @@ public class LevelCompleteMenu : MonoBehaviour
         shownPoints = 0;
         pointsText.text = Format(0);
 
-        // SetUpdate(true): keep animating while Time.timeScale is 0
         seq = DOTween.Sequence().SetUpdate(true);
 
         foreach (var o in manager.level.objectives)
@@ -57,7 +55,7 @@ public class LevelCompleteMenu : MonoBehaviour
         if (seq != null && seq.IsActive()) seq.Complete();
     }
 
-    int GetPoints() => testPoints;   // TODO: return your HUD score here
+    int GetPoints() => DataManager.instance.points;  
 
     static string Format(int v) => v.ToString("D5");   // 00021 style, matches your HUD
 }
