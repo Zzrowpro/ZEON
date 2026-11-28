@@ -11,6 +11,7 @@ public abstract class PowerUp : MonoBehaviour
     [Header("PickUpEffects")]
     [SerializeField] private GameObject pickupVFX;
     private float _effectsLifeTime;
+    [SerializeField] private AudioClip pickUpSFX;
 
     private float id;
     private float angle;
@@ -37,6 +38,7 @@ public abstract class PowerUp : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.CompareTag("Player")) return;
+        AudioManager.instance.PlaySoundFXClip(pickUpSFX, transform, 1f);
 
         Apply(other.gameObject);
         GameObject vfx = Instantiate(pickupVFX,transform.position,Quaternion.identity);

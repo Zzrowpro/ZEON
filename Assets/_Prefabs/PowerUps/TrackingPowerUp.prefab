@@ -4919,11 +4919,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ee0cbd34a71f4c4d8d5e7b52a63ba85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TrackingPowerUp
-  pickupVFX: {fileID: 979869599097677101, guid: d5b76def14d77294f9845eee026dda86, type: 3}
   speed: 4
   turnRate: 8
   lifetime: 5
-  _effects: {fileID: 0}
+  pickupVFX: {fileID: 979869599097677101, guid: d5b76def14d77294f9845eee026dda86, type: 3}
+  pickUpSFX: {fileID: 8300000, guid: d56314821689c72488e909d346fbb325, type: 3}
   effectDuration: 5
 --- !u!212 &853280487427978560
 SpriteRenderer:

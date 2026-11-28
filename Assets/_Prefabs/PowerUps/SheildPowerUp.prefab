@@ -147,6 +147,7 @@ MonoBehaviour:
   turnRate: 8
   lifetime: 5
   pickupVFX: {fileID: 979869599097677101, guid: d5b76def14d77294f9845eee026dda86, type: 3}
+  pickUpSFX: {fileID: 8300000, guid: d56314821689c72488e909d346fbb325, type: 3}
   sheildPrefab: {fileID: 481878601168265117, guid: 804ba1d04ca14514a870d547b3524d90, type: 3}
 --- !u!120 &2197496875141525338
 LineRenderer:

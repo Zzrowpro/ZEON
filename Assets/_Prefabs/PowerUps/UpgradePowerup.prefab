@@ -4982,6 +4982,6 @@ MonoBehaviour:
   turnRate: 8
   lifetime: 5
   pickupVFX: {fileID: 979869599097677101, guid: d5b76def14d77294f9845eee026dda86, type: 3}
+  pickUpSFX: {fileID: 8300000, guid: d56314821689c72488e909d346fbb325, type: 3}
   duration: 10
-  playerProfile: {fileID: 11400000, guid: 446911b674fb1c748bc87a7c9f4ac66c, type: 2}
   newProfile: {fileID: 11400000, guid: f8fd36870b4a7794487d4007673a62af, type: 2}

@@ -4981,5 +4981,6 @@ MonoBehaviour:
   speed: 4
   turnRate: 8
   lifetime: 5
-  pickupVFX: {fileID: 979869599097677101, guid: d5b76def14d77294f9845eee026dda86, type: 3}
+  pickupVFX: {fileID: 663835255330766920, guid: 7f6877025aa6a9942bff3c40f62d96ee, type: 3}
+  pickUpSFX: {fileID: 8300000, guid: d56314821689c72488e909d346fbb325, type: 3}
   increaseAmount: 30
