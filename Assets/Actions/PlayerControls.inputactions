@@ -378,6 +378,17 @@
                     "action": "Extract",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "63113d70-8ddc-44cb-8607-874d539a1b97",
+                    "path": "<Gamepad>/select",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Extract",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },

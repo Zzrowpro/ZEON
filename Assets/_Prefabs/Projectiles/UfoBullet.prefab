@@ -5010,7 +5010,7 @@ MonoBehaviour:
   lifetime: 3
   hitVFX: {fileID: 5762833690816820849, guid: ac4da3fd0c673894ba47eea416cf03e5, type: 3}
   dmg: 1
-  trackDuration: 0.5
+  trackDuration: 2
 --- !u!1 &3862443108651072849
 GameObject:
   m_ObjectHideFlags: 0

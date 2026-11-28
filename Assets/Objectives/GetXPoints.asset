@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: GetXPoints
   m_EditorClassIdentifier: Assembly-CSharp::PointsObjective
   description: Get 100 Points
-  amount: 20
+  amount: 100

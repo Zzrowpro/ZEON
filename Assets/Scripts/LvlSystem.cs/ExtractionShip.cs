@@ -1,6 +1,7 @@
 using System.Collections;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Collider2D))]
@@ -8,6 +9,7 @@ public class ExtractionShip : MonoBehaviour
 {
     public InputActionAsset InputActions;
     public GameObject LevelMenu;
+    public GameObject LevelMenuFirst;
     [SerializeField] float duration = 1f;
     [SerializeField] Vector2 startOffset = new Vector2(200, 0);
 
@@ -43,6 +45,8 @@ public class ExtractionShip : MonoBehaviour
         extracted = true;
         Time.timeScale = 0;
         if (LevelMenu != null) LevelMenu.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(LevelMenuFirst);
+        
     }
 
     public IEnumerator DisableGameObject()

@@ -1,14 +1,20 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
-public class PauseSystem : MonoBehaviour
+public class MenuManager : MonoBehaviour
 {
     public InputActionAsset InputActions;
+    [Header("Menu Objects")]
     [SerializeField] private GameObject _mainMenuCanvasGO;
     [SerializeField] private GameObject _settingsMenuCanvasGO;
 
+    [Header("First Selected Options")]
+    [SerializeField] private GameObject _mainMenuFirst;
+    [SerializeField] private GameObject _settingsMenuFirst;
+
     private InputAction pause;
-    private bool isPaused;
+    private bool isPaused = false;
 
     void Start()
     {
@@ -37,11 +43,12 @@ public class PauseSystem : MonoBehaviour
         
         if (pause.WasPressedThisFrame())
         {
-            if(isPaused == true)
+            Debug.Log("ASPODPÄDADA");
+            if(isPaused == false)
             {
                 Pause();
             }
-            if(isPaused == false)
+            else if(isPaused == true)
             {
                 UnPause();
             }
@@ -60,13 +67,22 @@ public class PauseSystem : MonoBehaviour
     {
         isPaused = false;
         Time.timeScale = 1;
-        CloseAllMenus();
+        CloseAllMenus(); 
     }
 
     private void OpenPauseMenu()
     {
         _mainMenuCanvasGO.SetActive(true);
         _settingsMenuCanvasGO.SetActive(false);
+
+        EventSystem.current.SetSelectedGameObject(_mainMenuFirst);
+    }
+
+    private void OpenSettingsMenu()
+    {
+        _settingsMenuCanvasGO.SetActive(true);
+        _mainMenuCanvasGO.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(_settingsMenuFirst);
     }
 
     private void CloseAllMenus()
@@ -77,5 +93,20 @@ public class PauseSystem : MonoBehaviour
     public bool GetIsPaused()
     {
         return isPaused;
+    }
+
+    public void OnSettingsPressed()
+    {
+        OpenSettingsMenu();
+    }
+
+    public void OnResumePressed()
+    {
+        UnPause();
+    }
+
+    public void OnSettingsBackPress()
+    {
+        OpenPauseMenu();
     }
 }

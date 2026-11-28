@@ -45,13 +45,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MusicManager
   tracks:
-  - {fileID: 8300000, guid: 719fa06f36fb7da4dba80b82e27ee331, type: 3}
   - {fileID: 8300000, guid: 7cdd9b4d93f140d4eb0786eae05156cc, type: 3}
   - {fileID: 8300000, guid: 55346acac5320034594e162c4294ef1b, type: 3}
   - {fileID: 8300000, guid: 59613544d436ded4790664d187496870, type: 3}
   - {fileID: 8300000, guid: e98412ac93f42314bb7aa4d9ef823ccc, type: 3}
-  - {fileID: 8300000, guid: 71531bfd606790d4aac2b6d77b0d2411, type: 3}
-  - {fileID: 8300000, guid: fa86bc9e62de1b64a9ebc99c02b76cde, type: 3}
+  - {fileID: 8300000, guid: 8bbf46c6fe0d65641a0a96ffe4bda4d3, type: 3}
+  musicGroup: {fileID: -8666729309812647393, guid: e494f849c0414dd41b26a41a580a7837, type: 2}
   shuffle: 1
   playOnStart: 1
   volume: 0.6

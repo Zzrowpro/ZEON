@@ -239,7 +239,6 @@ GameObject:
   - component: {fileID: 3377050399768540917}
   - component: {fileID: 4571280573488349585}
   - component: {fileID: 5902629314243878971}
-  - component: {fileID: 39145290062745619}
   - component: {fileID: 4905537760114793626}
   m_Layer: 8
   m_Name: UFO
@@ -247,7 +246,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1481643011615198244
 Transform:
   m_ObjectHideFlags: 0
@@ -399,7 +398,7 @@ MonoBehaviour:
   shootVfx: {fileID: 1490084206298094157, guid: 60419eff151a33e4392fcac80c1c9aaf, type: 3}
   effectLifetime: 2
   shootVfxScale: {x: 0.05, y: 0.05, z: 1}
-  shootSound: {fileID: 39145290062745619}
+  shootSound: {fileID: 8300000, guid: 78c586c676a898745b695652c912eff5, type: 3}
 --- !u!114 &2894715005434278298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -448,7 +447,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Health
   id: id
   hp: 4
-  deathSFX: {fileID: 0}
+  deathSFX: {fileID: 8300000, guid: ec12f432fe6f5b846aeaa064cd9f884b, type: 3}
   maxHp: 4
 --- !u!60 &3377050399768540917
 PolygonCollider2D:
@@ -532,103 +531,6 @@ MonoBehaviour:
   effectPrefab: {fileID: 1828176872806910, guid: 64891a0eb28db934898420d80ca07cb3, type: 3}
   effectLifetime: 2
   scaleWithObject: 0
---- !u!82 &39145290062745619
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5155516644077389721}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 78c586c676a898745b695652c912eff5, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 50
-  Pan2D: 0
-  rolloffMode: 1
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!114 &4905537760114793626
 MonoBehaviour:
   m_ObjectHideFlags: 0

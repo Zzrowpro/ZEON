@@ -77,7 +77,7 @@ public class PlayerController : MonoBehaviour
     private static readonly int BoostingHash = Animator.StringToHash("RocketBoost");
 
     //Pause System : 
-    private PauseSystem pauseSystem;
+    private MenuManager pauseSystem;
 
     void OnEnable()
     {
@@ -93,7 +93,7 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         //Pause System : 
-        pauseSystem = FindFirstObjectByType<PauseSystem>();
+        pauseSystem = FindFirstObjectByType<MenuManager>();
         var map = InputActions.FindActionMap("Player");
         boost = map.FindAction("Boost");
         nitro = map.FindAction("Nitro"); // add this action in your Input Actions asset
