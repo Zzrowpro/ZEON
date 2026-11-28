@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::KillObjective
   description: Kill 3 Statoids
   amount: 3
-  enemyId: statoids
+  enemyId: statoid

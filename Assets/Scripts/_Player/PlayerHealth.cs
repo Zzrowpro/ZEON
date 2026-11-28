@@ -7,6 +7,7 @@ public class PlayerHealth : MonoBehaviour
 {
     [SerializeField]private int health = 4;
     public AudioClip deathSound;
+    [SerializeField] private GameOverScreen gameOverScreen;
     public int Health
     {
         get{return health;}
@@ -23,6 +24,7 @@ public class PlayerHealth : MonoBehaviour
                 playerController.enabled = false;
                 playerCollider.enabled = false;
                 flames.SetActive(false);
+                gameOverScreen.Show();
 
                 GameObject vfx = Instantiate(deathVFX,transform.position,Quaternion.identity);
                 AudioManager.instance.PlaySoundFXClip(deathSound, transform, 1f);

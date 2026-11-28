@@ -10259,10 +10259,10 @@ MonoBehaviour:
   nitroBar: {fileID: 0}
   nb: {fileID: 0}
   rocketProfiles: {fileID: 11400000, guid: 446911b674fb1c748bc87a7c9f4ac66c, type: 2}
-  fuel: 200
+  fuel: 100000
   boosterSprite: {fileID: 4965665402936372385}
-  boostLoopSound: {fileID: 6840158999316037570}
-  boostStartSound: {fileID: 3875501654783209711}
+  boostLoopClip: {fileID: 8300000, guid: 67a1e319af3bb214e892b10c463d69cd, type: 3}
+  nitroStartClip: {fileID: 8300000, guid: 46f471fde835d6d49a2c6bb3e9c5c1ac, type: 3}
   nitroFuel: 0
   mouseSwitchThreshold: 2
   stickDeadzone: 0.2
@@ -10368,8 +10368,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cc717d40bd325644823dfbff0ca7cf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
-  health: 200
+  health: 8
   deathSound: {fileID: 8300000, guid: ec12f432fe6f5b846aeaa064cd9f884b, type: 3}
+  gameOverScreen: {fileID: 0}
   isDead: 0
   rocketProfiles: {fileID: 11400000, guid: 446911b674fb1c748bc87a7c9f4ac66c, type: 2}
   flames: {fileID: 4965665402936372385}
