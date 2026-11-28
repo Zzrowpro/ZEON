@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LevelData
   levelName: Level 1
   objectives:
-  - {fileID: 11400000, guid: 1720f88dda7d7b14288b7d987b66d912, type: 2}
-  - {fileID: 11400000, guid: 59027e9baedacef4ea6812cf24fcd424, type: 2}
+  - {fileID: 11400000, guid: b5794da6d0c917f4aadb4fa8cdadbdfb, type: 2}
+  - {fileID: 11400000, guid: dc13c804260835645a032da3e7cefee8, type: 2}

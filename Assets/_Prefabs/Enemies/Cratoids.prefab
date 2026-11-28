@@ -220,7 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 312925e26583b6b48a4b5f1565186a01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
-  id: id
+  id: cratoids
   hp: 4
   deathSFX: {fileID: 8300000, guid: 5c2db835fcc28764f9c262ad5ca5d207, type: 3}
   maxHp: 4

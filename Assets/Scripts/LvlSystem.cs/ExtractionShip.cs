@@ -45,6 +45,7 @@ public class ExtractionShip : MonoBehaviour
         extracted = true;
         Time.timeScale = 0;
         if (LevelMenu != null) LevelMenu.SetActive(true);
+        DataManager.instance.isGameOver = true;
         EventSystem.current.SetSelectedGameObject(LevelMenuFirst);
         
     }

@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de544fbb8ad341a4db0b633fad0cd740, type: 3}
-  m_Name: Level 4
-  m_EditorClassIdentifier: Assembly-CSharp::LevelData
-  levelName: 
-  objectives: []
+  m_Script: {fileID: 11500000, guid: 05f786deb29dd754a8d0293e847ed78d, type: 3}
+  m_Name: Kill3Statoids
+  m_EditorClassIdentifier: Assembly-CSharp::KillObjective
+  description: Kill 3 Statoids
+  amount: 3
+  enemyId: statoids

@@ -43,6 +43,7 @@ public class MenuManager : MonoBehaviour
         
         if (pause.WasPressedThisFrame())
         {
+            if(DataManager.instance.isGameOver == true)return;
             Debug.Log("ASPODPÄDADA");
             if(isPaused == false)
             {

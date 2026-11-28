@@ -393,7 +393,7 @@ MonoBehaviour:
   nossle: {fileID: 2969580584237296897}
   instatiatePoints:
   - {fileID: 2969580584237296897}
-  fireRate: 1
+  fireRate: 1.3
   rotationSpeed: 3
   shootVfx: {fileID: 1490084206298094157, guid: 60419eff151a33e4392fcac80c1c9aaf, type: 3}
   effectLifetime: 2
@@ -445,10 +445,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 312925e26583b6b48a4b5f1565186a01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
-  id: id
-  hp: 4
+  id: ufo
+  hp: 3
   deathSFX: {fileID: 8300000, guid: ec12f432fe6f5b846aeaa064cd9f884b, type: 3}
-  maxHp: 4
+  maxHp: 3
 --- !u!60 &3377050399768540917
 PolygonCollider2D:
   m_ObjectHideFlags: 0

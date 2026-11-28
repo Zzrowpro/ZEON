@@ -5,24 +5,20 @@ public class SceneChanger : MonoBehaviour
 {
     public void ChangeScene(string sceneName)
     {
-        if(Time.timeScale == 0) Time.timeScale = 1;
+        ResetRun();
         SceneManager.LoadScene(sceneName);
     }
-    
+
     public void RestartScene()
     {
+        ResetRun();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        Time.timeScale = 1;
     }
 
-
-    public void Quit()
+    void ResetRun()
     {
-        Application.Quit();
-
-        // Stops Play Mode when testing inside the Unity Editor
-        #if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-        #endif
+        Time.timeScale = 1f;
+        DataManager.instance.points = 0;
+        DataManager.instance.isGameOver = false;  
     }
 }

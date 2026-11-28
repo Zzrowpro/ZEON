@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de544fbb8ad341a4db0b633fad0cd740, type: 3}
   m_Name: Level 3
   m_EditorClassIdentifier: Assembly-CSharp::LevelData
-  levelName: 
-  objectives: []
+  levelName: Level 3
+  objectives:
+  - {fileID: 11400000, guid: 6b10342160489974ba750d4aef700c6f, type: 2}
+  - {fileID: 11400000, guid: 60c069b36194def45a62398e61b8221b, type: 2}
+  - {fileID: 11400000, guid: 058b7ae56ee191244a79a63488a06fdb, type: 2}

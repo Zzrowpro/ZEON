@@ -1,5 +1,6 @@
 
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public class GameData
@@ -12,6 +13,7 @@ public class DataManager : MonoBehaviour
     // The original variables
     public int points = 0;
     public static DataManager instance;
+    public bool isGameOver;
 
     // NEW: DEFAULT DATA STORAGE
     private GameData defaultData;
@@ -30,6 +32,15 @@ public class DataManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    void OnEnable()  => SceneManager.sceneLoaded += OnSceneLoaded;
+    void OnDisable() => SceneManager.sceneLoaded -= OnSceneLoaded;
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        isGameOver = false;
+        Time.timeScale = 1f;
     }
 
     //CREATE A COPY OF CURRENT DATA

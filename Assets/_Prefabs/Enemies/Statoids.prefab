@@ -18,6 +18,8 @@ GameObject:
   - component: {fileID: 629433468045501073}
   - component: {fileID: 5966236047250901782}
   - component: {fileID: 7357499729585677495}
+  - component: {fileID: -1667046123327390978}
+  - component: {fileID: -3185550689504214448}
   m_Layer: 8
   m_Name: Statoids
   m_TagString: Obstacle
@@ -375,6 +377,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DamageFlash
   _flashColor: {r: 1, g: 1, b: 1, a: 1}
   flashTime: 0.25
+--- !u!114 &-1667046123327390978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8200343172939050527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 120d55a0b5002684a906b16989b0dc88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DeathEffect
+  effectPrefab: {fileID: 1828176872806910, guid: 64891a0eb28db934898420d80ca07cb3, type: 3}
+  effectLifetime: 2
+  scaleWithObject: 0
+--- !u!114 &-3185550689504214448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8200343172939050527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ce7d63179075564abc704647d49eb75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FadeIn
+  duration: 0.5
 --- !u!1001 &2951007406571402500
 PrefabInstance:
   m_ObjectHideFlags: 0

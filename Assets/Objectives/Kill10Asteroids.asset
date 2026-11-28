@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05f786deb29dd754a8d0293e847ed78d, type: 3}
   m_Name: Kill10Asteroids
   m_EditorClassIdentifier: Assembly-CSharp::KillObjective
-  description: Kill 10 asteroids
+  description: Kill 15 asteroids
   amount: 15
   enemyId: asteroid
