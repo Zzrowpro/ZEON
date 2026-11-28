@@ -18,8 +18,8 @@ public class Turrent : MonoBehaviour
     [SerializeField]private float shootingRate = 0.5f;
     [SerializeField]private GameObject chargingVFX;
     [SerializeField]private GameObject shootVFX;
-    [SerializeField]private AudioSource chargingSound;
-    [SerializeField]private AudioSource shootSound;
+    [SerializeField]private AudioClip chargingSound;
+    [SerializeField]private AudioClip shootSound;
     private float nextFireTime = 0f;
 
     [Header("Prediction")] 
@@ -166,7 +166,7 @@ public class Turrent : MonoBehaviour
 
         Vector3 origin = ShotOrigin;
         origin.z = 0f;
-        shootSound.Play();
+        AudioManager.instance.PlaySoundFXClip(shootSound, transform, 1f);
         Instantiate(bulletPrefab, origin, rot);
     }
 
@@ -193,7 +193,7 @@ public class Turrent : MonoBehaviour
         GameObject currentChargeObject = Instantiate(chargingVFX, bulletSpawnPoint.transform.position, Quaternion.identity);
         currentChargeObject.transform.parent = gameObject.transform;
         Destroy(currentChargeObject,loadTime);
-        chargingSound.Play();
+        AudioManager.instance.PlaySoundFXClip(chargingSound, transform, 1f);
 
         yield return new WaitForSeconds(loadTime);
 

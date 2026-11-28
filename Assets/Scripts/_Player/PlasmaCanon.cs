@@ -14,7 +14,7 @@ public class PlasmaCanon : MonoBehaviour
     [Header("Projectile Settings")]
     [SerializeField] private GameObject projectilePrefabs;
     [SerializeField] private ParticleSystem vfx;
-    [SerializeField] private AudioSource shootSound;
+    [SerializeField] private AudioClip shootSound;
 
     [Header("Ammo Settings")]
     // [SerializeField] private int ammo = 200;
@@ -96,7 +96,7 @@ public class PlasmaCanon : MonoBehaviour
             CustomDebug.LogMessage("Fire() aborted — no valid prefab for current bullet type.");
             return;
         }
-        shootSound.Play();
+        AudioManager.instance.PlaySoundFXClip(shootSound, transform, 1f);
         nextFireTime = Time.time + shootingRate;
 
         // Instantiate(prefab, firePoint1.position, firePoint1.rotation);

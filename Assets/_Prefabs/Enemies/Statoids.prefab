@@ -187,6 +187,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Health
   id: id
   hp: 5
+  deathSFX: {fileID: 8300000, guid: 5c2db835fcc28764f9c262ad5ca5d207, type: 3}
   maxHp: 5
 --- !u!61 &8850619338064286412
 BoxCollider2D:

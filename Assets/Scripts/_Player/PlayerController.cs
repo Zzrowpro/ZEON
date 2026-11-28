@@ -39,8 +39,10 @@ public class PlayerController : MonoBehaviour
     }
     [Header("Visuals")]
     [SerializeField]private GameObject boosterSprite;
-    [SerializeField]private AudioSource boostLoopSound;
-    [SerializeField]private AudioSource boostStartSound;
+    [SerializeField] private AudioClip boostLoopClip;
+    [SerializeField] private AudioClip nitroStartClip;
+    private AudioSource boostLoop;
+    private bool wasNitroBoosting;
 
     private Rigidbody2D rb;
     private Vector2 mouseDirection;
@@ -194,6 +196,8 @@ public class PlayerController : MonoBehaviour
 
         //Nitro Mechanics
         isNitroBoosting = nitro.IsPressed() && nitroFuel > 0 && !nitroOnCooldown; //Where boost action is assigned
+        if (isNitroBoosting && !wasNitroBoosting && AudioManager.instance != null)AudioManager.instance.PlaySoundFXClip(nitroStartClip, transform, 0.6f); 
+        wasNitroBoosting = isNitroBoosting;
 
         if(flameAnimator.gameObject.activeSelf)
         flameAnimator.SetBool("isBoosting",isNitroBoosting);
@@ -201,10 +205,7 @@ public class PlayerController : MonoBehaviour
         if (isNitroBoosting)
         {
             NitroFuel -= rocketProfiles.nitroLossRate * Time.deltaTime;
-            nb.SetActive(true);
-
-            if (!boostStartSound.isPlaying)
-                 //boostStartSound.Play();
+            nb.SetActive(true); 
 
             if (nitroFuel <= 0)
                 nitroOnCooldown = true;
@@ -244,6 +245,7 @@ public class PlayerController : MonoBehaviour
         }
         else if (Fuel == 0 && !fuelCheck) // Push the players spaceship in a random direction when game ends.
         {
+            StopBoost();
             fuelCheck = true;
             Vector2 direction = UnityEngine.Random.insideUnitCircle; 
             rb.AddForce(direction * 5, ForceMode2D.Force);    
@@ -274,12 +276,10 @@ public class PlayerController : MonoBehaviour
 
     void HandleThrust() //Also handles nitro switching
     {
-        if (!boosting) {boostLoopSound.Stop(); return;}
+        if (!boosting) { StopBoost(); return; }
 
-        if (!boostLoopSound.isPlaying)
-        {
-            boostLoopSound.Play();
-        }
+        if (boostLoop == null && AudioManager.instance != null)
+        boostLoop = AudioManager.instance.PlayLoop(boostLoopClip, transform, 1f);
 
         if(rocketProfiles.InfiniteMode == false)
         {
@@ -334,6 +334,13 @@ public class PlayerController : MonoBehaviour
     public void NitroIncrease(float value)
     {
         NitroFuel = math.round(NitroFuel += value);
+    }
+
+    void StopBoost()
+    {
+        if (boostLoop == null) return;
+        AudioManager.instance?.StopLoop(boostLoop);
+        boostLoop = null;
     }
 
 

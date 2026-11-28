@@ -5,7 +5,7 @@ public class DamageFlash : MonoBehaviour
 {
     [SerializeField] private Color _flashColor = Color.white;
     [SerializeField] private float flashTime = 0.25f;
-    [SerializeField] private AudioSource hitSound;
+    
 
     private static readonly int FlashColorID = Shader.PropertyToID("_FlashColor");
     private static readonly int FlashAmountID = Shader.PropertyToID("_FlashAmount");
@@ -33,7 +33,6 @@ public class DamageFlash : MonoBehaviour
 
     private IEnumerator DamageFlasher()
     {
-        hitSound.Play();
         SetColor(_flashColor);
         float elapsed = 0f;
         while (elapsed < flashTime)

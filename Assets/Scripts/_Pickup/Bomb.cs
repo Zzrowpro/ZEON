@@ -11,7 +11,7 @@ public class Bomb : MonoBehaviour
     [SerializeField] private GameObject effect;
     [SerializeField] private float effectLifetime = 2f;
     [SerializeField] private float effectSize = 1f;
-    
+    [SerializeField] private AudioClip explosionSound;   
     [Header("Range")]
     [SerializeField] private int subdivisions = 10;
     [SerializeField] private float radius = 5f;
@@ -77,6 +77,8 @@ public class Bomb : MonoBehaviour
         }
         if(targetPlayer == false) CheckSurroundings();
         else CheckForPlayer();
+
+
     }
 
     void CheckSurroundings()
@@ -91,6 +93,7 @@ public class Bomb : MonoBehaviour
         }
         GameObject fx = Instantiate(effect, transform.position, transform.rotation);
         fx.transform.localScale = new Vector3(radius, radius, 0);
+        AudioManager.instance.PlaySoundFXClip(explosionSound, transform, 1f); 
         Destroy(fx, effectLifetime);
         Destroy(gameObject);
     }
@@ -108,6 +111,7 @@ public class Bomb : MonoBehaviour
             }
         }
         GameObject fx = Instantiate(effect, transform.position, transform.rotation);
+        AudioManager.instance.PlaySoundFXClip(explosionSound, transform, 1f); 
         Destroy(fx, effectLifetime);
         Destroy(gameObject);
     }

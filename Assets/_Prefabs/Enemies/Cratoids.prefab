@@ -222,7 +222,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Health
   id: id
   hp: 4
-  deathVFX: {fileID: 0}
+  deathSFX: {fileID: 8300000, guid: 5c2db835fcc28764f9c262ad5ca5d207, type: 3}
   maxHp: 4
 --- !u!114 &6617476260267196883
 MonoBehaviour:
@@ -341,7 +341,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DamageFlash
   _flashColor: {r: 1, g: 1, b: 1, a: 1}
   flashTime: 0.25
-  hitSound: {fileID: 7526026892349643317}
 --- !u!114 &7224178871871792186
 MonoBehaviour:
   m_ObjectHideFlags: 0

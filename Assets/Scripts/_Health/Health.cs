@@ -1,5 +1,6 @@
  using System;
 using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(KnockBackFeedback))]
@@ -8,7 +9,7 @@ public class Health : MonoBehaviour
 {
     [SerializeField] private string id = "id";
     [SerializeField] private int hp = 1;
-    [SerializeField] private GameObject deathVFX;
+    [SerializeField] private AudioClip deathSFX;
     
     public int Hp
     {
@@ -61,23 +62,16 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        if(isDead) return;
+        if (isDead) return;
         TookDamage?.Invoke();
         Hp -= damage;
-        damageFlash.CallDamageFlash();
+        if (damageFlash != null) damageFlash.CallDamageFlash();
     }
 
     private void Dead()
     {
-        if (deathVFX != null)
-        {
-            GameObject vfx = Instantiate(deathVFX,transform.position,Quaternion.identity);
-            AudioSource deathSound = vfx.GetComponent<AudioSource>();
-            deathSound.Play();
-            Destroy(vfx,5);
-        }
-
-
+        if(deathSFX)
+        AudioManager.instance.PlaySoundFXClip(deathSFX, transform, 1f);
         isDead = true;
         GameEvents.Report(id);
         kbf.Cancel();

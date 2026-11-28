@@ -10309,7 +10309,7 @@ MonoBehaviour:
   InputActions: {fileID: -944628639613478452, guid: 55fc42942ce793847bbb378dd48e10a2, type: 3}
   projectilePrefabs: {fileID: 2826953703126582219, guid: 8ea3378308b3cb547afe198026b92eaa, type: 3}
   vfx: {fileID: 44897636328992462}
-  shootSound: {fileID: 3737798405000069662}
+  shootSound: {fileID: 8300000, guid: c13823c0450114645bcbb0bf86a5ba08, type: 3}
   bulletPrefabs:
   - type: 0
     prefab: {fileID: 2826953703126582219, guid: 8ea3378308b3cb547afe198026b92eaa, type: 3}
@@ -10369,6 +10369,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
   health: 200
+  deathSound: {fileID: 8300000, guid: ec12f432fe6f5b846aeaa064cd9f884b, type: 3}
   isDead: 0
   rocketProfiles: {fileID: 11400000, guid: 446911b674fb1c748bc87a7c9f4ac66c, type: 2}
   flames: {fileID: 4965665402936372385}
@@ -10440,7 +10441,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   _flashColor: {r: 1, g: 1, b: 1, a: 1}
   flashTime: 0.25
-  hitSound: {fileID: 6849468805230241766}
 --- !u!95 &3228715494065668738
 Animator:
   serializedVersion: 7

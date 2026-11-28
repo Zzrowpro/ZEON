@@ -51,9 +51,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Bomb
   duration: 1.2
   damage: 4
+  targetPlayer: 0
   effect: {fileID: 1329845292236604, guid: 9bba9cf244c53c5439505dfc96fdd11c, type: 3}
   effectLifetime: 2
-  targetPlayer: 0
+  effectSize: 1
+  explosionSound: {fileID: 8300000, guid: 670e0253b8efbc644b60b0ca0c71cb0e, type: 3}
   subdivisions: 30
   radius: 5
   lineRenderer: {fileID: 6068734167299545983}

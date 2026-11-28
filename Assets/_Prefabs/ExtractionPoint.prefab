@@ -62,8 +62,9 @@ GameObject:
   - component: {fileID: 3028622724596167698}
   - component: {fileID: 5727232900556106457}
   - component: {fileID: 261869849263056703}
+  - component: {fileID: 2515687636580927163}
   m_Layer: 0
-  m_Name: Triangle
+  m_Name: SHIP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -195,6 +196,22 @@ MonoBehaviour:
   LevelMenu: {fileID: 0}
   duration: 3
   startOffset: {x: 1000, y: 0}
+--- !u!114 &2515687636580927163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7327648074389141752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3448fa35eb084b74ea3c02b609228628, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WaypointTarget
+  icon: {fileID: -85136927595031984, guid: b11814c5d4fcf154db19b38d32f1bc3e, type: 3}
+  text: 
+  color: {r: 1, g: 1, b: 1, a: 1}
+  offset: {x: 0, y: 0, z: 0}
 --- !u!1 &7644827844387156763
 GameObject:
   m_ObjectHideFlags: 0
@@ -205,6 +222,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2762861239551912469}
   - component: {fileID: 7961875554272058270}
+  - component: {fileID: 6463076114671007927}
   m_Layer: 0
   m_Name: Circle
   m_TagString: Untagged
@@ -286,3 +304,19 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &6463076114671007927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7644827844387156763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3448fa35eb084b74ea3c02b609228628, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WaypointTarget
+  icon: {fileID: -85136927595031984, guid: b11814c5d4fcf154db19b38d32f1bc3e, type: 3}
+  text: 
+  color: {r: 1, g: 1, b: 1, a: 1}
+  offset: {x: 0, y: 1, z: 0}

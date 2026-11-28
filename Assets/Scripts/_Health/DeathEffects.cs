@@ -30,14 +30,14 @@ public class DeathEffect : MonoBehaviour
             fx.transform.localScale = new Vector3(transform.localScale.x, transform.lossyScale.y, 0);
             Destroy(fx, effectLifetime);
 
-            if (fx.GetComponent<AudioSource>()) fx.GetComponent<AudioSource>().Play();
+            
         }
         else
         {
             GameObject fx = Instantiate(effectPrefab, transform.position, transform.rotation);
             Destroy(fx, effectLifetime);
             
-            if (fx.GetComponent<AudioSource>()) fx.GetComponent<AudioSource>().Play();
+            
         }
     }
 }

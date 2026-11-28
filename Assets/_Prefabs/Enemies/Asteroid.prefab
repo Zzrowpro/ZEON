@@ -168,6 +168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Health
   id: asteroid
   hp: 2
+  deathSFX: {fileID: 8300000, guid: 5c2db835fcc28764f9c262ad5ca5d207, type: 3}
   maxHp: 2
 --- !u!60 &7457382651498776676
 PolygonCollider2D:

@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField]private int health = 4;
+    public AudioClip deathSound;
     public int Health
     {
         get{return health;}
@@ -24,8 +25,7 @@ public class PlayerHealth : MonoBehaviour
                 flames.SetActive(false);
 
                 GameObject vfx = Instantiate(deathVFX,transform.position,Quaternion.identity);
-                AudioSource deathSound = vfx.GetComponent<AudioSource>();
-                deathSound.Play();
+                AudioManager.instance.PlaySoundFXClip(deathSound, transform, 1f);
                 Destroy(vfx,5);
             }
         }

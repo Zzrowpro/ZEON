@@ -27,6 +27,14 @@ public class UIControls : MonoBehaviour
         toggleObjPanel = map.FindAction("ToggleObjPanel");
     }
 
+    public void TogglePanel(GameObject gameObject)
+    {
+        if(gameObject.activeInHierarchy)
+        gameObject.SetActive(false);
+        else if(!gameObject.activeInHierarchy)
+        gameObject.SetActive(true); 
+    }
+
     public void PlaySFX()
     {
         AudioManager.instance.PlaySoundFXClip(buttonClick,transform, 1f);

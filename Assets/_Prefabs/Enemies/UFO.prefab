@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 783715849498430170}
   - component: {fileID: 2880973044923237772}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -240,13 +240,14 @@ GameObject:
   - component: {fileID: 4571280573488349585}
   - component: {fileID: 5902629314243878971}
   - component: {fileID: 39145290062745619}
-  m_Layer: 0
+  - component: {fileID: 4905537760114793626}
+  m_Layer: 8
   m_Name: UFO
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1481643011615198244
 Transform:
   m_ObjectHideFlags: 0
@@ -371,8 +372,8 @@ MonoBehaviour:
   - 2.5
   - 5
   turnInterval: {x: 3, y: 7}
-  acceleration: 2
-  speed: 5
+  acceleration: 5
+  speed: 10
   graphics: {fileID: 783715849498430170}
   laneSpeed: 2
   laneGain: 3
@@ -396,8 +397,8 @@ MonoBehaviour:
   fireRate: 1
   rotationSpeed: 3
   shootVfx: {fileID: 1490084206298094157, guid: 60419eff151a33e4392fcac80c1c9aaf, type: 3}
-  effectLifetime: 0.4
-  shootVfxScale: {x: 0.1, y: 0.1, z: 1}
+  effectLifetime: 2
+  shootVfxScale: {x: 0.05, y: 0.05, z: 1}
   shootSound: {fileID: 39145290062745619}
 --- !u!114 &2894715005434278298
 MonoBehaviour:
@@ -433,7 +434,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DamageFlash
   _flashColor: {r: 1, g: 1, b: 1, a: 1}
   flashTime: 0.25
-  hitSound: {fileID: 201810461995256682}
 --- !u!114 &5573500198461869878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -448,7 +448,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Health
   id: id
   hp: 4
-  deathVFX: {fileID: 3514284973401286746, guid: ffdb90e968fe06949bc29d7050df8b5b, type: 3}
+  deathSFX: {fileID: 0}
   maxHp: 4
 --- !u!60 &3377050399768540917
 PolygonCollider2D:
@@ -517,7 +517,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DamageFlash
   _flashColor: {r: 1, g: 1, b: 1, a: 1}
   flashTime: 0.25
-  hitSound: {fileID: 0}
 --- !u!114 &5902629314243878971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -630,6 +629,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4905537760114793626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5155516644077389721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c40fb63b855ab8243a689ec06549a141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PointsReward
+  points: 1
+  popupPrefab: {fileID: 1204583364227265822, guid: 9491623f70eb5f2458f8f75c977ea8d9, type: 3}
 --- !u!1 &7810602716784480296
 GameObject:
   m_ObjectHideFlags: 0
@@ -768,7 +781,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2969580584237296897}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Aim Point
   m_TagString: Projectile
   m_Icon: {fileID: 0}
